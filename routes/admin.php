@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\CountryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+define('pageCount',20);
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +21,33 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome');
 
 Route::view('dashboard', 'layouts.admin')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+  ->middleware(['auth', 'verified'])
+  ->name('dashboard');
 
 Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+  ->middleware(['auth'])
+  ->name('profile');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*
+==============================
+COUNTRIES ROUTES
+==============================
+*/
+
+Route::group(
+  [
+    'prefix' => LaravelLocalization::setLocale() . '/dashboard/countries',
+    'namespace' => 'Admin',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+  ],
+  function () {
+
+    Route::get('/', [CountryController::class, 'index'])->name('admin.country.index');
+  }
+);

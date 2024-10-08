@@ -68,7 +68,8 @@
                       Profile - Regular</span></a>
                 </li>
                 <li class="nk-menu-item">
-                  <a href="html/user-card.html" class="nk-menu-link"><span class="nk-menu-text">User Contact -
+                  <a href="html/user-card.html" class="nk-menu-link"><span class="nk-menu-text">User
+                      Contact -
                       Card</span> <span class="nk-menu-badge badge-warning">New</span></a>
                 </li>
               </ul><!-- .nk-menu-sub -->
@@ -77,6 +78,13 @@
             <li class="nk-menu-heading">
               <h6 class="overline-title text-primary-alt">{{ __('admin.System Helpers') }}</h6>
             </li>{{-- .nk-menu-heading --}}
+
+            <li class="nk-menu-item">
+              <a href="{{ route('admin.country.index') }}" class="nk-menu-link">
+                <span class="nk-menu-icon"><i class="icon fal fa-globe"></i></span>
+                <span class="nk-menu-text">{{ __('admin.Countries') }}</span>
+              </a>
+            </li>{{-- .nk-menu-item --}}
 
 
 
@@ -87,7 +95,8 @@
         <div class="nk-sidebar-footer">
           <ul class="nk-menu nk-menu-footer">
             <li class="nk-menu-item">
-              <a href="#" class="nk-menu-link">
+              <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-frm').submit();" class="nk-menu-link">
                 <span class="nk-menu-icon"><i class="icon fal fa-sign-out-alt"></i></span>
                 <span class="nk-menu-text">{{ __('admin.Logout') }}</span>
               </a>
@@ -95,11 +104,13 @@
 
             <li class="nk-menu-item ml-auto">
               @if (App::getLocale()=='ar')
-              <a href="#" class="nk-menu-link">
+              <a rel="alternate" hreflang="English"
+                href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}" class="nk-menu-link">
                 <span class="nk-menu-text">English</span>
               </a>
               @else
-              <a href="#" class="nk-menu-link">
+              <a rel="alternate" hreflang="العربية"
+                href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}" class="nk-menu-link">
                 <span class="nk-menu-text">العربية</span>
               </a>
               @endif
