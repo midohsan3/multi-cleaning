@@ -24,20 +24,24 @@ return [
   'Send Email'     =>'Send Email',
   'Delete'         =>'Delete',
   'Apply'          =>'Apply',
+  'Arabic Name'    =>'Arabic Name',
+  'English Name'   =>'English Name',
   /*
   ========================
   = COUNTRIES
   ========================
   */
-  'Countries'   =>'Countries',
-  'Country'     =>'Country',
-  'Add Country' =>'Add Country',
-  'Add City'    =>'Add City',
+  'Countries'           =>'Countries',
+  'Country'             =>'Country',
+  'Add Country'         =>'Add Country',
+  'Add City'            =>'Add City',
+  'Country Information' =>'Country Information',
   /*
   ========================
   = MASSAGES
   ========================
   */
+  'Add New Record'             =>'Add New Record',
   'No Data Available To Show.' =>'No Data Available To Show.',
   /*
   ========================

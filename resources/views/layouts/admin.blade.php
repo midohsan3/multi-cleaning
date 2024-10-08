@@ -28,6 +28,7 @@
     @endif
 
     <link id="skin-default" rel="stylesheet" href="{{ asset('admin/assets/css/theme.css?ver=2.4.0') }}">
+    @yield('page-styels')
 </head>
 
 <body class="nk-body bg-white has-sidebar ">
@@ -85,6 +86,8 @@
     <script src="{{ asset('admin/assets/js/charts/gd-default.js?ver=2.4.0') }}"></script>
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
+
+    @yield('page-scripts')
 </body>
 
 </html>

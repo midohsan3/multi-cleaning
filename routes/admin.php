@@ -49,5 +49,7 @@ Route::group(
   function () {
 
     Route::get('/', [CountryController::class, 'index'])->name('admin.country.index');
+    
+    Route::post('/store', [CountryController::class, 'store'])->name('admin.country.store');
   }
 );

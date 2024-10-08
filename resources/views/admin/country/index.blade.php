@@ -39,7 +39,8 @@
                       class="icon ni ni-plus"></em></a>
                   <div class="dropdown-menu dropdown-menu-right">
                     <ul class="link-list-opt no-bdr">
-                      <li><a href="#"><span>{{ __('admin.Add Country') }}</span></a></li>
+                      <li><a href="#" data-toggle="modal" data-target="#modalForm"><span>{{ __('admin.Add Country')
+                            }}</span></a></li>
                       <li><a href="#"><span>{{ __('admin.Add City') }}</span></a></li>
                     </ul>
                   </div>
@@ -227,17 +228,100 @@
         </div><!-- .card-inner -->
         @else
         <div class="card-inner  p-0">
-          <div class="nk-block bg-danger rounded-lg d-flex justify-content-center g-3 py-5">
-            <div class="g">
-              <span class="text-white">{{ __('admin.No Data Available To Show.') }}</span>
+          <div class="alert alert-pro alert-danger">
+            <div class="alert-text">
+              <h6>{{__('admin.Add New Record')}}</h6>
+              <p>{{ __('admin.No Data Available To Show.') }}</p>
             </div>
           </div>
         </div>{{-- .card-inner --}}
         @endif
-
-
       </div>{{-- .card-inner-group --}}
     </div>{{-- .card --}}
   </div>{{-- .nk-block --}}
+</div>
+
+{{--
+===============================
+= MODALS
+===============================
+===============================
+= ADD COUNTRY MODAL
+===============================
+--}}
+<div class="modal fade" tabindex="-1" id="modalForm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{__('admin.Country Information')}}</h5>
+        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+          <em class="icon ni ni-cross"></em>
+        </a>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('admin.country.store')}}" class="form-validate is-alter" method="POST">
+          <div class="form-group">
+            <label class="form-label" for="name_ar">{{__('admin.Arabic Name')}}</label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" id="name_ar" name="name_ar" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name_en">{{__('admin.English Name')}}</label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" id="name_en" name="name_en" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email-address">Email address</label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" id="email-address" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone-no">Phone No</label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" id="phone-no">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Communication</label>
+            <ul class="custom-control-group g-3 align-center">
+              <li>
+                <div class="custom-control custom-control-sm custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="com-email">
+                  <label class="custom-control-label" for="com-email">Email</label>
+                </div>
+              </li>
+              <li>
+                <div class="custom-control custom-control-sm custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="com-sms">
+                  <label class="custom-control-label" for="com-sms">SMS</label>
+                </div>
+              </li>
+              <li>
+                <div class="custom-control custom-control-sm custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="com-phone">
+                  <label class="custom-control-label" for="com-phone">Phone</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pay-amount">Amount</label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" id="pay-amount">
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary">Save Informations</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer bg-light">
+        <span class="sub-text">Modal Footer Text</span>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
