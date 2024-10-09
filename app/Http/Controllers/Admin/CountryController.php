@@ -46,9 +46,9 @@ class CountryController extends Controller
       'phoneCode' =>'required|string|max:3',
       'currency'  =>'required|string|max:3',
     ],[
-      'maneAR.required' =>__('admin.Field Is Required.'),
-      'maneAR.string'   =>__('admin.Format Not Matching.'),
-      'maneAR.unique'   =>__('admin.This Value Is Already Exists.'),
+      'nameAr.required' =>__('admin.Field Is Required.'),
+      'nameAr.string' =>__('admin.Format Not Matching.'),
+      'nameAr.unique' =>__('admin.This Value Is Already Exists.'),
 
       'nameEn.required' =>__('admin.Field Is Required.'),
       'nameEn.string'   =>__('admin.Format Not Matching.'),
@@ -146,7 +146,7 @@ class CountryController extends Controller
     Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
 
     return back();
-    
+
   }
    /*
    *====================================

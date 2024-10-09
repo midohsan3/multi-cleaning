@@ -80,6 +80,13 @@
             </li>{{-- .nk-menu-heading --}}
 
             <li class="nk-menu-item">
+              <a href="{{ route('admin.activity.index') }}" class="nk-menu-link">
+                <span class="nk-menu-icon"><i class="icon fal fa-sleigh"></i></span>
+                <span class="nk-menu-text">{{ __('admin.Activities') }}</span>
+              </a>
+            </li>{{-- .nk-menu-item --}}
+
+            <li class="nk-menu-item">
               <a href="{{ route('admin.country.index') }}" class="nk-menu-link">
                 <span class="nk-menu-icon"><i class="icon fal fa-globe"></i></span>
                 <span class="nk-menu-text">{{ __('admin.Countries') }}</span>

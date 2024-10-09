@@ -5,7 +5,7 @@
 ===========================
 --}}
 @section('page-title')
-{{ __('admin.Countries') }}
+{{ __('admin.Activities') }}
 @endsection
 {{--
 ===========================
@@ -17,9 +17,10 @@
   <div class="nk-block-head nk-block-head-sm">
     <div class="nk-block-between">
       <div class="nk-block-head-content">
-        <h3 class="nk-block-title page-title">{{ __('admin.Countries') }}</h3>
+        <h3 class="nk-block-title page-title">{{ __('admin.Activities') }}</h3>
         <div class="nk-block-des text-soft">
-          <p>{{ __('admin.You have total').' '.number_format($countriesCount,0).' '. __('admin.Contry')}}.</p>
+          <p>{{ __('admin.You have total').' '.number_format($activitiesCount,0).' '. __('admin.Activity')}}.
+          </p>
         </div>
       </div>{{-- .nk-block-head-content --}}
 
@@ -30,8 +31,10 @@
           <div class="toggle-expand-content" data-content="pageMenu">
             <ul class="nk-block-tools g-3">
 
-              <li><a href="#" class="btn btn-white btn-outline-light"><em
-                    class="icon ni ni-download-cloud"></em><span>{{ __('admin.Export') }}</span></a>
+              <li>
+                <a href="#" class="btn btn-white btn-outline-light">
+                  <em class="icon ni ni-download-cloud"></em><span>{{ __('admin.Export') }}</span>
+                </a>
               </li>
 
               <li class="nk-block-tools-opt">
@@ -41,9 +44,8 @@
                   <div class="dropdown-menu dropdown-menu-right">
                     <ul class="link-list-opt no-bdr">
                       <li><a href="#" class="toggle-opt" data-target="country-form">
-                          <span>{{ __('admin.Add Country') }}</span>
+                          <span>{{ __('admin.New') }}</span>
                         </a></li>
-                      <li><a href="#"><span>{{ __('admin.Add City') }}</span></a></li>
                     </ul>
                   </div>
                 </div>
@@ -62,7 +64,7 @@
 
         <div class="nk-fmg-quick-list nk-block">
           <div class="toggle-expand-content" data-content="country-form">
-            <form action="{{ route('admin.country.store') }}" method="POST">
+            <form action="{{ route('admin.activity.store') }}" method="POST">
               @csrf
               <div class="card-inner">
                 <div class="row gy-4">
@@ -96,55 +98,6 @@
                   </div>
                 </div>
 
-                <div class="row gy-4">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label class="form-label" for="ariaCode">{{ __('admin.Aria Code') }}</label>
-                      <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="ariaCode" name="ariaCode"
-                          placeholder="{{ __('admin.Aria Code Like US') }}" value="{{ old('ariaCode') }}"
-                          autocomplete="off" required />
-                        @error('ariaCode')
-                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label class="form-label" for="phoneCode">{{ __('admin.Phone Code')
-                        }}</label>
-                      <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="naphoneCodemeEn" name="phoneCode"
-                          placeholder="{{ __('admin.Phone Code Here Like +1') }}" value="{{ old('phoneCode') }}"
-                          autocomplete="off" required />
-                        @error('phoneCode')
-                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label class="form-label" for="currency">{{ __('admin.Currency') }}</label>
-                      <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="currency" name="currency"
-                          placeholder="{{ __('admin.Currency Here Like USD') }}" value="{{ old('currency') }}"
-                          autocomplete="off" required />
-                        @error('currency')
-                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
                 <div class="form-group mt-2">
                   <div class="form-control-wrap">
                     <input type="submit" class="btn btn-primary" value="{{ __('admin.Submit') }}" />
@@ -154,7 +107,7 @@
             </form>
           </div>
 
-          @if ($countries->count()>0)
+          @if ($activities->count()>0)
           <div class="card-inner position-relative card-tools-toggle">
             <div class="card-title-group">
               <div class="card-tools">
@@ -220,18 +173,11 @@
                   <th class="nk-tb-col">
                     <span class="sub-text">{{ __('admin.Name') }}</span>
                   </th>
-                  <th class="nk-tb-col tb-col-md">
-                    <span class="sub-text">{{ __('admin.Aria Code')}}</span>
-                  </th>
-                  <th class="nk-tb-col tb-col-sm">
-                    <span class="sub-text">{{ __('admin.Phone Code')}}</span>
-                  </th>
-                  <th class="nk-tb-col tb-col-md">
-                    <span class="sub-text">{{ __('admin.Currency')}}</span>
-                  </th>
+
                   <th class="nk-tb-col tb-col-lg">
                     <span class="sub-text">{{ __('admin.Companies') }}</span>
                   </th>
+
                   <th class="nk-tb-col">
                     <span class="sub-text">{{ __('admin.Status') }}</span>
                   </th>
@@ -239,7 +185,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($countries as $country)
+                @foreach ($activities as $activity)
                 <tr class="nk-tb-item">
                   <td class="nk-tb-col nk-tb-col-check">
                     <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -251,31 +197,19 @@
                     <div class="user-card">
                       <div class="user-avatar xs bg-primary">
                         <span>
-                          {{ $country->country_code }}
+                          {{ Str::substr($activity->name_en,0,2) }}
                         </span>
                       </div>
                       <div class="user-name">
                         <span class="tb-lead">
                           @if (App::getLocale()=='ar')
-                          {{ $country->name_ar }}
+                          {{ $activity->name_ar }}
                           @else
-                          {{ $country->name_en }}
+                          {{ $activity->name_en }}
                           @endif
                         </span>
                       </div>
                     </div>
-                  </td>
-
-                  <td class="nk-tb-col tb-col-md">
-                    <span>{{ $country->country_code }}</span>
-                  </td>
-
-                  <td class="nk-tb-col tb-col-md">
-                    <span>{{ $country->phone_code }}</span>
-                  </td>
-
-                  <td class="nk-tb-col tb-col-lg">
-                    <span>{{$country->currency_code}}</span>
                   </td>
 
                   <td class="nk-tb-col tb-col-lg">
@@ -283,7 +217,7 @@
                   </td>
 
                   <td class="nk-tb-col">
-                    @if ($country->status == 1)
+                    @if ($activity->status == 1)
                     <span class="tb-status text-success">{{ __('admin.Active') }}</span>
                     @else
                     <span class="tb-status text-danger">{{ __('admin.Inactive') }}</span>
@@ -294,7 +228,7 @@
                     <ul class="nk-tb-actions gx-2">
 
                       <li class="nk-tb-action-hidden">
-                        <a href="{{route('admin.country.edit',$country->id)}}"
+                        <a href="{{ route('admin.activity.edit',$activity->id) }}"
                           class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip"
                           data-placement="top" title="{{ __('admin.Edit') }}">
                           <i class="icon fal fa-edit"></i>
@@ -302,14 +236,14 @@
                       </li>
 
                       <li class="nk-tb-action-hidden">
-                        @if ($country->status==1)
-                        <a href="{{ route('admin.country.deactivate',$country->id) }}"
+                        @if ($activity->status==1)
+                        <a href="{{ route('admin.activity.deactivate',$activity->id) }}"
                           class="btn btn-sm btn-icon btn-trigger text-danger" data-toggle="tooltip" data-placement="top"
                           title="{{ __('admin.Deactivate') }}">
                           <i class="icon fal fa-toggle-off"></i>
                         </a>
                         @else
-                        <a href="{{ route('admin.country.activate',$country->id) }}"
+                        <a href="{{ route('admin.activity.activate',$activity->id) }}"
                           class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip"
                           data-placement="top" title="{{__('admin.Activate')}}">
                           <i class="icon fal fa-toggle-on"></i>
@@ -319,8 +253,8 @@
 
                       <li class="nk-tb-action-hidden">
                         <a href="#" class="btn btn-sm btn-icon btn-trigger" title="{{ __('admin.Delete') }}"
-                          data-countryid="{{ $country->id }}" data-countrynameen="{{ $country->name_en }}"
-                          data-countrynamear="{{ $country->name_ar }}" data-toggle="modal" data-target="#deleteMdl">
+                          data-activityid="{{ $activity->id }}" data-activitynameen="{{ $activity->name_en }}"
+                          data-activitynamear="{{ $activity->name_ar }}" data-toggle="modal" data-target="#deleteMdl">
                           <i class="icon fal fa-trash-alt"></i>
                         </a>
                       </li>
@@ -332,22 +266,22 @@
                           <div class="dropdown-menu dropdown-menu-right">
                             <ul class="link-list-opt no-bdr">
 
-                              <li><a href="{{route('admin.country.edit',$country->id)}}" class="text-success">
+                              <li><a href="{{ route('admin.activity.edit',$activity->id) }}" class="text-success">
                                   <i class="icon fal fa-edit"></i>
                                   <span>{{ __('admin.Edit') }}</span>
                                 </a></li>
 
                               <li class="divider"></li>
 
-                              @if ($country->status==1)
+                              @if ($activity->status==1)
                               <li>
-                                <a href="{{ route('admin.country.deactivate',$country->id) }}" class="text-danger">
+                                <a href="{{ route('admin.activity.deactivate',$activity->id) }}" class="text-danger">
                                   <i class="icon fal fa-power-off"></i>
                                   <span>{{__('admin.Deactivate')}}</span></a>
                               </li>
                               @else
                               <li>
-                                <a href="{{ route('admin.country.activate',$country->id) }}" class="text-success">
+                                <a href="{{ route('admin.activity.activate',$activity->id) }}" class="text-success">
                                   <i class="icon fal fa-power-off"></i>
                                   <span>{{ __('admin.Activate') }}</span></a>
                               </li>
@@ -355,9 +289,9 @@
 
                               <li class="divider"></li>
 
-                              <li><a href="#" data-countryid="{{ $country->id }}"
-                                  data-countrynameen="{{ $country->name_en }}"
-                                  data-countrynamear="{{ $country->name_ar }}" data-toggle="modal"
+                              <li><a href="#" data-activityid="{{ $activity->id }}"
+                                  data-activitynameen="{{ $activity->name_en }}"
+                                  data-activitynamear="{{ $activity->name_ar }}" data-toggle="modal"
                                   data-target="#deleteMdl">
                                   <i class="icon fal fa-trash-alt text-danger"></i>
                                   <span>{{__('admin.Delete')}}</span>
@@ -377,7 +311,7 @@
 
           <div class="card-inner">
             <dv class="pagination justify-content-center justify-content-md-start">
-              {{ $countries->links('pagination::bootstrap-5') }}
+              {{ $activities->links('pagination::bootstrap-5') }}
             </dv>
           </div><!-- .card-inner -->
           @else
@@ -412,17 +346,17 @@
         <h5 class="modal-title">Delete</h5>
       </div>
       <div class="modal-body">
-        <form action="{{route('admin.country.destroy')}}" method="POST">
+        <form action="{{ route('admin.activity.destroy') }}" method="POST">
           @csrf
-          <input hidden id="countryId" name="countryID" />
+          <input hidden id="activityId" name="activityID" />
           <div class="row gy-4 m-auto p-auto">
             <p class="text-center">
               Are You Sure You Want Delete
               <strong>
                 @if (App::getLocale()=='ar')
-                <span id="countryNamear"></span>
+                <span id="activityNamear"></span>
                 @else
-                <span id="countryNameen"></span>
+                <span id="activityNameen"></span>
                 @endif
                 <span>?</span>
               </strong>
@@ -462,14 +396,14 @@
           */
           $('#deleteMdl').on('show.bs.modal', function(e) {
               let button = $(e.relatedTarget);
-              let id = button.data('countryid');
-              let nameEn = button.data('countrynameen');
-              let nameAr = button.data('countrynamear');
+              let id = button.data('activityid');
+              let nameEn = button.data('activitynameen');
+              let nameAr = button.data('activitynamear');
 
               var modal = $(this);
-              modal.find('.modal-body #countryId').val(id);
-              modal.find('.modal-body #countryNameen').html(nameEn);
-              modal.find('.modal-body #countryNamear').html(nameAr);
+              modal.find('.modal-body #activityId').val(id);
+              modal.find('.modal-body #activityNameen').html(nameEn);
+              modal.find('.modal-body #activityNamear').html(nameAr);
           });
 
       });
