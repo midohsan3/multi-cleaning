@@ -49,7 +49,17 @@ Route::group(
   function () {
 
     Route::get('/', [CountryController::class, 'index'])->name('admin.country.index');
-    
+
     Route::post('/store', [CountryController::class, 'store'])->name('admin.country.store');
+    
+    Route::get('/edit_{country}', [CountryController::class, 'edit'])->name('admin.country.edit');
+    
+    Route::post('/update', [CountryController::class, 'update'])->name('admin.country.update');
+    
+    Route::get('/activate_{country}', [CountryController::class, 'activate'])->name('admin.country.activate');
+
+    Route::get('/deactivate_{country}', [CountryController::class, 'deactivate'])->name('admin.country.deactivate');
+    
+    Route::post('/destroy', [CountryController::class, 'destroy'])->name('admin.country.destroy');
   }
 );

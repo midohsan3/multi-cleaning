@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-
     @if (App::getLocale()=='ar')
     <link rel="stylesheet" href="{{ asset('admin/assets/css/dashlite.rtl.css?ver=2.4.0') }}">
     @else
@@ -28,6 +26,8 @@
     @endif
 
     <link id="skin-default" rel="stylesheet" href="{{ asset('admin/assets/css/theme.css?ver=2.4.0') }}">
+    @include('sweetalert::alert')
+
     @yield('page-styels')
 </head>
 
@@ -84,9 +84,6 @@
     <script src="{{ asset('admin/assets/js/bundle.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('admin/assets/js/scripts.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('admin/assets/js/charts/gd-default.js?ver=2.4.0') }}"></script>
-    <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-    {!! Toastr::message() !!}
-
     @yield('page-scripts')
 </body>
 
