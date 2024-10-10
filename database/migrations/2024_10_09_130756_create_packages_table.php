@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('name_en');
             $table->string('name_ar');
+            $table->double('price',6)->default(0);
+            $table->double('old_price',6)->default(0);
             $table->smallInteger('status')->default(0)->comment('0=>Inactive, 1=>Active');
             $table->softDeletes();
             $table->timestamps();
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('packages');
     }
 };

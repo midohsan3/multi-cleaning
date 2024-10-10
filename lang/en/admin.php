@@ -10,6 +10,7 @@ return [
   'Dashboards'      => 'Dashboards',
   'System Features' => 'System Features',
   'User Manage'     => 'User Manage',
+  'Packages-Manage' => 'Packages-Manage',
   'System Helpers'  => 'System Helpers',
   'Logout'          =>'Logout',
   /*
@@ -30,10 +31,12 @@ return [
   'Currency Here Like USD' =>'Currency Here Like USD',
   'Submit'                 =>'Submit',
   'Update'                 =>'Update',
+  'AED'                    =>'AED',
   'Name'                   =>'Name',
   'Status'                 =>'Status',
   'Active'                 =>'Active',
   'Inactive'               =>'Inactive',
+  'Warning'                =>'Warning',
   'Edit'                   =>'Edit',
   'Deactivate'             =>'Deactivate',
   'Activate'               =>'Activate',
@@ -61,6 +64,18 @@ return [
   'Phone Code Here Like +1' =>'Phone Code Here Like +1',
   /*
   ========================
+  = PACKAGES & FEATURES
+  ========================
+  */
+  'Packages Features' =>'Packages Features',
+  'Packages'          =>'Packages',
+  'Package'           =>'Package',
+  'Features'          =>'Features',
+  'Feature'           =>'Feature',
+  'Subscribers'       =>'Subscribers',
+  'Price'             =>'Price',
+  /*
+  ========================
   = ACTIVITIES
   ========================
   */
@@ -85,6 +100,7 @@ return [
   'Record Added Successfully.'         =>'Record Added Successfully.',
   'Record Updated Successfully.'       =>'Record Updated Successfully.',
   'We Cant Complete Your request now!' =>'We Cant Complete Your request now!',
+  'Please Add Active Features First!'  =>'Please Add Active Features First!',
   /*
   ========================
   =

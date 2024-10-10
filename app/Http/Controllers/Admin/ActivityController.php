@@ -22,10 +22,10 @@ class ActivityController extends Controller
     *====================================
     */
     public function index(){
-      if(App::getLocale()=='ar'){
-        $activities = ActivityMdl::orderBy('name_ar','asc')->paginate(pageCount);
-      }else{
-        $activities = ActivityMdl::orderBy('name_en','asc')->paginate(pageCount);
+      try {
+        $activities = ActivityMdl::orderBy('id','desc')->paginate(pageCount);
+      } catch (\Throwable $th) {
+        return 404;
       }
 
       $activitiesCount = $activities->count();

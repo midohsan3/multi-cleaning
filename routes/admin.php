@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\PackageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -62,6 +64,68 @@ Route::group(
     Route::get('/deactivate_{activity}', [ActivityController::class, 'deactivate'])->name('admin.activity.deactivate');
 
     Route::post('/destroy', [ActivityController::class, 'destroy'])->name('admin.activity.destroy');
+  }
+);
+
+/*
+==============================
+PACKAGES ROUTES
+==============================
+*/
+
+Route::group(
+  [
+    'prefix' => LaravelLocalization::setLocale() . '/dashboard/packages',
+    'namespace' => 'Admin',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+  ],
+  function () {
+
+    Route::get('/', [PackageController::class, 'index'])->name('admin.package.index');
+
+    Route::get('/create', [PackageController::class, 'create'])->name('admin.package.create');
+
+    Route::post('/store', [PackageController::class, 'store'])->name('admin.package.store');
+
+    Route::get('/edit_{package}', [PackageController::class, 'edit'])->name('admin.package.edit');
+
+    Route::post('/update', [PackageController::class, 'update'])->name('admin.package.update');
+
+    Route::get('/activate_{package}', [PackageController::class, 'activate'])->name('admin.package.activate');
+
+    Route::get('/deactivate_{package}', [PackageController::class, 'deactivate'])->name('admin.package.deactivate');
+
+    Route::post('/destroy', [PackageController::class, 'destroy'])->name('admin.package.destroy');
+  }
+);
+
+/*
+==============================
+FEATURES ROUTES
+==============================
+*/
+
+Route::group(
+  [
+    'prefix' => LaravelLocalization::setLocale() . '/dashboard/packages/features',
+    'namespace' => 'Admin',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+  ],
+  function () {
+
+    Route::get('/', [FeatureController::class, 'index'])->name('admin.feature.index');
+
+    Route::post('/store', [FeatureController::class, 'store'])->name('admin.feature.store');
+
+    Route::get('/edit_{feature}', [FeatureController::class, 'edit'])->name('admin.feature.edit');
+
+    Route::post('/update', [FeatureController::class, 'update'])->name('admin.feature.update');
+
+    Route::get('/activate_{feature}', [FeatureController::class, 'activate'])->name('admin.feature.activate');
+
+    Route::get('/deactivate_{feature}', [FeatureController::class, 'deactivate'])->name('admin.feature.deactivate');
+
+    Route::post('/destroy', [FeatureController::class, 'destroy'])->name('admin.feature.destroy');
   }
 );
 
