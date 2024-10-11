@@ -23,6 +23,11 @@ class PackageMdl extends Model
    'price',
    'old_price',
    'status',
+   'description_en',
+   'description_ar',
+   'keywords_en',
+   'keywords_ar',
+   'og_image',
    ];
 
    protected $data = ['deleted_at'];

@@ -2,17 +2,14 @@
 
 namespace App\Models;
 
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class ActivityMdl extends Model
+class ServiceMdl extends Model
 {
     use HasFactory, Notifiable, SoftDeletes, HasRoles;
 
-    protected $table = 'activities';
+    protected $table = 'services';
 
     protected $primaryKey = 'id';
 
@@ -34,7 +31,6 @@ class ActivityMdl extends Model
     RELATIONS
     =========================
     */
-
     /*
     =========================
     =

@@ -18,6 +18,11 @@ return new class extends Migration
             $table->double('price',6)->default(0);
             $table->double('old_price',6)->default(0);
             $table->smallInteger('status')->default(0)->comment('0=>Inactive, 1=>Active');
+            $table->text('description_en')->nullable();
+            $table->text('description_ar')->nullable();
+            $table->text('keywords_en')->nullable();
+            $table->text('keywords_ar')->nullable();
+            $table->string('og_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
