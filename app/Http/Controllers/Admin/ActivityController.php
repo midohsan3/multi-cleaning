@@ -24,12 +24,17 @@ class ActivityController extends Controller
     */
     public function index(){
       try {
-        $activities = ActivityMdl::orderBy('id','desc')->paginate(pageCount);
+        if(App::getLocale()=='ar'){
+            $activities = ActivityMdl::orderBy('name_ar','desc')->paginate(pageCount);
+        }else{
+            $activities = ActivityMdl::orderBy('name_en','desc')->paginate(pageCount);
+        }
       } catch (\Throwable $th) {
         return 404;
       }
 
       $activitiesCount = $activities->count();
+
       return view('admin.activity.index', compact('activities','activitiesCount'));
     }
   /*

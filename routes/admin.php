@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -64,6 +65,34 @@ Route::group(
     Route::get('/deactivate_{activity}', [ActivityController::class, 'deactivate'])->name('admin.activity.deactivate');
 
     Route::post('/destroy', [ActivityController::class, 'destroy'])->name('admin.activity.destroy');
+  }
+);
+
+/*
+==============================
+SERVICES ROUTES
+==============================
+*/
+
+Route::group(
+  [
+    'prefix' => LaravelLocalization::setLocale() . '/dashboard/activities/services',
+    'namespace' => 'Admin',
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+  ],
+  function () {
+
+    Route::get('/', [ServiceController::class, 'index'])->name('admin.service.index');
+
+    Route::post('/store', [ServiceController::class, 'store'])->name('admin.service.store');
+
+    Route::get('/edit_{service}', [ServiceController::class, 'edit'])->name('admin.service.edit');
+
+    Route::post('/update', [ServiceController::class, 'update'])->name('admin.service.update');
+
+    Route::get('/activate_{service}', [ServiceController::class, 'activate'])->name('admin.service.activate');
+
+    Route::get('/deactivate_{service}', [ServiceController::class, 'deactivate'])->name('admin.service.deactivate');
   }
 );
 

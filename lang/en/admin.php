@@ -11,6 +11,7 @@ return [
   'System Features' => 'System Features',
   'User Manage'     => 'User Manage',
   'Packages-Manage' => 'Packages-Manage',
+  'Services-Manage' => 'Services-Manage',
   'System Helpers'  => 'System Helpers',
   'Logout'          =>'Logout',
   /*
@@ -76,11 +77,13 @@ return [
   'Price'             =>'Price',
   /*
   ========================
-  = ACTIVITIES
+  = SERVICES &ACTIVITIES
   ========================
   */
   'Activities' =>'Activities',
   'Activity'   =>'Activity',
+  'Services'   =>'Services',
+  'Service'    =>'Service',
   /*
   ========================
   = MASSAGES
