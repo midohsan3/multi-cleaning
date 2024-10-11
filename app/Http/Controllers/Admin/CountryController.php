@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\CountryMdl;
+use App\Models\ActivityMdl;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Number;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
+use App\Models\CountryHasActivityMdl;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -72,7 +76,7 @@ class CountryController extends Controller
     }
 
     $country = CountryMdl::create([
-      'name_en'       =>$req->nameEn,
+      'name_en'       =>Str::title($req->nameEn),
       'name_ar'       =>$req->nameAr,
       'country_code'  =>$req->ariaCode,
       'phone_code'    =>$req->phoneCode,
@@ -136,10 +140,10 @@ class CountryController extends Controller
         return 404;
     }
 
-    $country->name_ar = $req->nameAr;
-    $country->name_en = $req->nameEn;
-    $country->country_code = $req->ariaCode;
-    $country->phone_code = $req->phoneCode;
+    $country->name_ar       = $req->nameAr;
+    $country->name_en       = Str::title($req->nameEn);
+    $country->country_code  = $req->ariaCode;
+    $country->phone_code    = $req->phoneCode;
     $country->currency_code = $req->currency;
     $country->save();
 
@@ -147,6 +151,61 @@ class CountryController extends Controller
 
     return back();
 
+  }
+   /*
+   *====================================
+   * ACTIVITIES
+   *====================================
+   */
+  public function activities($country){
+    try {
+        $country = CountryMdl::findOrFail($country);
+    } catch (\Throwable $th) {
+        return 404;
+    }
+
+    try {
+        $activities = ActivityMdl::where('status',1)->orderBy('id','desc')->get();
+    } catch (\Throwable $th) {
+        return 404;
+    }
+
+    try {
+       $countryActivities = DB::table('countries_has_activities')->where('country_id',$country->id)->get()->pluck('country_id','activity_id')->all();
+    } catch (\Throwable $th) {
+        return 404;
+    }
+
+    return view('admin.country.activity', compact('country','activities','countryActivities'));
+  }
+
+   /*
+   *====================================
+   * ACTIVATE
+   *====================================
+   */
+  public function activitiesUpdate(Request $req){
+    $valid = Validator::make($req->all(),[
+        'country'  => 'required|numeric|exists:countries,id',
+        'activity' => 'required',
+    ],[
+        'activity.required' =>__('admin.Field Is Required.'),
+    ]);
+
+    if($valid->fails()){
+        return back()->withErrors($valid)->withInput($req->all());
+    }
+
+    try {
+        $country = CountryMdl::findOrFail($req->country);
+    } catch (\Throwable $th) {
+        return 404;
+    }
+
+    $country->activities_country()->sync($req->activity);
+
+    Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+    return back();
   }
    /*
    *====================================

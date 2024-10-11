@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\FeatureMdl;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class FeatureController extends Controller
 {
@@ -42,12 +43,12 @@ class FeatureController extends Controller
         'nameEn' =>'required|string|unique:features,name_en',
     ],[
         'nameAr.required' =>__('admin.Field Is Required.'),
-        'nameAr.string' =>__('admin.Format Not Matching.'),
-        'nameAr.unique' =>__('admin.This Value Is Already Exists.'),
+        'nameAr.string'   =>__('admin.Format Not Matching.'),
+        'nameAr.unique'   =>__('admin.This Value Is Already Exists.'),
 
         'nameEn.required' =>__('admin.Field Is Required.'),
-        'nameEn.string' =>__('admin.Format Not Matching.'),
-        'nameEn.unique' =>__('admin.This Value Is Already Exists.'),
+        'nameEn.string'   =>__('admin.Format Not Matching.'),
+        'nameEn.unique'   =>__('admin.This Value Is Already Exists.'),
     ]);
 
     if($valid->fails()){
@@ -56,7 +57,7 @@ class FeatureController extends Controller
 
     try {
         $feature = FeatureMdl::create([
-            'name_en'=>$req->nameEn,
+            'name_en'=>Str::title($req->nameEn),
             'name_ar'=>$req->nameAr,
         ]);
     } catch (\Throwable $th) {
@@ -110,7 +111,7 @@ class FeatureController extends Controller
         return 404;
     }
 
-    $feature->name_en = $req->nameEn;
+    $feature->name_en = Str::title($req->nameEn);
     $feature->name_ar = $req->nameAr;
     $feature->save();
 

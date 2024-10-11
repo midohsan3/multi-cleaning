@@ -339,6 +339,13 @@
 
                               <li class="divider"></li>
 
+                              <li><a href="{{route('admin.country.activities',$country->id)}}" class="text-info">
+                                  <i class="icon fal fa-magic"></i>
+                                  <span>{{ __('admin.Activities') }}</span>
+                                </a></li>
+
+                              <li class="divider"></li>
+
                               @if ($country->status==1)
                               <li>
                                 <a href="{{ route('admin.country.deactivate',$country->id) }}" class="text-danger">

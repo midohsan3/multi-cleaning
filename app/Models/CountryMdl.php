@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ActivityMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -32,7 +33,9 @@ class CountryMdl extends Model
     RELATIONS
     =========================
     */
-
+    public function activities_country(){
+        return $this->belongsToMany(ActivityMdl::class,'countries_has_activities','country_id','activity_id');
+    }
     /*
     =========================
     =

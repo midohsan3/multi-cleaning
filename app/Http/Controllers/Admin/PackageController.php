@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\FeatureMdl;
 use App\Models\PackageMdl;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -76,8 +77,8 @@ class PackageController extends Controller
 
     try {
       $package = PackageMdl::create([
-        'name_ar'=>$req->nameAr,
-        'name_en'=>$req->nameEn,
+        'name_ar' =>$req->nameAr,
+        'name_en' =>Str::title($req->nameEn),
       ]);
     } catch (\Throwable $th) {
       return 404;
@@ -152,7 +153,7 @@ class PackageController extends Controller
       return 404;
     }
 
-    $package->name_en = $req->nameEn;
+    $package->name_en = Str::title($req->nameEn);
     $package->name_ar = $req->nameAr;
     $package->save();
 

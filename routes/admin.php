@@ -151,6 +151,10 @@ Route::group(
 
     Route::post('/update', [CountryController::class, 'update'])->name('admin.country.update');
 
+    Route::get('/activities_{country}', [CountryController::class, 'activities'])->name('admin.country.activities');
+
+    Route::post('/activities/update', [CountryController::class, 'activitiesUpdate'])->name('admin.country.activities.update');
+
     Route::get('/activate_{country}', [CountryController::class, 'activate'])->name('admin.country.activate');
 
     Route::get('/deactivate_{country}', [CountryController::class, 'deactivate'])->name('admin.country.deactivate');

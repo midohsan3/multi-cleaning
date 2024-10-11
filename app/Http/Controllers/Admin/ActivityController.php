@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\ActivityMdl;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
@@ -56,7 +57,7 @@ class ActivityController extends Controller
 
       try {
         $activity = ActivityMdl::create([
-          'name_en'=>$req->nameEn,
+          'name_en'=>Str::title($req->nameEn),
           'name_ar'=>$req->nameAr,
         ]);
       } catch (\Throwable $th) {
@@ -110,7 +111,7 @@ class ActivityController extends Controller
         return 404;
       }
 
-      $activity->name_en = $req->nameEn;
+      $activity->name_en = Str::title($req->nameEn);
       $activity->name_ar = $req->nameAr;
       $activity->save();
 

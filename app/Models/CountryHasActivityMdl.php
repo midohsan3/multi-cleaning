@@ -5,26 +5,19 @@ namespace App\Models;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ServiceMdl extends Model
+class CountryHasActivityMdl extends Model
 {
-    use HasFactory, Notifiable, SoftDeletes, HasRoles;
+    use HasFactory, Notifiable, HasRoles;
 
-    protected $table = 'services';
+    protected $table = 'features';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
-    'name_en',
-    'name_ar',
-    'status',
-    'description_en',
-    'description_ar',
-    'keywords_en',
-    'keywords_ar',
-    'og_image',
+    'country_id',
+    'activity_id',
     ];
 
     protected $data = ['deleted_at'];
@@ -34,6 +27,7 @@ class ServiceMdl extends Model
     RELATIONS
     =========================
     */
+
     /*
     =========================
     =

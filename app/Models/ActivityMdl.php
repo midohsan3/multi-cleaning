@@ -34,6 +34,9 @@ class ActivityMdl extends Model
     RELATIONS
     =========================
     */
+    public function countries_activity(){
+        return $this->belongsToMany(CountryMdl::class,'countries_has_activities','activity_id','country_id');
+    }
 
     /*
     =========================
