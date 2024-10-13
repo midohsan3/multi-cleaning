@@ -172,6 +172,12 @@ return [
 
         /*
         ====================
+        = LOCATION
+        ====================
+        */
+        Stevebauman\Location\LocationServiceProvider::class,
+        /*
+        ====================
         = SWEET ALERT
         ====================
         */
@@ -192,7 +198,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Alert'    => RealRashid\SweetAlert\Facades\Alert::class,
+        'Location' => Stevebauman\Location\Facades\Location::class,
     ])->toArray(),
 
 ];

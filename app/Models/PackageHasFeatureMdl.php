@@ -11,7 +11,7 @@ class PackageHasFeatureMdl extends Model
 {
     use HasFactory, Notifiable, HasRoles;
 
-    protected $table = 'features';
+    protected $table = 'package_has_features';
 
     protected $primaryKey = 'id';
 

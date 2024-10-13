@@ -28,13 +28,13 @@ class PackageSeeder extends Seeder
         PackageMdl::create([
             'name_en'=>'3-Starts',
             'name_ar'=>'3نجوم',
-            'price'=>'2000',
+            'price'=>'2400',
             'status'=>'1',
         ]);
         PackageMdl::create([
             'name_en'=>'5-Starts',
             'name_ar'=>'5نجوم',
-            'price'=>'2500',
+            'price'=>'3200',
             'status'=>'0',
         ]);
     }

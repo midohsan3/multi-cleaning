@@ -52,9 +52,8 @@
                             </a>
                             <ul class="nk-menu-sub">
                                 <li class="nk-menu-item">
-                                    <a href="html/user-list-regular.html" class="nk-menu-link"><span
-                                            class="nk-menu-text">User List
-                                            - Regular</span></a>
+                                    <a href="{{ route('admin.company.index') }}" class="nk-menu-link"><span
+                                            class="nk-menu-text">{{ __('admin.Companies') }}</span></a>
                                 </li>
                                 <li class="nk-menu-item">
                                     <a href="html/user-list-compact.html" class="nk-menu-link"><span

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable()->unique();
             $table->string('profile_pic')->nullable();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

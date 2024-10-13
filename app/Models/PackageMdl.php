@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\CompanyMdl;
 use App\Models\FeatureMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
@@ -40,7 +41,14 @@ class PackageMdl extends Model
   public function features_package(){
     return $this->belongsToMany(FeatureMdl::class,'package_has_features','package_id','feature_id');
   }
-
+   /*
+   =========================
+   = COMPANY
+   =========================
+   */
+  public function company_package(){
+    return $this->hasMany(CompanyMdl::class, 'package_id');
+  }
    /*
    =========================
    =

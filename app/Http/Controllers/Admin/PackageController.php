@@ -7,6 +7,7 @@ use App\Models\PackageMdl;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use App\Models\PackageHasFeatureMdl;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -106,7 +107,11 @@ class PackageController extends Controller
     }
 
     try {
-      $features = FeatureMdl::where('status',1)->orderBy('id','desc')->get();
+        if(App::getLocale()=='ar'){
+             $features = FeatureMdl::where('status',1)->orderBy('name_ar','asc')->get();
+        }else{
+             $features = FeatureMdl::where('status',1)->orderBy('name_en','asc')->get();
+        }
     } catch (\Throwable $th) {
       return 404;
     }

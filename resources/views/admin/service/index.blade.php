@@ -346,7 +346,7 @@
         <h5 class="modal-title">Delete</h5>
       </div>
       <div class="modal-body">
-        <form action="===========" method="POST">
+        <form action="{{ route('admin.service.destroy') }}" method="POST">
           @csrf
           <input hidden id="serviceId" name="serviceID" />
           <div class="row gy-4 m-auto p-auto">

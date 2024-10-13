@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Front\FrontController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,37 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 */
+
+/*
+==============================
+MAIN ROUTES
+==============================
+*/
+
+Route::group(
+[
+'prefix' => LaravelLocalization::setLocale(),
+'namespace' => 'Front',
+'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+],
+function () {
+
+Route::get('/', [FrontController::class, 'index'])->name('front.main');
+}
+);
+/*
+==============================
+FRONT ROUTES
+==============================
+*/
+Route::group(
+[
+'prefix' => current_country().'/'.LaravelLocalization::setLocale(),
+'namespace' => 'Front',
+'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+],
+function () {
+
+Route::get('/', [FrontController::class, 'home'])->name('front.home');
+}
+);

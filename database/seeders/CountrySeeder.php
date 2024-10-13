@@ -19,6 +19,7 @@ class CountrySeeder extends Seeder
         'country_code'=>'AE',
         'phone_code'=>'971',
         'currency_code'=>'AED',
+        'flag'=>'uae.jpg',
         'status'=>'1',
         ]);
         CountryMdl::create([
@@ -27,6 +28,7 @@ class CountrySeeder extends Seeder
         'country_code'=>'SA',
         'phone_code'=>'966',
         'currency_code'=>'RS',
+        'flag'=>'ksa.jpg',
         'status'=>'1',
         ]);
         CountryMdl::create([
@@ -35,6 +37,7 @@ class CountrySeeder extends Seeder
         'country_code'=>'KW',
         'phone_code'=>'965',
         'currency_code'=>'KWD',
+        'flag'=>'kuwait.jpg',
         'status'=>'1',
         ]);
     }

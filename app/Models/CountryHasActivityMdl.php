@@ -11,7 +11,7 @@ class CountryHasActivityMdl extends Model
 {
     use HasFactory, Notifiable, HasRoles;
 
-    protected $table = 'features';
+    protected $table = 'countries_has_activities';
 
     protected $primaryKey = 'id';
 

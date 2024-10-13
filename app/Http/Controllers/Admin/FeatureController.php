@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\FeatureMdl;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
@@ -22,7 +23,11 @@ class FeatureController extends Controller
    */
   public function index(){
     try {
-        $features = FeatureMdl::orderBy('id','DESC')->paginate(pageCount);
+        if(App::getLocale()=='ar'){
+            $features = FeatureMdl::orderBy('name_ar','asc')->paginate(pageCount);
+        }else{
+            $features = FeatureMdl::orderBy('name_en','asc')->paginate(pageCount);
+        }
     } catch (\Throwable $th) {
         return 404;
     }

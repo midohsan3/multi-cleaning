@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\CompanyMdl;
 use App\Models\ActivityMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
@@ -23,6 +24,7 @@ class CountryMdl extends Model
     'country_code',
     'phone_code',
     'currency_code',
+    'flag',
     'status',
     ];
 
@@ -38,7 +40,15 @@ class CountryMdl extends Model
     }
     /*
     =========================
-    =
+    = COMPANY
+    =========================
+    */
+    public function company_country(){
+        return $this->hasMany(CompanyMdl::class, 'country_id');
+    }
+    /*
+    =========================
+    = \
     =========================
     */
 }

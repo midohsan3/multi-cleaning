@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('country_code')->unique();
             $table->string('phone_code', 5)->unique();
             $table->string('currency_code', 3);
+            $table->string('flag')->nullable();
             $table->smallInteger('status')->default(1)->comment('0=>Inactive, 1=>Active');
             $table->softDeletes();
             $table->timestamps();

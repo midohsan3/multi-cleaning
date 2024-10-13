@@ -273,6 +273,13 @@
 
                               <li class="divider"></li>
 
+                              <li><a href="{{ route('admin.activity.service',$activity->id) }}" class="text-info">
+                                  <i class="icon fal fa-people-carry"></i>
+                                  <span>{{ __('admin.Services') }}</span>
+                                </a></li>
+
+                              <li class="divider"></li>
+
                               @if ($activity->status==1)
                               <li>
                                 <a href="{{ route('admin.activity.deactivate',$activity->id) }}" class="text-danger">

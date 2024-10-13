@@ -162,6 +162,32 @@ class ServiceController extends Controller
   }
   /*
   *====================================
+  * DESTROY
+  *====================================
+  */
+  public function destroy(Request $req){
+    $valid = Validator::make($req->all(),[
+        'serviceID' =>'required|numeric|exists:services,id'
+    ]);
+
+    if($valid->fails()){
+        Alert::error(__('admin.Error'), __('admin.We Cant Complete Your request now!'));
+        return back();
+    }
+
+    try {
+        $service = ServiceMdl::findOrFail($req->serviceID);
+    } catch (\Throwable $th) {
+        return 404;
+    }
+
+    $service->delete();
+
+    Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+    return back();
+  }
+  /*
+  *====================================
   *
   *====================================
   */

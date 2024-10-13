@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ServiceMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -38,6 +39,14 @@ class ActivityMdl extends Model
         return $this->belongsToMany(CountryMdl::class,'countries_has_activities','activity_id','country_id');
     }
 
+    /*
+    =========================
+    =
+    =========================
+    */
+    public function services_activity(){
+        return $this->belongsToMany(ServiceMdl::class,'activity_has-services','activity_id','service_id');
+    }
     /*
     =========================
     =

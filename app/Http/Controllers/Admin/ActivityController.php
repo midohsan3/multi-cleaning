@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
+use App\Models\ActivityHasServiceMdl;
+use App\Models\ServiceMdl;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -122,6 +124,64 @@ class ActivityController extends Controller
 
       Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
       return back();
+    }
+  /*
+    *====================================
+    * SERVICES
+    *====================================
+    */
+    public function service($activity){
+        try {
+            $activity = ActivityMdl::findOrFail($activity);
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            if(App::getLocale()=='ar'){
+                $services = ServiceMdl::where('status',1)->orderBy('name_ar','asc')->get();
+            }else{
+                $services = ServiceMdl::where('status',1)->orderBy('name_en','asc')->get();
+            }
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $activityServices =
+            ActivityHasServiceMdl::where('activity_id',$activity->id)->get()->pluck('activity_id','service_id')->all();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        return view('admin.activity.service',compact('activity','services','activityServices'));
+    }
+  /*
+    *====================================
+    * SERVICES UPDATE
+    *====================================
+    */
+    public function serviceUpdate(Request $req){
+        $valid = Validator::make($req->all(),[
+            'activity' =>'required|numeric|exists:activities,id',
+            'service'  =>'required',
+        ]);
+
+        if($valid->fails()){
+            Alert::error(__('admin.Error'), __('admin.We Cant Complete Your request now!'));
+            return back();
+        }
+
+        try {
+            $activity = ActivityMdl::findOrFail($req->activity);
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        $activity->services_activity()->sync($req->service);
+
+        Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+        return back();
     }
   /*
     *====================================

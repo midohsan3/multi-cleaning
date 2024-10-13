@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             CountrySeeder::class,
             ActivitySeeder::class,
+            FeatureSeeder::class,
             PackageSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }
