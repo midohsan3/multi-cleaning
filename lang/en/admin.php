@@ -65,6 +65,13 @@ return [
   'Phone Code Here Like +1' =>'Phone Code Here Like +1',
   /*
   ========================
+  = NATIONALITIES
+  ========================
+  */
+  'Nationalities' =>'Nationalities',
+  'Nationality'   =>'Nationality',
+  /*
+  ========================
   = PACKAGES & FEATURES
   ========================
   */

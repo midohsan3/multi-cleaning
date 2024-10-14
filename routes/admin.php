@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\NationalityController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Auth;
@@ -212,5 +213,35 @@ Route::group(
         Route::get('/deactivate_{country}', [CountryController::class, 'deactivate'])->name('admin.country.deactivate');
 
         Route::post('/destroy', [CountryController::class, 'destroy'])->name('admin.country.destroy');
+    }
+);
+
+/*
+==============================
+NATIONALITY ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/dashboard/nationality',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [NationalityController::class, 'index'])->name('admin.nationality.index');
+
+        Route::post('/store', [NationalityController::class, 'store'])->name('admin.nationality.store');
+
+        Route::get('/edit_{nationality}', [NationalityController::class, 'edit'])->name('admin.nationality.edit');
+
+        Route::post('/update', [NationalityController::class, 'update'])->name('admin.nationality.update');
+
+        Route::get('/activate_{nationality}', [NationalityController::class, 'activate'])->name('admin.nationality.activate');
+
+        Route::get('/deactivate_{nationality}', [NationalityController::class, 'deactivate'])->name('admin.nationality.deactivate');
+
+        Route::post('/destroy', [NationalityController::class, 'destroy'])->name('admin.nationality.destroy');
     }
 );
