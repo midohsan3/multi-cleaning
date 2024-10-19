@@ -20,6 +20,7 @@ return [
   ========================
   */
   'You have total'         =>'You have total',
+  'Back'                   =>'Back',
   'Export'                 =>'Export',
   'New'                    =>'New',
   'Suspend'                =>'Suspend',
@@ -50,6 +51,9 @@ return [
   ========================
   */
   'Companies' =>'Companies',
+  'Company'   =>'Company',
+  'Code'      =>'Code',
+  'E-mail'    =>'E-mail',
   /*
   ========================
   = COUNTRIES
@@ -104,6 +108,7 @@ return [
   'Format Not Matching.'          =>'Format Not Matching.',
   'This Value Is Already Exists.' =>'This Value Is Already Exists.',
   'This Value Is Too Long'        =>'This Value Is Too Long',
+  'File Not Allowed.'             =>'File Not Allowed.',
 
   'Success'                            =>'Success',
   'Error'                              =>'Error',
@@ -111,6 +116,22 @@ return [
   'Record Updated Successfully.'       =>'Record Updated Successfully.',
   'We Cant Complete Your request now!' =>'We Cant Complete Your request now!',
   'Please Add Active Features First!'  =>'Please Add Active Features First!',
+  /*
+  ========================
+  = COMPANY PROFILE
+  ========================
+  */
+  'Upload Logo'  =>'Upload Logo',
+  'Company Logo' =>'Company Logo',
+  'Upload Your Company Logo It Will Shows to clients in your page at our platform.'=>
+  'Upload Your Company Logo It Will Shows to clients in your page at our platform.',
+  'Upload License'  =>'Upload License',
+  'Company License' =>'Company License',
+  'Upload Your Company License To Be Trusted Company & Eligible To Receive New Booing.' =>
+  'Upload Your Company License To Be Trusted Company & Eligible To Receive New Booing.',
+  'Choose Your Services' =>'Choose Your Services',
+  'Select The Services Your Can Provide.' =>'Select The Services Your Can Provide.',
+  'This will help clients to choose you.' =>'This will help clients to choose you.',
   /*
   ========================
   =

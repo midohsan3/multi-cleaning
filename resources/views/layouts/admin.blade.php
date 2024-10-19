@@ -37,7 +37,12 @@
         <div class="nk-main ">
             {{-- sidebar @s --}}
 
+            @if (Auth::user()->role_name=='Company')
+            @include('incs.company_side')
+            @else
             @include('incs.admin_side')
+            @endif
+
 
             {{-- sidebar @e --}}
             {{-- wrap @s --}}

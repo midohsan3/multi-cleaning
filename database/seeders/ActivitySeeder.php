@@ -14,18 +14,13 @@ class ActivitySeeder extends Seeder
     public function run(): void
     {
         ActivityMdl::create([
-            'name_en'=>'Home Cleaning',
-            'name_ar'=>'تنظيف منازل',
+            'name_en'=>'Home/Office Cleaning',
+            'name_ar'=>'تنظيف منازل / مكاتب',
             'status' =>'1',
         ]);
         ActivityMdl::create([
             'name_en'=>'Building Cleaning',
             'name_ar'=>'تنظيف مباني',
-            'status' =>'1',
-        ]);
-        ActivityMdl::create([
-            'name_en'=>'Wash-out',
-            'name_ar'=>'غسيل خزانات',
             'status' =>'1',
         ]);
         ActivityMdl::create([

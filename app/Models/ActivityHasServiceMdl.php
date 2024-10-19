@@ -13,14 +13,10 @@ class ActivityHasServiceMdl extends Model
 
     protected $table = 'activity_has-services';
 
-    protected $primaryKey = 'id';
-
     protected $fillable = [
     'activity_id',
     'service_id',
     ];
-
-    protected $data = ['deleted_at'];
 
     /*
     =========================

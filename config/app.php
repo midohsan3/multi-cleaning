@@ -182,6 +182,12 @@ return [
         ====================
         */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        /*
+        ====================
+        = IMAGE
+        ====================
+        */
+        Intervention\Image\ImageServiceProvider::class
 
     ])->toArray(),
 
@@ -200,6 +206,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Alert'    => RealRashid\SweetAlert\Facades\Alert::class,
         'Location' => Stevebauman\Location\Facades\Location::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];

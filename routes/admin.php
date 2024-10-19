@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\NationalityController;
 use App\Http\Controllers\Admin\PackageController;
@@ -39,6 +40,23 @@ require __DIR__ . '/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*
+==============================
+DASHBOARD ROUTES
+==============================
+*/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/dashboard',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+    }
+);
 
 /*
 ==============================

@@ -36,7 +36,7 @@ class FrontController extends Controller
          if(in_array(Str::upper(current_country()),$countriesCode)){
             return redirect()->route('front.home');
          }else{
-            return view('admin.front.main', compact('countries'));
+            return view('front.main', compact('countries'));
          }
     }
     /*
@@ -45,7 +45,7 @@ class FrontController extends Controller
     *====================================
     */
     public function home(){
-        return view('admin.front.home');
+        return view('front.home');
     }
     /*
     *====================================

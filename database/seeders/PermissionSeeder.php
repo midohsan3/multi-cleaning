@@ -30,7 +30,7 @@ class PermissionSeeder extends Seeder
         $user = User::create([
         'name' => 'Developer',
         'email' => 'info@smart-solutions.live',
-        'phone'=>'0502516985',
+        'phone'=>'admin',
         'password' => Hash::make('admin'),
         'role_name'=>'Owner'
         ]);
@@ -42,5 +42,9 @@ class PermissionSeeder extends Seeder
         $role->syncPermissions($permissions);
 
         $user->assignRole([$role->id]);
+
+        $role = Role::create(['name' => 'Company']);
+        
+        $role = Role::create(['name' => 'Person']);
     }
 }

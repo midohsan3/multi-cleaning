@@ -55,26 +55,6 @@
                                     <a href="{{ route('admin.company.index') }}" class="nk-menu-link"><span
                                             class="nk-menu-text">{{ __('admin.Companies') }}</span></a>
                                 </li>
-                                <li class="nk-menu-item">
-                                    <a href="html/user-list-compact.html" class="nk-menu-link"><span
-                                            class="nk-menu-text">User List
-                                            - Compact</span></a>
-                                </li>
-                                <li class="nk-menu-item">
-                                    <a href="html/user-details-regular.html" class="nk-menu-link"><span
-                                            class="nk-menu-text">User
-                                            Details - Regular</span></a>
-                                </li>
-                                <li class="nk-menu-item">
-                                    <a href="html/user-profile-regular.html" class="nk-menu-link"><span
-                                            class="nk-menu-text">User
-                                            Profile - Regular</span></a>
-                                </li>
-                                <li class="nk-menu-item">
-                                    <a href="html/user-card.html" class="nk-menu-link"><span class="nk-menu-text">User
-                                            Contact -
-                                            Card</span> <span class="nk-menu-badge badge-warning">New</span></a>
-                                </li>
                             </ul><!-- .nk-menu-sub -->
                         </li>{{-- .nk-menu-item --}}
 
@@ -149,6 +129,9 @@
                                 <span class="nk-menu-text">{{ __('admin.Logout') }}</span>
                             </a>
                         </li>
+                        <form id="logout-frm" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
                         <li class="nk-menu-item ml-auto">
                             @if (App::getLocale()=='ar')

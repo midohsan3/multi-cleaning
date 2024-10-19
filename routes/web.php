@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Front\FrontController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Front\RegistrationController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -40,29 +41,49 @@ MAIN ROUTES
 */
 
 Route::group(
-[
-'prefix' => LaravelLocalization::setLocale(),
-'namespace' => 'Front',
-'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-],
-function () {
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'namespace' => 'Front',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
 
-Route::get('/', [FrontController::class, 'index'])->name('front.main');
-}
+        Route::get('/', [FrontController::class, 'index'])->name('front.main');
+    }
 );
+
 /*
 ==============================
 FRONT ROUTES
 ==============================
 */
 Route::group(
-[
-'prefix' => current_country().'/'.LaravelLocalization::setLocale(),
-'namespace' => 'Front',
-'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-],
-function () {
+    [
+        'prefix' => current_country() . '/' . LaravelLocalization::setLocale(),
+        'namespace' => 'Front',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
 
-Route::get('/', [FrontController::class, 'home'])->name('front.home');
-}
+        Route::get('/', [FrontController::class, 'home'])->name('front.home');
+    }
+);
+
+/*
+==============================
+Authentication ROUTES
+==============================
+*/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/registration',
+        'namespace' => 'Front',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+
+        Route::get('/company', [RegistrationController::class, 'companyRegister'])->name('front.company.register');
+
+        Route::post('/company/store', [RegistrationController::class, 'StoreCompanyRegister'])->name('front.company.store');
+    }
 );

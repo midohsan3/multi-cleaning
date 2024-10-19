@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('country_id')->nullable()->constrained('countries')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('activity_id')->nullable()->constrained('activities')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('package_id')->nullable()->constrained('packages')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('url')->nullable()->unique();
             $table->string('name_en')->nullable();

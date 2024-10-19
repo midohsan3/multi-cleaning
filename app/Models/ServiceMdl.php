@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\CompanyMdl;
 use App\Models\ActivityMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
@@ -37,6 +38,14 @@ class ServiceMdl extends Model
     */
     public function activities_service(){
         return $this->belongsToMany(ActivityMdl::class,'activity_has-services','service_id','activity_id');
+    }
+    /*
+    =========================
+    = COMPANIES
+    =========================
+    */
+    public function companies_service(){
+        return $this->belongsToMany(CompanyMdl::class,'companies_has_services','service_id','company_id');
     }
     /*
     =========================
