@@ -5,15 +5,17 @@ return [
   = SIDEBAR
   ========================
   */
-  'Full Dashboard'  => 'Full Dashboard',
-  'Dashboard'       => 'Dashboard',
-  'Dashboards'      => 'Dashboards',
-  'System Features' => 'System Features',
-  'User Manage'     => 'User Manage',
-  'Packages-Manage' => 'Packages-Manage',
-  'Services-Manage' => 'Services-Manage',
-  'System Helpers'  => 'System Helpers',
-  'Logout'          =>'Logout',
+  'Full Dashboard'    => 'Full Dashboard',
+  'Dashboard'         => 'Dashboard',
+  'Dashboards'        => 'Dashboards',
+  'System Features'   => 'System Features',
+  'User Manage'       => 'User Manage',
+  'Packages-Manage'   => 'Packages-Manage',
+  'Services-Manage'   => 'Services-Manage',
+  'System Helpers'    => 'System Helpers',
+  'My Services'       =>'My Services',
+  'My Services Price' =>'My Services Price',
+  'Logout'            =>'Logout',
   /*
   ========================
   =GENERAL
@@ -132,6 +134,7 @@ return [
   'Choose Your Services' =>'Choose Your Services',
   'Select The Services Your Can Provide.' =>'Select The Services Your Can Provide.',
   'This will help clients to choose you.' =>'This will help clients to choose you.',
+  'Services Related To Your Activity' =>'Services Related To Your Activity',
   /*
   ========================
   =

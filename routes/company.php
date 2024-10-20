@@ -1,12 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\ActivityController;
-use App\Http\Controllers\Admin\CompanyController;
-use App\Http\Controllers\Admin\CountryController;
-use App\Http\Controllers\Admin\FeatureController;
-use App\Http\Controllers\Admin\NationalityController;
-use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Company\CDashboardController;
 use App\Http\Controllers\Company\CServiceController;
 use Illuminate\Support\Facades\Auth;
@@ -66,5 +59,15 @@ Route::group(
     function () {
 
         Route::get('/', [CServiceController::class, 'index'])->name('company.service.index');
+
+        Route::post('/update', [CServiceController::class, 'update'])->name('company.service.update');
+
+        Route::post('/update', [CServiceController::class, 'update'])->name('company.service.update');
+
+        Route::get('/prices', [CServiceController::class, 'prices'])->name('company.service.prices');
+
+        Route::get('/prices/edit_{service}', [CServiceController::class, 'edit'])->name('company.service.prices.edit');
+
+        Route::post('/prices/update', [CServiceController::class, 'updatePrice'])->name('company.service.prices.update');
     }
 );

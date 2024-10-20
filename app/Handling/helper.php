@@ -13,7 +13,12 @@ function current_country()
 {
   //$ip = Request()->ip();
   //return Location::get();
+  try {
   return Str::lower(Location::get()->countryCode);
+  } catch (\Throwable $th) {
+  return 'us';
+  }
+
 }
 /*
 ============================

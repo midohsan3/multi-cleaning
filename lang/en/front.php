@@ -5,7 +5,7 @@ return [
   'Company'              => 'Company',
   'Company Name'         => 'Company Name',
   'Owner Name'           => 'Owner Name',
-  'Choose Country...'    => 'Choose Country...',
+  'Country'              => 'Country',
   'Email Address'        => 'Email Address',
   'Password'             => 'Password',
   'Confirm Password'     => 'Confirm Password',

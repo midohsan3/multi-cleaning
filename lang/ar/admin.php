@@ -5,15 +5,17 @@ return [
   = SIDEBAR
   ========================
   */
-  'Full Dashboard'  => 'لوحة تحكم الإدارة',
-  'Dashboard'       => 'لوحة التحكم',
-  'Dashboards'      => 'لوحات التحكم',
-  'System Features' => 'خصائص النظام',
-  'User Manage'     => 'إدارة المستخدمين',
-  'Packages-Manage' => 'إدارة الباقات',
-  'Services-Manage' => 'إدارة الخدمات',
-  'System Helpers'  => 'مساعدات النظام',
-  'Logout'          =>'خروج',
+  'Full Dashboard'    => 'لوحة تحكم الإدارة',
+  'Dashboard'         => 'لوحة التحكم',
+  'Dashboards'        => 'لوحات التحكم',
+  'System Features'   => 'خصائص النظام',
+  'User Manage'       => 'إدارة المستخدمين',
+  'Packages-Manage'   => 'إدارة الباقات',
+  'Services-Manage'   => 'إدارة الخدمات',
+  'System Helpers'    => 'مساعدات النظام',
+  'My Services'       =>'خدماتي',
+  'My Services Price' =>'اسعار خدماتي',
+  'Logout'            =>'خروج',
   /*
   ========================
   =GENERAL
@@ -114,7 +116,7 @@ return [
   'Error'                              =>'خطأ',
   'Record Added Successfully.'         =>'تم اضافة السجل بنجاح',
   'Record Updated Successfully.'       =>'تم تحديث السجل بنجاح',
-  'We Cant Complete Your request now!' =>'لا يممكنا اتمام طلبك حاليا',
+  'We Cant Complete Your request now!' =>'لا يمكن اتمام طلبك حاليا',
   'Please Add Active Features First!'  =>'من فضلك اضف انشطة اولا',
   /*
   ========================
@@ -132,6 +134,7 @@ return [
   'Choose Your Services' =>'اختر خدماتك',
   'Select The Services Your Can Provide.' =>'اختر الخدمات التي يمكن ان تقدمها.',
   'This will help clients to choose you.' =>'هذا يساعد العملاء على اختيارك',
+  'Services Related To Your Activity' =>'الخدمات المرتبطة بنشاطك',
   /*
   ========================
   =

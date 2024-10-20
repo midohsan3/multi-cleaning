@@ -26,11 +26,7 @@ class RegistrationController extends Controller
     public function companyRegister()
     {
         try {
-            if (App::getLocale() == 'ar') {
-                $countries = CountryMdl::select('id','name_ar')->where('status', 1)->orderBy('name_ar', 'asc')->get();
-            }else{
-                $countries = CountryMdl::select('id','name_en')->where('status', 1)->orderBy('name_en', 'asc')->get();
-            }
+            $countries = CountryMdl::select('id','phone_code')->where('status', 1)->orderBy('phone_code', 'asc')->get();
         } catch (\Throwable $th) {
             return 404;
         }

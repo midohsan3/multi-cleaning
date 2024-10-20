@@ -43,11 +43,19 @@
                     <div class="card-inner">
                         <div class="nk-block">
                             <div class="nk-block-head">
-                                <h5 class="title">{{__('admin.Services')}}</h5>
+                                <h5 class="title">{{__('admin.Services Related To Your Activity')}} /
+                                    @if (App::getLocale()=='ar')
+                                    {{
+                                    Auth::user()->company_user->activity_company->name_ar }}
+                                    @else
+                                    {{
+                                    Auth::user()->company_user->activity_company->name_en }}
+                                    @endif
+                                </h5>
                                 <p{{ __('admin.This will help clients to choose you.') }}</p>
                             </div>{{-- .nk-block-head --}}
 
-                            <form action="=========" method="POST">
+                            <form action="{{ route('company.service.update') }}" method="POST">
                                 @csrf
                                 <input hidden name="company" value="{{ Auth::user()->company_user->id }}" />
                                 <div class="card-inner">
@@ -99,6 +107,7 @@
             </div>{{-- .card-aside-wrap --}}
         </div>{{-- .card --}}
     </div>{{-- .nk-block --}}
+</div>
 </div>
 
 @endsection

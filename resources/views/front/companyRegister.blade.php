@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js" @if (App::getLocale()=='ar' ) dir="rtl" @else
-    dir="ltr" @endif>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js" @if (App::getLocale()=='ar' ) dir="rtl" @else dir="ltr" @endif>
 
 <head>
     <meta charset="utf-8">
@@ -39,8 +38,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                        <input type="text" class="form-control" name="companyName"
-                                            placeholder="{{ __('front.Company Name') }}"
+                                        <input type="text" class="form-control" name="companyName" placeholder="{{ __('front.Company Name') }}"
                                             value="{{ old('companyName') }}" required="required" autofocus />
                                         <i class="fal fa-building"></i>
                                     </div>
@@ -50,43 +48,31 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                        <input type="text" class="form-control" name="ownerName"
-                                            placeholder="{{ __('front.Owner Name') }}" value="{{ old('ownerName') }}"
-                                            required="required" />
+                                        <input type="text" class="form-control" name="ownerName" placeholder="{{ __('front.Owner Name') }}"
+                                            value="{{ old('ownerName') }}" required="required" />
                                         <i class="fas fa-user"></i>
                                     </div>
                                     @error('ownerName')
                                     <span class="bg-danger text-white" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                    <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                        <select class="form-select form-control" name="country" required="required">
-                                            <option value="{{ old('country') }}" selected disabled>{{ __('front.Choose
-                                                Country...') }}{{ old('country') }}</option>
+                                <div class="form-group ">
+                                    <div class="fxt-transformY-50 fxt-transition-delay-1 form-inline">
+                                        <select class="form-control w-25" name="country" required="required">
+                                            <option value="{{ old('country') }}" selected disabled>{{ __('front.Country') }}</option>
                                             @if ($countries->count()>0)
-
                                             @foreach ($countries as $country)
-                                            <option value="{{ $country->id }}">
-                                                @if (App::getLocale()=='ar')
-                                                {{ $country->name_ar }}
-                                                @else
-                                                {{ $country->name_en }}
-                                                @endif
+                                            <option value="{{ $country->id }}" dir="ltr">
+                                                +{{ $country->phone_code }}
                                             </option>
                                             @endforeach
                                             @endif
                                         </select>
-                                    </div>
-                                    @error('country')
-                                    <span class="bg-danger text-white" role="alert">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                        <input type="text" class="form-control" name="phone"
-                                            placeholder="{{ __('front.Your Phone') }} " value="{{ old('phone') }}"
-                                            required="required" />
+                                        @error('country')
+                                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
+                                        @enderror
+                                        <input type="text" class="form-control w-75" name="phone" placeholder="{{ __('front.Your Phone') }} "
+                                            value="{{ old('phone') }}" required="required" />
                                         <i class="far fa-mobile-alt"></i>
                                     </div>
                                     @error('phone')
@@ -95,9 +81,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                        <input type="email" class="form-control" name="email"
-                                            placeholder="{{ __('front.Email Address') }}" value="{{ old('email') }}"
-                                            required="required">
+                                        <input type="email" class="form-control" name="email" placeholder="{{ __('front.Email Address') }}"
+                                            value="{{ old('email') }}" required="required">
                                         <i class="flaticon-envelope"></i>
                                     </div>
                                     @error('email')
@@ -106,8 +91,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <input type="password" class="form-control" name="password"
-                                            placeholder="{{ __('front.Password') }}" required="required">
+                                        <input type="password" class="form-control" name="password" placeholder="{{ __('front.Password') }}"
+                                            required="required">
                                         <i class="flaticon-padlock"></i>
                                     </div>
                                     @error('password')
@@ -127,8 +112,7 @@
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">
                                         <select class="form-select form-control" name="activity" required="required">
-                                            <option value="{{ old('activity') }}" selected disabled>{{ __('front.Choose
-                                                Activity...') }}</option>
+                                            <option value="{{ old('activity') }}" selected disabled>{{ __('front.Choose Activity...') }}</option>
                                             @if ($activities->count()>0)
 
                                             @foreach ($activities as $activity)
@@ -162,20 +146,16 @@
                         <div class="fxt-footer">
                             <ul class="fxt-socials">
                                 <li class="fxt-facebook fxt-transformY-50 fxt-transition-delay-4">
-                                    <a href="https://www.facebook.com/smartssolutionsystems" title="Facebook"><i
-                                            class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/smartssolutionsystems" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li class="fxt-twitter fxt-transformY-50 fxt-transition-delay-5">
-                                    <a href="https://x.com/En_Mohameed" title="twitter"><i
-                                            class="fab fa-twitter"></i></a>
+                                    <a href="https://x.com/En_Mohameed" title="twitter"><i class="fab fa-twitter"></i></a>
                                 </li>
                                 <li class="fxt-linkedin fxt-transformY-50 fxt-transition-delay-7">
-                                    <a href="https://www.linkedin.com/company/88389984" title="linkedin"><i
-                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://www.linkedin.com/company/88389984" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
                                 </li>
                                 <li class="fxt-pinterest fxt-transformY-50 fxt-transition-delay-8">
-                                    <a href="https://www.instagram.com/midohsan3/" title="instagram"><i
-                                            class="fab fa-instagram"></i></a>
+                                    <a href="https://www.instagram.com/midohsan3/" title="instagram"><i class="fab fa-instagram"></i></a>
                                 </li>
                             </ul>
                         </div>

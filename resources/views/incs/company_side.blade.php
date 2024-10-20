@@ -1,9 +1,17 @@
 <div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="html/index.html" class="logo-link nk-sidebar-logo">
+            <a href="{{ route('front.main') }}" class="logo-link nk-sidebar-logo">
+                @if (@empty(Auth::user()->profile_pic))
                 <img class="logo-light logo-img" src="{{ url('imgs/logo.jpg') }}" srcset="{{ url('imgs/logo.jpg') }} 2x" alt="Smart-Solutions">
                 <img class="logo-dark logo-img" src="{{ url('imgs/logo.jpg') }}" srcset="{{ url('imgs/logo.jpg') }} 2x" alt="Smart-Solutions">
+                @else
+                <img class="logo-light logo-img" src="{{ url('storage/app/public/imgs/users').'/'.Auth::user()->profile_pic }}"
+                    srcset="{{ url('storage/app/public/imgs/users').'/'.Auth::user()->profile_pic }} 2x" alt="Smart-Solutions">
+                <img class="logo-dark logo-img" src="{{ url('storage/app/public/imgs/users').'/'.Auth::user()->profile_pic }}"
+                    srcset="{{ url('storage/app/public/imgs/users').'/'.Auth::user()->profile_pic }} 2x" alt="Smart-Solutions">
+                @endif
+
             </a>
         </div>
         <div class="nk-menu-trigger mr-n2">
@@ -23,7 +31,7 @@
                         </li>{{-- .nk-menu-item --}}
 
                         <li class="nk-menu-item">
-                            <a href="html/crypto/index.html" class="nk-menu-link" target="_blank">
+                            <a href="{{ route('front.main') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><em class="icon ni ni-sign-btc-alt"></em></span>
                                 <span class="nk-menu-text">{{ __('admin.Dashboard') }}</span>
                             </a>
@@ -36,10 +44,17 @@
                         <li class="nk-menu-item">
                             <a href="{{ route('company.service.index') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><i class="icon fal fa-sleigh"></i></span>
-                                <span class="nk-menu-text">{{ __('admin.Services') }}</span>
+                                <span class="nk-menu-text">{{ __('admin.My Services') }}</span>
                             </a>
                         </li>{{-- .nk-menu-item --}}
 
+                        <li class="nk-menu-item">
+                            <a href="{{ route('company.service.prices') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><i class="icon fal fa-dollar-sign"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.My Services Price') }}</span>
+                            </a>
+                        </li>{{-- .nk-menu-item --}}
+                        {{--
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
                                 <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
@@ -51,7 +66,7 @@
                                             __('admin.Companies') }}</span></a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->
-                        </li>{{-- .nk-menu-item --}}
+                        </li>
 
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -70,12 +85,13 @@
                                     </a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->
-                        </li>{{-- .nk-menu-item --}}
-
+                        </li>
+                        --}}
                         <li class="nk-menu-heading">
                             <h6 class="overline-title text-primary-alt">{{ __('admin.System Helpers') }}</h6>
                         </li>{{-- .nk-menu-heading --}}
 
+                        {{--
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
                                 <span class="nk-menu-icon"><i class="icon fal fa-sleigh"></i></span>
@@ -93,8 +109,8 @@
                                     </a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->
-                        </li>{{-- .nk-menu-item --}}
-
+                        </li>
+                        --}}
                     </ul>{{-- .nk-menu --}}
 
                 </div>{{-- .nk-sidebar-menu --}}

@@ -5,7 +5,7 @@ return [
   'Company'              => 'شركة',
   'Company Name'         => 'اسم الشركة',
   'Owner Name'           => 'اسم المالك',
-  'Choose Country...'    => 'اختر الدولة',
+  'Country'              => 'البلد',
   'Email Address'        => 'البريد الإلكتروني',
   'Password'             => 'كلمة المرور',
   'Confirm Password'     => 'تأكيد كلمة المرور',
