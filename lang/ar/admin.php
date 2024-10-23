@@ -13,6 +13,8 @@ return [
   'Packages-Manage'   => 'إدارة الباقات',
   'Services-Manage'   => 'إدارة الخدمات',
   'System Helpers'    => 'مساعدات النظام',
+  'My Profile'        =>'بياناتي',
+  'Recommended Jobs'  =>'وظائف مقترحه',
   'My Services'       =>'خدماتي',
   'My Services Price' =>'اسعار خدماتي',
   'Logout'            =>'خروج',
@@ -47,6 +49,24 @@ return [
   'View Details'           =>'عرض التفاصيل',
   'Last Update'            =>'اخر تحديث',
   'Main Information'       =>'البيانات الاساسية',
+  /*
+  ========================
+  = PERSON PROFILE
+  ========================
+  */
+  'Profile'      =>'الملف الشخصي',
+  'Profile Photo'=>'صورة البروفايل',
+  'Complete All Information That Help System To Recommended You For More Companies.'=>
+  'استكمل بياناتك حتى يمكننا ترشيحك لشركات اكثر',
+  'Choose...'  =>'اختر',
+  'Gender'     =>'النوع',
+  'Male'       =>'ذكر',
+  'Female'     =>'انثى',
+  'Birth Date' =>'تاريخ الميلاد',
+  'Which Country You Want Your CV Appear' =>'بأي دولة تريد سيرتك الذاتية تظهر للشركات',
+  'Your Specialist' =>'تخصصك',
+   'Country Of Residence' =>'دولة الاقامة',
+  'Your CV'    =>'سيرتك الذاتية',
   /*
   ========================
   = COMPANIES
@@ -109,7 +129,9 @@ return [
   'Field Is Required.'            =>'هذا الحقل مطلوب',
   'Format Not Matching.'          =>'التنسيق غير مطابق',
   'This Value Is Already Exists.' =>'هذه القيمة مدخلة مسبقا',
+  'This Value Is Not Exists.'     =>'هذه القيمة مدخلة غير موجودة',
   'This Value Is Too Long'        =>'هذه القيمة طويلة جدا',
+  'This Value Is Too Short'       =>'هذه القيمة قصيره جدا',
   'File Not Allowed.'             =>'نوع الملف غير مسموح به',
 
   'Success'                            =>'نجاح',

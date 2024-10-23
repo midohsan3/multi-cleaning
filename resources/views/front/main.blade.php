@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html @if (App::getLocale()=='ar' ) dir="rtl" @else dir="ltr" @endif
-    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html @if (App::getLocale()=='ar' ) dir="rtl" @else dir="ltr" @endif lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
 
@@ -55,8 +54,7 @@
         @include('incs.frontNave')
 
         {{-- Slider--}}
-        <section id="slider" class="slider-element swiper_wrapper min-vh-60 min-vh-md-100 include-header"
-            data-loop="true">
+        <section id="slider" class="slider-element swiper_wrapper min-vh-60 min-vh-md-100 include-header" data-loop="true">
 
             <div class="slider-inner">
                 <div class="swiper-container swiper-parent">
@@ -65,49 +63,83 @@
                             <div class="container">
                                 <div class="slider-caption slider-caption-center">
                                     <div>
-                                        <h2 class="font-primary text-transform-none">Creative Work.</h2>
-                                        <p class="fw-light font-primary d-none d-sm-block">Quickly communicate
-                                            bleeding-edge best practices.</p>
-                                        <a href="#"
-                                            class="button button-rounded button-large text-transform-none ls-0 font-primary">Get
-                                            Started</a>
+                                        <h2 class="font-primary text-transform-none text-dark">
+                                            @if (App::getLocale()=='ar')
+                                            خدمات نظافة المنازل
+                                            @else
+                                            Home Cleaning Services
+                                            @endif
+                                        </h2>
+                                        <p class="fw-light font-primary d-none d-sm-block">
+                                            @if (App::getLocale()=='ar')
+                                            اذا كنت شركة او كنت تبحث عن ما يخص شركات النظافة فانت في المكان المناسب
+                                            @else
+                                            If you are a company or you are looking for any related to cleaning costs and use in the right place
+                                            @endif
+                                        </p>
+                                        <a href="#chooseCountry" class="button button-rounded button-large text-transform-none ls-0 font-primary">
+                                            @if (App::getLocale()=='ar')
+                                            ابدا الان
+                                            @else
+                                            Start Now
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide-bg"
-                                style="background-image: url('{{ asset('imgs/slider-1.jpg') }}');"></div>
+                            <div class="swiper-slide-bg" style="background-image: url('{{ asset('imgs/slider-1.jpg') }}');"></div>
                         </div>
+
                         <div class="swiper-slide dark">
                             <div class="container">
                                 <div class="slider-caption slider-caption-center">
                                     <div>
-                                        <h2 class="font-primary">Amazing Prospects.</h2>
+                                        <h2 class="font-primary ">
+                                            @if (App::getLocale()=='ar')
+                                            خدمات الصيانة
+                                            @else
+                                            Maintenance Services
+                                            @endif
+                                        </h2>
                                         <p class="fw-light font-primary d-none d-sm-block">Seamlessly engineer effective
                                             synergy after e-business experiences.</p>
-                                        <a href="#"
-                                            class="button button-rounded button-large text-transform-none ls-0 font-primary">Get
-                                            Started</a>
+                                        <a href="#chooseCountry" class="button button-rounded button-large text-transform-none ls-0 font-primary">
+                                            @if (App::getLocale()=='ar')
+                                            ابدا لان
+                                            @else
+                                            Get Started
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide-bg"
-                                style="background-image: url('{{ asset('imgs/slider-2.jpg') }}');"></div>
+                            <div class="swiper-slide-bg" style="background-image: url('{{ asset('imgs/slider-2.jpg') }}');"></div>
                         </div>
+
                         <div class="swiper-slide dark">
                             <div class="container">
                                 <div class="slider-caption slider-caption-center">
                                     <div>
-                                        <h2 class="font-primary">Flexible Works.</h2>
+                                        <h2 class="font-primary">
+                                            @if (App::getLocale()=='ar')
+                                            تنظيف مباني
+                                            @else
+                                            Building Cleaning
+                                            @endif
+                                        </h2>
                                         <p class="fw-light font-primary d-none d-sm-block">Completely incubate worldwide
                                             users before imperatives.</p>
-                                        <a href="#"
-                                            class="button button-rounded button-large text-transform-none ls-0 font-primary">Get
-                                            Started</a>
+                                        <a href="#chooseCountry" class="button button-rounded button-large text-transform-none ls-0 font-primary">
+                                            @if (App::getLocale()=='ar')
+                                            ابدا لان
+                                            @else
+                                            Get Started
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide-bg"
-                                style="background-image: url('{{ asset('imgs/slider-3.jpg') }}');"></div>
+                            <div class="swiper-slide-bg" style="background-image: url('{{ asset('imgs/slider-3.jpg') }}');"></div>
                         </div>
                     </div>
                     {{-- Slider Arrows--}}
@@ -116,8 +148,8 @@
                 </div>
 
                 {{-- Slider Mouse Icon--}}
-                <a href="#" data-scrollto="#content" data-offset="0" class="dark one-page-arrow"><img
-                        class="infinite animated fadeInDown" src="{{ url('imgs/mouse.svg') }}" alt="Image"></a>
+                <a href="#" data-scrollto="#content" data-offset="0" class="dark one-page-arrow"><img class="infinite animated fadeInDown"
+                        src="{{ url('imgs/mouse.svg') }}" alt="Image"></a>
             </div>
 
         </section>
@@ -133,10 +165,9 @@
                     <div class="heading-block text-center border-0" data-heading="S">
                         <h3>Select Country</h3>
                     </div>
-                    <div class="row">
+                    <div class="row" id="chooseCountry">
                         <div class="text-center col-lg-8 offset-lg-2 mb-5">
-                            <h3 class="text-rotater font-secondary" data-separator="," data-rotate="fadeInRight"
-                                data-speed="3500">
+                            <h3 class="text-rotater font-secondary" data-separator="," data-rotate="fadeInRight" data-speed="3500">
                             </h3>
                         </div>
 
@@ -149,8 +180,7 @@
                             <div class="col-lg-3">
                                 <div class="feature-box media-box fbox-bg">
                                     <div class="fbox-media">
-                                        <a href="#"><img src="{{ url('imgs').'/'.$country->flag }}" class="h-100"
-                                                alt="{{ $country->name_en }}"></a>
+                                        <a href="#"><img src="{{ url('imgs').'/'.$country->flag }}" class="h-100" alt="{{ $country->name_en }}"></a>
                                     </div>
                                     <div class="fbox-content fbox-content-lg">
                                         <h3 class="text-transform-none ls-0 fw-semibold">
@@ -183,8 +213,7 @@
                 </div>
 
                 {{-- About Us--}}
-                <div class="section p-0 mt-5 bg-transparent "
-                    style="border-top: 1px solid #EEE; border-bottom: 1px solid #EEE;">
+                <div class="section p-0 mt-5 bg-transparent " style="border-top: 1px solid #EEE; border-bottom: 1px solid #EEE;">
                     <div class="row align-items-stretch">
                         <div class="col-lg-6 text-center col-padding"
                             style="background: url('{{ url('imgs/about.jpg') }}') center center no-repeat; background-size: cover;">
@@ -301,10 +330,8 @@
                         </div>
                     </div>
 
-                    <!-- How We Work - Carousel
-					============================================= -->
-                    <div id="oc-features"
-                        class="owl-carousel owl-carousel-full image-carousel carousel-widget customjs">
+                    {{-- How We Work - Carousel--}}
+                    <div id="oc-features" class="owl-carousel owl-carousel-full image-carousel carousel-widget customjs">
                         <div class="oc-item">
                             <div class="row cleafix">
                                 <div class="col-xl-8">

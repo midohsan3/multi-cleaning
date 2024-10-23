@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js" @if (App::getLocale()=='ar' ) dir="rtl" @else
-    dir="ltr" @endif>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js" @if (App::getLocale()=='ar' ) dir="rtl" @else dir="ltr" @endif>
 
 <head>
     <base href="../">
@@ -25,20 +24,21 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/dashlite.css?ver=2.4.0') }}">
     @endif
 
-    <link id="skin-default" rel="stylesheet" href="{{ asset('admin/assets/css/theme.css?ver=2.4.0') }}">
-    @include('sweetalert::alert')
-
+    <link href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
     @yield('page-styels')
 </head>
 
-<body class="nk-body bg-white has-sidebar ">
-    <div class="nk-app-root">
+<body class=" nk-body bg-white has-sidebar ">
+    <div class=" nk-app-root">
         {{-- main @s --}}
         <div class="nk-main ">
             {{-- sidebar @s --}}
 
             @if (Auth::user()->role_name=='Company')
             @include('incs.company_side')
+            @elseif (Auth::user()->role_name=='Person')
+            @include('incs.person_side')
             @else
             @include('incs.admin_side')
             @endif
@@ -65,8 +65,8 @@
                 <div class="nk-footer">
                     <div class="container-fluid">
                         <div class="nk-footer-wrap">
-                            <div class="nk-footer-copyright"> &copy; 2024 <a href="https://smart-solutions.live/"
-                                    target="_blank">Smart-Solutions Systems</a>
+                            <div class="nk-footer-copyright"> &copy; 2024 <a href="https://smart-solutions.live/" target="_blank">Smart-Solutions
+                                    Systems</a>
                             </div>
                             <div class="nk-footer-links">
                                 <ul class="nav nav-sm">
@@ -86,9 +86,12 @@
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
-    <script src="{{ asset('admin/assets/js/bundle.js?ver=2.4.0') }}"></script>
+    <script src="{{ asset('admin/assets/js/bundle.js?ver=2.4.0') }}">
+    </script>
     <script src="{{ asset('admin/assets/js/scripts.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('admin/assets/js/charts/gd-default.js?ver=2.4.0') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @include('sweetalert::alert')
     @yield('page-scripts')
 </body>
 

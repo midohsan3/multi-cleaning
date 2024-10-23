@@ -9,13 +9,12 @@
             <form id="login-form" name="login-form" class="mb-0 row" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="col-12">
-                    <input type="email" id="login-form-username" name="email" value="{{ old('email') }}"
-                        class="form-control not-dark" placeholder="Your E-mail Here" />
+                    <input type="email" id="login-form-username" name="email" value="{{ old('email') }}" class="form-control not-dark"
+                        placeholder="Your E-mail Here" />
                 </div>
 
                 <div class="col-12 mt-4">
-                    <input type="password" id="login-form-password" name="password" class="form-control not-dark"
-                        placeholder="Password" />
+                    <input type="password" id="login-form-password" name="password" class="form-control not-dark" placeholder="Password" />
                 </div>
 
                 <div class="col-12 text-end">
@@ -23,8 +22,7 @@
                 </div>
 
                 <div class="col-12 mt-4">
-                    <button type="submit" class="button w-100 m-0" id="login-form-submit" name="login-form-submit"
-                        value="login">Login</button>
+                    <button type="submit" class="button w-100 m-0" id="login-form-submit" name="login-form-submit" value="login">Login</button>
                 </div>
             </form>
         </div>
@@ -50,7 +48,7 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a href="=======" class="col-lg btn btn-lg btn-primary w-100">{{
+                    <a href="{{ route('front.person.register') }}" class="col-lg btn btn-lg btn-primary w-100">{{
                         __('front.Personal') }}
                     </a>
                 </div>
@@ -70,13 +68,11 @@
         <div class="row justify-content-between align-items-center" dir="ltr">
             <div class="d-flex col d-lg-none">
                 @if (App::getLocale()=='ar')
-                <a class="text-white" rel="alternate" hreflang="English"
-                    href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
+                <a class="text-white" rel="alternate" hreflang="English" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
                     English
                 </a>
                 @else
-                <a class="text-white" rel="alternate" hreflang="العربية"
-                    href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
+                <a class="text-white" rel="alternate" hreflang="العربية" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
                     العربية
                 </a>
                 @endif
@@ -108,15 +104,13 @@
                             <ul class="top-links-sub-menu">
                                 @if (App::getLocale()=='ar')
                                 <li class="top-links-item">
-                                    <a rel="alternate" hreflang="English"
-                                        href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
+                                    <a rel="alternate" hreflang="English" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
                                         En
                                     </a>
                                 </li>
                                 @else
                                 <li class="top-links-item">
-                                    <a rel="alternate" hreflang="العربية"
-                                        href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
+                                    <a rel="alternate" hreflang="العربية" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
 
                                         عربي
 
@@ -130,19 +124,18 @@
 
                 {{-- Top Social --}}
                 <ul id="top-social">
-                    <li><a href="========" class="h-bg-facebook"><span class="ts-icon"><i
-                                    class="fa-brands fa-facebook-f"></i></span><span class="ts-text">Facebook</span></a>
+                    <li><a href="========" class="h-bg-facebook"><span class="ts-icon"><i class="fa-brands fa-facebook-f"></i></span><span
+                                class="ts-text">Facebook</span></a>
                     </li>
-                    <li><a href="===========" class="h-bg-instagram"><span class="ts-icon"><i
-                                    class="fa-brands fa-instagram"></i></span><span class="ts-text">Instagram</span></a>
+                    <li><a href="===========" class="h-bg-instagram"><span class="ts-icon"><i class="fa-brands fa-instagram"></i></span><span
+                                class="ts-text">Instagram</span></a>
                     </li>
-                    <li><a href="tel:+971502516985" class="h-bg-call"><span class="ts-icon"><i
-                                    class="fa-solid fa-phone"></i></span><span class="ts-text">+97150 251
-                                6985</span></a>
-                    </li>
+                    <li><a href="tel:+971502516985" class="h-bg-call">
+                            <span class="ts-icon"><i class="fa-solid fa-phone"></i></span>
+                            <span class="ts-text">+97150 251 6985</span>
+                        </a></li>
                     <li><a href="mailto:info@smart-solutions.live" class="h-bg-email3"><span class="ts-icon"><i
-                                    class="bi-envelope-fill"></i></span><span
-                                class="ts-text">info@smart-solutions.live</span></a></li>
+                                    class="bi-envelope-fill"></i></span><span class="ts-text">info@smart-solutions.live</span></a></li>
                 </ul><!-- #top-social end -->
 
             </div>
@@ -159,8 +152,7 @@
                 {{-- Logo--}}
                 <div id="logo" class="me-lg-4 me-sm-2">
                     <a href="{{ route('front.main') }}">
-                        <img class="logo-default" srcset="{{ url('imgs/logo.jpg') }}" src="{{ url('imgs/logo.jpg') }}"
-                            alt="Smart-Cleaning" />
+                        <img class="logo-default" srcset="{{ url('imgs/logo.jpg') }}" src="{{ url('imgs/logo.jpg') }}" alt="Smart-Cleaning" />
                     </a>
                 </div><!-- #logo end -->
 
@@ -186,7 +178,7 @@
                         <a href="{{ route('home') }}">
                             <i class="bi-person me-1 position-relative" style="top: 1px;"></i>
                             <span class="d-none d-sm-inline-block d-lg-inline-block font-primary fw-medium">{{
-                                __('general.Dashboard') }}</span>
+                                __('front.Dashboard') }}</span>
                         </a>
                         @endauth
                     </div><!-- #top-search end -->
@@ -207,7 +199,7 @@
 
                 {{-- Primary Navigation--}}
                 <nav class="primary-menu style-3 menu-spacing-margin">
-
+                    {{--
                     <ul class="menu-container">
                         <li class="menu-item">
                             <a class="menu-link" href="{{ route('front.main') }}">
@@ -238,16 +230,16 @@
                                 <div>{{ __('front.CVs') }}</div>
                             </a>
                         </li>
-                    </ul>
 
+                    </ul>
+                    --}}
                 </nav>
 
                 {{-- #primary-menu end --}}
 
                 <form class="top-search-form" action="========" method="POST">
                     @csrf
-                    <input type="text" name="search_obj" class="form-control" placeholder="Type &amp; Hit Enter.."
-                        autocomplete="off" />
+                    <input type="text" name="search_obj" class="form-control" placeholder="Type &amp; Hit Enter.." autocomplete="off" />
                 </form>
 
 

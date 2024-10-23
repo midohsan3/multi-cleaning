@@ -13,6 +13,8 @@ return [
   'Packages-Manage'   => 'Packages-Manage',
   'Services-Manage'   => 'Services-Manage',
   'System Helpers'    => 'System Helpers',
+  'My Profile'        =>'My Profile',
+  'Recommended Jobs'  =>'Recommended Jobs',
   'My Services'       =>'My Services',
   'My Services Price' =>'My Services Price',
   'Logout'            =>'Logout',
@@ -109,7 +111,9 @@ return [
   'Field Is Required.'            =>'Field Is Required.',
   'Format Not Matching.'          =>'Format Not Matching.',
   'This Value Is Already Exists.' =>'This Value Is Already Exists.',
+  'This Value Is Not Exists.'     =>'This Value Is Not Exists.',
   'This Value Is Too Long'        =>'This Value Is Too Long',
+  'This Value Is Too Short'        =>'This Value Is Too Short',
   'File Not Allowed.'             =>'File Not Allowed.',
 
   'Success'                            =>'Success',
@@ -118,6 +122,24 @@ return [
   'Record Updated Successfully.'       =>'Record Updated Successfully.',
   'We Cant Complete Your request now!' =>'We Cant Complete Your request now!',
   'Please Add Active Features First!'  =>'Please Add Active Features First!',
+  /*
+  ========================
+  = PERSON PROFILE
+  ========================
+  */
+  'Profile'      =>'Profile',
+  'Profile Photo'=>'Profile Photo',
+  'Complete All Information That Help System To Recommended You For More Companies.'=>
+  'Complete All Information That Help System To Recommended You For More Companies.',
+  'Choose...'  =>'Choose...',
+  'Gender'     =>'Gender'     ,
+  'Male'       =>'Male'     ,
+  'Female'     =>'Female'     ,
+  'Birth Date' =>'Birth Date'     ,
+  'Which Country You Want Your CV Appear' =>'Which Country You Want Your CV Appear',
+  'Your Specialist' =>'Your Specialist',
+  'Country Of Residence' =>'Country Of Residence',
+  'Your CV'         =>'Your CV',
   /*
   ========================
   = COMPANY PROFILE

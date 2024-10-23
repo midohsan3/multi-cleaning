@@ -85,5 +85,9 @@ Route::group(
         Route::get('/company', [RegistrationController::class, 'companyRegister'])->name('front.company.register');
 
         Route::post('/company/store', [RegistrationController::class, 'StoreCompanyRegister'])->name('front.company.store');
+
+        Route::get('/personal', [RegistrationController::class, 'personRegister'])->name('front.person.register');
+
+        Route::post('/personal/store', [RegistrationController::class, 'storePersonRegister'])->name('front.person.store');
     }
 );

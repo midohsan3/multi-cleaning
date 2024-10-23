@@ -1,10 +1,15 @@
 <?php
 return [
+  'Personal Account'     => 'حساب شخصي',
+  'If You Looking For work Register & Upload Your CV For Free.' =>
+  'اذا كنت تبحث عن عمل سجل وارفع سيرتك الذاتية مجانا',
   'Free Registration'    => 'تسجيل مجاني',
   'Choose Account Type'  => 'اختر نوع الحساب',
   'Company'              => 'شركة',
   'Company Name'         => 'اسم الشركة',
   'Owner Name'           => 'اسم المالك',
+  'Your Name'            => 'الاسم',
+  'Nationality'          => 'الجنسية',
   'Country'              => 'البلد',
   'Email Address'        => 'البريد الإلكتروني',
   'Password'             => 'كلمة المرور',
@@ -16,6 +21,7 @@ return [
   'Personal'             => 'شخصي',
   'Register'             => 'تسجيل حساب',
   'Login'                => 'دخول',
+  'Dashboard'            => 'لوحة التحكم',
   'Home'                 => 'الرئيسية',
   'Cleaning'             => 'نظافة',
   'Maintenance'          => 'صيانة',

@@ -1,16 +1,13 @@
 <div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="html/index.html" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="{{ url('imgs/logo.jpg') }}" srcset="{{ url('imgs/logo.jpg') }} 2x"
-                    alt="Smart-Solutions">
-                <img class="logo-dark logo-img" src="{{ url('imgs/logo.jpg') }}" srcset="{{ url('imgs/logo.jpg') }} 2x"
-                    alt="Smart-Solutions">
+            <a href="{{ route('front.main') }}" class="logo-link nk-sidebar-logo">
+                <img class="logo-light logo-img" src="{{ url('imgs/logo.jpg') }}" srcset="{{ url('imgs/logo.jpg') }} 2x" alt="Smart-Solutions">
+                <img class="logo-dark logo-img" src="{{ url('imgs/logo.jpg') }}" srcset="{{ url('imgs/logo.jpg') }} 2x" alt="Smart-Solutions">
             </a>
         </div>
         <div class="nk-menu-trigger mr-n2">
-            <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
-                    class="icon ni ni-arrow-left"></em></a>
+            <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
         </div>
     </div>{{-- .nk-sidebar-element --}}
 
@@ -52,8 +49,8 @@
                             </a>
                             <ul class="nk-menu-sub">
                                 <li class="nk-menu-item">
-                                    <a href="{{ route('admin.company.index') }}" class="nk-menu-link"><span
-                                            class="nk-menu-text">{{ __('admin.Companies') }}</span></a>
+                                    <a href="{{ route('admin.company.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Companies') }}</span></a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->
                         </li>{{-- .nk-menu-item --}}
@@ -135,14 +132,12 @@
 
                         <li class="nk-menu-item ml-auto">
                             @if (App::getLocale()=='ar')
-                            <a rel="alternate" hreflang="English"
-                                href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"
+                            <a rel="alternate" hreflang="English" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"
                                 class="nk-menu-link">
                                 <span class="nk-menu-text">English</span>
                             </a>
                             @else
-                            <a rel="alternate" hreflang="العربية"
-                                href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"
+                            <a rel="alternate" hreflang="العربية" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"
                                 class="nk-menu-link">
                                 <span class="nk-menu-text">العربية</span>
                             </a>

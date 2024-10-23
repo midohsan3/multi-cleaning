@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PersonMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -29,6 +30,14 @@ class NationalityMdl extends Model
     RELATIONS
     =========================
     */
+    /*
+    =========================
+    = PERSON
+    =========================
+    */
+    public function person_nationality(){
+        return $this->hasMany(PersonMdl::class, 'nationality_id');
+    }
     /*
     =========================
     =

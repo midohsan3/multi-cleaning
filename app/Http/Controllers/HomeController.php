@@ -28,6 +28,8 @@ class HomeController extends Controller
             return redirect()->route('admin.dashboard');
         } elseif(Auth::user()->role_name == 'Company') {
             return redirect()->route('company.dashboard');
+        }elseif(Auth::user()->role_name == 'Person') {
+            return redirect()->route('person.dashboard');
         }
     }
 }

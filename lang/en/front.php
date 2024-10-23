@@ -1,10 +1,15 @@
 <?php
 return [
+  'Personal Account'     => 'Personal Account',
+  'If You Looking For work Register & Upload Your CV For Free.' =>
+  'If You Looking For work Register & Upload Your CV For Free.',
   'Free Registration'    => 'Free Registration',
   'Choose Account Type'  => 'Choose Account Type',
   'Company'              => 'Company',
   'Company Name'         => 'Company Name',
   'Owner Name'           => 'Owner Name',
+  'Your Name'            => 'Your Name',
+  'Nationality'          => 'Nationality',
   'Country'              => 'Country',
   'Email Address'        => 'Email Address',
   'Password'             => 'Password',
@@ -16,6 +21,7 @@ return [
   'Personal'             => 'Personal',
   'Register'             => 'Register',
   'Login'                => 'Login',
+  'Dashboard'            => 'Dashboard',
   'Home'                 => 'Home',
   'Cleaning'             => 'Cleaning',
   'Maintenance'          => 'Maintenance',
