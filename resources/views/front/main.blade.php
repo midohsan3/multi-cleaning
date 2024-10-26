@@ -180,7 +180,8 @@
                             <div class="col-lg-3">
                                 <div class="feature-box media-box fbox-bg">
                                     <div class="fbox-media">
-                                        <a href="#"><img src="{{ url('imgs').'/'.$country->flag }}" class="h-100" alt="{{ $country->name_en }}"></a>
+                                        <a href="{{ route('front.home',Str::lower($country->country_code)) }}">
+                                            <img src="{{ url('imgs').'/'.$country->flag }}" class="h-100" alt="{{ $country->name_en }}"></a>
                                     </div>
                                     <div class="fbox-content fbox-content-lg">
                                         <h3 class="text-transform-none ls-0 fw-semibold">
@@ -322,7 +323,6 @@
                 </div>
 
                 {{-- How We Work--}}
-                {{--
                 <div class="section bg-transparent">
                     <div class="container">
                         <div class="heading-block mb-6 text-center border-0" data-heading="W">
@@ -376,7 +376,6 @@
                         </div>
                     </div>
                 </div>
-                --}}
             </div>
 
 

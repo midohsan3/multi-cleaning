@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Company\CDashboardController;
 use App\Http\Controllers\Company\CServiceController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Company\CSocialController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -41,6 +41,10 @@ Route::group(
 
         Route::post('/license/store', [CDashboardController::class, 'storeLicense'])->name('company.license.store');
 
+        Route::get('/about', [CDashboardController::class, 'bioEdit'])->name('company.bio.edit');
+
+        Route::post('/about/update', [CDashboardController::class, 'bioUpdate'])->name('company.bio.update');
+
     }
 );
 
@@ -69,5 +73,27 @@ Route::group(
         Route::get('/prices/edit_{service}', [CServiceController::class, 'edit'])->name('company.service.prices.edit');
 
         Route::post('/prices/update', [CServiceController::class, 'updatePrice'])->name('company.service.prices.update');
+    }
+);
+
+/*
+==============================
+SOCIAL MEDIA ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/company/dashboard/social',
+        'namespace' => 'Company',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [CSocialController::class, 'index'])->name('company.social.index');
+
+        Route::post('/store', [CSocialController::class, 'store'])->name('company.social.store');
+
+        Route::post('/destroy', [CSocialController::class, 'destroy'])->name('company.social.destroy');
     }
 );

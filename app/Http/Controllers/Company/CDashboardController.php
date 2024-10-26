@@ -30,6 +30,7 @@ class CDashboardController extends Controller
     *====================================
     */
     public function index(){
+
         if (empty(Auth::user()->profile_pic)) {
             return redirect()->route('company.logo.create');
         }
@@ -158,6 +159,53 @@ class CDashboardController extends Controller
         Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
 
         return redirect()->route('home');
+    }
+    /*
+    *====================================
+    * EDIT ABOUT
+    *====================================
+    */
+    public function bioEdit(){
+        try {
+            if (Auth::user()->role_name=='Company') {
+                $company = CompanyMdl::where('user_id',Auth::user()->id)->first();
+            }
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        return view('company.completeProfile.bio',compact('company'));
+    }
+    /*
+    *====================================
+    * UPDATE BIO
+    *====================================
+    */
+    public function bioUpdate(Request $req){
+        $valid = Validator::make($req->all(),[
+            'nameAr' =>'nullable|string',
+            'nameEn' =>'nullable|string',
+        ],[
+            'nameAr.string' =>__('admin.Format Not Matching.'),
+            'nameEn.string' =>__('admin.Format Not Matching.'),
+        ]);
+
+        if($valid->fails()){
+            return back()->withErrors($valid)->withInput($req->all());
+        }
+
+        try {
+            $company = CompanyMdl::where('user_id',Auth::user()->id)->first();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        $company->about_en = $req->nameEn;
+        $company->about_ar = $req->nameAr;
+        $company->save();
+
+        Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+        return back();
     }
     /*
     *====================================

@@ -4,6 +4,9 @@ use App\Models\CountryMdl;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\App;
 use Stevebauman\Location\Facades\Location;
+
+define('pageCount', 20);
+
 /*
 ============================
 = LOCATION
@@ -14,9 +17,9 @@ function current_country()
   //$ip = Request()->ip();
   //return Location::get();
   try {
-  return Str::lower(Location::get()->countryCode);
+    return Str::lower(Location::get()->countryCode);
   } catch (\Throwable $th) {
-  return 'us';
+    return 'us';
   }
 
 }
@@ -37,6 +40,7 @@ function active_countries(){
     }
 
 }
+
 /*
 ============================
 =

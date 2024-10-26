@@ -15,8 +15,12 @@ return [
   'System Helpers'    => 'System Helpers',
   'My Profile'        =>'My Profile',
   'Recommended Jobs'  =>'Recommended Jobs',
+  'My-Booking'        =>'My-Booking',
+  'Schedule'          =>'Schedule',
   'My Services'       =>'My Services',
   'My Services Price' =>'My Services Price',
+  'My-Social Media'   =>'My-Social Media',
+  'Bio'               =>'Bio',
   'Logout'            =>'Logout',
   /*
   ========================
@@ -49,15 +53,38 @@ return [
   'View Details'           =>'View Details',
   'Last Update'            =>'Last Update',
   'Main Information'       =>'Main Information',
+  'Arabic'                 =>'Arabic',
+  'English'                =>'English',
+  'Close'                  =>'Close',
+  'Data'                   =>'Data',
+  'Phone'                  =>'Phone',
   /*
   ========================
   = COMPANIES
   ========================
   */
-  'Companies' =>'Companies',
-  'Company'   =>'Company',
-  'Code'      =>'Code',
-  'E-mail'    =>'E-mail',
+  'Companies'    =>'Companies',
+  'Company'      =>'Company',
+  'Code'         =>'Code',
+  'E-mail'       =>'E-mail',
+  'Company Bio'  =>'Company Bio',
+  'Social Media' =>'Social Media',
+  'Connection'   =>'Connection',
+  'Help Your Page Visitor To Know More About You.' =>
+  'Help Your Page Visitor To Know More About You.',
+  'Bio In Arabic Here'  =>'Bio In Arabic Here',
+  'Bio In English Here' =>'Bio In English Here',
+  'Channel'             =>'Channel',
+  'Fax'                 =>'Fax',
+  'WhatsApp'            =>'WhatsApp',
+  'FaceBook'            =>'FaceBook',
+  'Instagram'           =>'Instagram',
+  'LinkedIn'            =>'LinkedIn',
+  'Website'             =>'Website',
+  'Snapchat'            =>'Snapchat',
+  'TikTok'              =>'TikTok',
+  'Twitter'             =>'Twitter',
+  'URL OR Data'         =>'URL OR Data',
   /*
   ========================
   = COUNTRIES

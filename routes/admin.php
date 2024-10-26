@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-define('pageCount', 20);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +39,17 @@ require __DIR__ . '/auth.php';
 */
 Auth::routes();
 
+Route::group(
+[
+'prefix' => LaravelLocalization::setLocale(),
+'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath','auth']
+],
+function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+}
+);
+
 
 /*
 ==============================
@@ -48,7 +58,7 @@ DASHBOARD ROUTES
 */
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -65,7 +75,7 @@ COMPANIES ROUTES
 */
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/companies',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/companies',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -82,7 +92,7 @@ ACTIVITIES ROUTES
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/activities',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/activities',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -116,7 +126,7 @@ SERVICES ROUTES
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/activities/services',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/activities/services',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -146,7 +156,7 @@ PACKAGES ROUTES
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/packages',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/packages',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -178,7 +188,7 @@ FEATURES ROUTES
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/packages/features',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/packages/features',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -208,7 +218,7 @@ COUNTRIES ROUTES
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/countries',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/countries',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
@@ -242,7 +252,7 @@ NATIONALITY ROUTES
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale() . '/dashboard/nationality',
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/nationality',
         'namespace' => 'Admin',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],

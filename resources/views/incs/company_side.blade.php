@@ -41,6 +41,8 @@
                             <h6 class="overline-title text-primary-alt">{{ __('admin.System Features') }}</h6>
                         </li>{{-- .nk-menu-heading --}}
 
+
+
                         <li class="nk-menu-item">
                             <a href="{{ route('company.service.index') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><i class="icon fal fa-sleigh"></i></span>
@@ -54,6 +56,35 @@
                                 <span class="nk-menu-text">{{ __('admin.My Services Price') }}</span>
                             </a>
                         </li>{{-- .nk-menu-item --}}
+
+                        <li class="nk-menu-item">
+                            <a href="=========" class="nk-menu-link">
+                                <span class="nk-menu-icon"><i class="icon fal fa-suitcase"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.My-Booking') }}</span>
+                            </a>
+                        </li>{{-- .nk-menu-item --}}
+
+                        <li class="nk-menu-item">
+                            <a href="=========" class="nk-menu-link">
+                                <span class="nk-menu-icon"><i class="icon fal fa-calendar-alt"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.Schedule') }}</span>
+                            </a>
+                        </li>{{-- .nk-menu-item --}}
+
+                        <li class="nk-menu-item">
+                            <a href="{{ route('company.bio.edit') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><i class="icon fal fa-address-card"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.Bio') }}</span>
+                            </a>
+                        </li>{{-- .nk-menu-item --}}
+
+                        <li class="nk-menu-item">
+                            <a href="{{ route('company.social.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><i class="icon fal fa-share-square"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.My-Social Media') }}</span>
+                            </a>
+                        </li>{{-- .nk-menu-item --}}
+
                         {{--
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -87,9 +118,7 @@
                             </ul><!-- .nk-menu-sub -->
                         </li>
                         --}}
-                        <li class="nk-menu-heading">
-                            <h6 class="overline-title text-primary-alt">{{ __('admin.System Helpers') }}</h6>
-                        </li>{{-- .nk-menu-heading --}}
+
 
                         {{--
                         <li class="nk-menu-item has-sub">
@@ -110,6 +139,7 @@
                                 </li>
                             </ul><!-- .nk-menu-sub -->
                         </li>
+
                         --}}
                     </ul>{{-- .nk-menu --}}
 

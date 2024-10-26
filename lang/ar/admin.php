@@ -15,8 +15,12 @@ return [
   'System Helpers'    => 'مساعدات النظام',
   'My Profile'        =>'بياناتي',
   'Recommended Jobs'  =>'وظائف مقترحه',
+  'My-Booking'        =>'طلباتي',
+  'Schedule'          =>'جدول العمل',
   'My Services'       =>'خدماتي',
   'My Services Price' =>'اسعار خدماتي',
+  'My-Social Media'   =>'الاتصال و التواصل الاجتماعي',
+  'Bio'               =>'عن الشركة',
   'Logout'            =>'خروج',
   /*
   ========================
@@ -49,6 +53,12 @@ return [
   'View Details'           =>'عرض التفاصيل',
   'Last Update'            =>'اخر تحديث',
   'Main Information'       =>'البيانات الاساسية',
+  'Arabic'                 =>'عربي',
+  'English'                =>'انجليزي',
+  'Close'                  =>'اغلاق',
+  'Data'                   =>'البيان',
+  'Phone'                  =>'الهاتف',
+  'Phone'                  =>'الهاتف',
   /*
   ========================
   = PERSON PROFILE
@@ -72,10 +82,28 @@ return [
   = COMPANIES
   ========================
   */
-  'Companies' =>'الشركات',
-  'Company'   =>'شركة',
-  'Code'      =>'كود',
-  'E-mail'    =>'البريد',
+  'Companies'    =>'الشركات',
+  'Company'      =>'شركة',
+  'Code'         =>'كود',
+  'E-mail'       =>'البريد',
+  'Company Bio'  =>'عن الشركة',
+  'Social Media' =>'التواصل الاجتماعي',
+  'Connection'   =>'اتصال',
+  'Help Your Page Visitor To Know More About You.' =>
+  'ساعد زوار صفحتك لمعرفة اكثر عن شركتك و نشاطك وما يمكن أن تقدمه',
+  'Bio In Arabic Here'  =>'عن الشركة بالعربية هنا',
+  'Bio In English Here' =>'عن الشركة بالإنجليزية هنا',
+  'Channel'             =>'نوع الاتصال',
+  'Fax'                 =>'فاكس',
+  'WhatsApp'            =>'واتس',
+  'FaceBook'            =>'فيسبوك',
+  'Instagram'           =>'انستجرام',
+  'LinkedIn'            =>'لينكيدان',
+  'Website'             =>'موقع الكتروني',
+  'Snapchat'            =>'سناب شات',
+  'TikTok'              =>'تيك توك',
+  'Twitter'             =>'تويتر',
+  'URL OR Data'         =>'الرابط أو البيان',
   /*
   ========================
   = COUNTRIES

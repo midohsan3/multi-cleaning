@@ -175,7 +175,7 @@
                         @endguest
 
                         @auth()
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('dashboard') }}">
                             <i class="bi-person me-1 position-relative" style="top: 1px;"></i>
                             <span class="d-none d-sm-inline-block d-lg-inline-block font-primary fw-medium">{{
                                 __('front.Dashboard') }}</span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\FrontController;
@@ -30,9 +31,28 @@ Route::view('profile', 'profile')
 require __DIR__.'/auth.php';
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 */
+
+
+/*
+==============================
+DASHBOARD CHECK ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+        Auth::routes();
+
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    }
+);
 
 /*
 ==============================
@@ -59,12 +79,11 @@ FRONT ROUTES
 */
 Route::group(
     [
-        'prefix' => current_country() . '/' . LaravelLocalization::setLocale(),
+        'prefix' => LaravelLocalization::setLocale().'/{country_code}',
         'namespace' => 'Front',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-
         Route::get('/', [FrontController::class, 'home'])->name('front.home');
     }
 );

@@ -34,6 +34,9 @@ return [
   'Company Register'     => 'تسجيل شركة',
   'Register Your Company For Free' => 'سجل شركتك مجانا',
 
+  'Best Activities'        =>'أشهر الأنشطة',
+  'Most Popular Companies' => 'الشركات الاكثر انتشارا',
+
   'Field Is Required.'               =>'الحقل إجباري',
   'Format Not Matching.'             =>'التنسيق غير مطابق',
   'Password Not Matching.'           =>'كلمة المرور غير مطابقة',

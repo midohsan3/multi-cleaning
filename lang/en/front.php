@@ -34,6 +34,9 @@ return [
   'Company Register'     => 'Company Register',
   'Register Your Company For Free' => 'Register Your Company For Free',
 
+  'Best Activities'        =>'Best Activities',
+  'Most Popular Companies' =>'Most Popular Companies',
+
   'Field Is Required.'               =>'Field Is Required.',
   'Format Not Matching.'             =>'Format Not Matching.',
   'Password Not Matching.'           =>'Password Not Matching.',
