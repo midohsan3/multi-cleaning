@@ -14,13 +14,14 @@ define('pageCount', 20);
 */
 function current_country()
 {
-  //$ip = Request()->ip();
-  //return Location::get();
-  try {
-    return Str::lower(Location::get()->countryCode);
-  } catch (\Throwable $th) {
+   $ip=Request()->ip();
+   $loc= Location::get($ip);
+
+   try {
+    return Str::lower($loc->countryCode);
+   } catch (\Throwable $th) {
     return 'us';
-  }
+   }
 
 }
 /*

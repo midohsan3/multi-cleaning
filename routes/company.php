@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Company\CDashboardController;
-use App\Http\Controllers\Company\CServiceController;
-use App\Http\Controllers\Company\CSocialController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Company\CSocialController;
+use App\Http\Controllers\Company\CBookingController;
+use App\Http\Controllers\Company\CServiceController;
+use App\Http\Controllers\Company\CScheduleController;
+use App\Http\Controllers\Company\CDashboardController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -95,5 +97,41 @@ Route::group(
         Route::post('/store', [CSocialController::class, 'store'])->name('company.social.store');
 
         Route::post('/destroy', [CSocialController::class, 'destroy'])->name('company.social.destroy');
+    }
+);
+
+/*
+==============================
+BOOKING ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/company/dashboard/booking',
+        'namespace' => 'Company',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [CBookingController::class, 'index'])->name('company.booking.index');
+    }
+);
+
+/*
+==============================
+SCHEDULE ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/company/dashboard/booking/schedule',
+        'namespace' => 'Company',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [CScheduleController::class, 'index'])->name('company.schedule.index');
     }
 );

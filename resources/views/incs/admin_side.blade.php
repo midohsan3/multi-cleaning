@@ -52,6 +52,10 @@
                                     <a href="{{ route('admin.company.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
                                             __('admin.Companies') }}</span></a>
                                 </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('admin.person.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Personal') }}</span></a>
+                                </li>
                             </ul><!-- .nk-menu-sub -->
                         </li>{{-- .nk-menu-item --}}
 
@@ -69,6 +73,25 @@
                                 <li class="nk-menu-item">
                                     <a href="{{ route('admin.feature.index') }}" class="nk-menu-link">
                                         <span class="nk-menu-text">{{__('admin.Features')}}</span>
+                                    </a>
+                                </li>
+                            </ul><!-- .nk-menu-sub -->
+                        </li>{{-- .nk-menu-item --}}
+
+                        <li class="nk-menu-item has-sub">
+                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                <span class="nk-menu-icon"><i class="icon fal fa-shield-alt"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.Roles-Manage') }}</span>
+                            </a>
+                            <ul class="nk-menu-sub">
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('admin.role.index') }}" class="nk-menu-link">
+                                        <span class="nk-menu-text">{{__('admin.Roles')}}</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('admin.role.permission.index') }}" class="nk-menu-link">
+                                        <span class="nk-menu-text">{{__('admin.Permissions')}}</span>
                                     </a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->

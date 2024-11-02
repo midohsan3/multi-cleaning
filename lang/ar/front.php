@@ -28,6 +28,13 @@ return [
   'Jobs'                 => 'وظائف',
   'CVs'                  => 'سيرة ذاتية',
   'About'                => 'عنا',
+  'Price'                => 'السعر',
+  'Indeterminate'        => 'غير محدد',
+  'Book Now'             =>'احجز',
+  'View'                 =>'عرض',
+  'Have License'         => 'لديه رخصة التجارية',
+  'Dont Have License'         => 'ليس لديه التجارية',
+  'Services'             =>'الخدمات',
   'Contact Us'           => 'تواصل معنا',
   'Countries'            => 'الدول',
   'About Us'             => 'اعرف عنا',
@@ -37,6 +44,9 @@ return [
   'Best Activities'        =>'أشهر الأنشطة',
   'Most Popular Companies' => 'الشركات الاكثر انتشارا',
 
+  'Related Services'       =>'خدمات ذات صله',
+  'Our Best Services'      =>'أفضل خدماتنا',
+
   'Field Is Required.'               =>'الحقل إجباري',
   'Format Not Matching.'             =>'التنسيق غير مطابق',
   'Password Not Matching.'           =>'كلمة المرور غير مطابقة',
@@ -44,4 +54,6 @@ return [
   'The Value You Entered Too Long.'  =>'القيمة المدخله طويلة جدا' ,
   'This Value Is Already Exists.'    =>'هذه القيمة مسجلة مسبقا' ,
   'This Value Not Exists.'           =>'هذه القيمة غير موجودة' ,
+  'Service Will Be Available Soon'   =>'الخدمة ستكون متاحة قريبا',
+  'Thank You For Understanding.' =>'شكرا على تفهمكم.',
 ];

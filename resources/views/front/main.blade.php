@@ -5,10 +5,14 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="author" content="SemiColonWeb">
+    <meta name="author" content="Smart-Solutions Cleaning System">
+    @if (App::getLocale()=='ar')
     <meta name="description"
-        content="Get Canvas to build powerful websites easily with the Highly Customizable &amp; Best Selling Bootstrap Template, today.">
-
+        content="اكبر تجمع لشركات النظافة و الخدمات لخدمة اصحاب الخدمات و من يبحث عن الخدمة., بالاضافة للباحثين عن عمل فن عن عمل">
+    @else
+    <meta name="description"
+        content="The largest gathering of cleaning and service companies to serve service providers and those looking for services, and pepole Looking for work.">
+    @endif
     <!-- Font Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +46,18 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 
-    <title>Smart-Cleaing</title>
+    <title>Home</title>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNRSK3J03W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FNRSK3J03W');
+    </script>
 
 </head>
 
@@ -323,14 +338,16 @@
                 </div>
 
                 {{-- How We Work--}}
+                {{--
                 <div class="section bg-transparent">
                     <div class="container">
                         <div class="heading-block mb-6 text-center border-0" data-heading="W">
                             <h3 class="text-transform-none ls-0">How We Work</h3>
                         </div>
                     </div>
-
+                    --}}
                     {{-- How We Work - Carousel--}}
+                    {{--
                     <div id="oc-features" class="owl-carousel owl-carousel-full image-carousel carousel-widget customjs">
                         <div class="oc-item">
                             <div class="row cleafix">
@@ -376,6 +393,7 @@
                         </div>
                     </div>
                 </div>
+                --}}
             </div>
 
 

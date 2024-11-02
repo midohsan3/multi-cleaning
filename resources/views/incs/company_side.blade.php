@@ -31,7 +31,7 @@
                         </li>{{-- .nk-menu-item --}}
 
                         <li class="nk-menu-item">
-                            <a href="{{ route('front.main') }}" class="nk-menu-link">
+                            <a href="{{ route('company.dashboard') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><em class="icon ni ni-sign-btc-alt"></em></span>
                                 <span class="nk-menu-text">{{ __('admin.Dashboard') }}</span>
                             </a>
@@ -58,14 +58,14 @@
                         </li>{{-- .nk-menu-item --}}
 
                         <li class="nk-menu-item">
-                            <a href="=========" class="nk-menu-link">
+                            <a href="{{ route('company.booking.index') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><i class="icon fal fa-suitcase"></i></span>
                                 <span class="nk-menu-text">{{ __('admin.My-Booking') }}</span>
                             </a>
                         </li>{{-- .nk-menu-item --}}
 
                         <li class="nk-menu-item">
-                            <a href="=========" class="nk-menu-link">
+                            <a href="{{ route('company.schedule.index') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><i class="icon fal fa-calendar-alt"></i></span>
                                 <span class="nk-menu-text">{{ __('admin.Schedule') }}</span>
                             </a>
@@ -85,20 +85,44 @@
                             </a>
                         </li>{{-- .nk-menu-item --}}
 
-                        {{--
+
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
-                                <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
-                                <span class="nk-menu-text">{{ __('admin.User Manage') }}</span>
+                                <span class="nk-menu-icon"><i class="icon fal fa-file-pdf"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.Reports') }}</span>
                             </a>
                             <ul class="nk-menu-sub">
                                 <li class="nk-menu-item">
-                                    <a href="{{ route('admin.company.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
-                                            __('admin.Companies') }}</span></a>
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Current Month Booking') }}</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Current Month Cash Collection') }}</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Current Month Online Collection') }}</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Last Month Booking') }}</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Last Month Cash Collection') }}</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Last Month Online Collection') }}</span></a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('company.booking.index') }}" class="nk-menu-link"><span class="nk-menu-text">{{
+                                            __('admin.Pending Invoices') }}</span></a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->
                         </li>
-
+                        {{--
                         <li class="nk-menu-item has-sub">
                             <a href="#" class="nk-menu-link nk-menu-toggle">
                                 <span class="nk-menu-icon"><i class="icon fal fa-dice-d6"></i></span>

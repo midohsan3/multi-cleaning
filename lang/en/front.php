@@ -28,6 +28,13 @@ return [
   'Jobs'                 => 'Jobs',
   'CVs'                  => 'CVs',
   'About'                => 'About',
+  'Price'                => 'Price',
+  'Indeterminate'        => 'Indeterminate',
+  'Book Now'             => 'Book',
+  'View'                 => 'View',
+  'Have License'         => 'Have License',
+  'Dont Have License'    => 'Dont Have License',
+  'Services'             => 'Services',
   'Contact Us'           => 'Contact Us',
   'Countries'            => 'Countries',
   'About Us'             => 'About Us',
@@ -37,6 +44,9 @@ return [
   'Best Activities'        =>'Best Activities',
   'Most Popular Companies' =>'Most Popular Companies',
 
+  'Related Services'       =>'Related Services',
+  'Our Best Services'      =>'Our Best Services',
+
   'Field Is Required.'               =>'Field Is Required.',
   'Format Not Matching.'             =>'Format Not Matching.',
   'Password Not Matching.'           =>'Password Not Matching.',
@@ -44,4 +54,6 @@ return [
   'The Value You Entered Too Long.'  =>'The Value You Entered Too Long.' ,
   'This Value Is Already Exists.'    =>'This Value Is Already Exists.' ,
   'This Value Not Exists.'           =>'This Value Not Exists.' ,
+  'Service Will Be Available Soon'   =>'Service Will Be Available Soon',
+  'Thank You For Understanding.'     =>'Thank You For Understanding.',
 ];

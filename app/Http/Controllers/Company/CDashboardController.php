@@ -54,7 +54,17 @@ class CDashboardController extends Controller
             return redirect()->route('company.service.index');
         }
 
-    return view('layouts.admin');
+        if ($company->status == 0) {
+            return view('company.review');
+        }
+
+        try {
+            $services = ServiceMdl::whereIn('id',$companyServices)->inRandomOrder()->limit(5)->get();
+        } catch (\Throwable $th) {
+             return 404;
+        }
+
+    return view('company.dashboard.admin', compact('company','services'));
     }
     /*
     *====================================

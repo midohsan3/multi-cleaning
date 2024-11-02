@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -30,11 +31,10 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request): View
+    public function index(): View
     {
-        $roles = Role::orderBy('id', 'DESC')->paginate(5);
-        return view('roles.index', compact('roles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $roles = Role::orderBy('name', 'DESC')->paginate(pageCount);
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -44,8 +44,8 @@ class RoleController extends Controller
      */
     public function create(): View
     {
-        $permission = Permission::get();
-        return view('roles.create', compact('permission'));
+        $permissions = Permission::get();
+        return view('admin.roles.create', compact('permissions'));
     }
 
     /**
@@ -71,8 +71,8 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($permissionsID);
 
-        return redirect()->route('roles.index')
-            ->with('success', 'Role created successfully');
+        Alert::success(__('admin.Success'),__('admin.Record Added Successfully.'));
+        return redirect()->route('admin.role.index');
     }
     /**
      * Display the specified resource.
@@ -87,7 +87,7 @@ class RoleController extends Controller
             ->where("role_has_permissions.role_id", $id)
             ->get();
 
-        return view('roles.show', compact('role', 'rolePermissions'));
+        return view('admin.roles.show', compact('role', 'rolePermissions'));
     }
 
     /**
@@ -99,12 +99,12 @@ class RoleController extends Controller
     public function edit($id): View
     {
         $role = Role::find($id);
-        $permission = Permission::get();
+        $permissions = Permission::get();
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $id)
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
 
-        return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
+        return view('admin.roles.edit', compact('role', 'permissions', 'rolePermissions'));
     }
 
     /**
@@ -134,8 +134,8 @@ class RoleController extends Controller
 
         $role->syncPermissions($permissionsID);
 
-        return redirect()->route('roles.index')
-            ->with('success', 'Role updated successfully');
+        Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+        return redirect()->route('admin.role.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -143,10 +143,11 @@ class RoleController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id): RedirectResponse
+    public function destroy(Request $req): RedirectResponse
     {
-        DB::table("roles")->where('id', $id)->delete();
-        return redirect()->route('roles.index')
-            ->with('success', 'Role deleted successfully');
+        DB::table("roles")->where('id', $req->roleID)->delete();
+
+        Alert::success(__('admin.Success'),__('admin.Record Added Successfully.'));
+        return back();
     }
 }

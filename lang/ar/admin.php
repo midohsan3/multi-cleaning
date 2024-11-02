@@ -10,7 +10,9 @@ return [
   'Dashboards'        => 'لوحات التحكم',
   'System Features'   => 'خصائص النظام',
   'User Manage'       => 'إدارة المستخدمين',
+  'Personal'          => 'شخصي',
   'Packages-Manage'   => 'إدارة الباقات',
+  'Roles-Manage'      => 'إدارة الصلاحيات',
   'Services-Manage'   => 'إدارة الخدمات',
   'System Helpers'    => 'مساعدات النظام',
   'My Profile'        =>'بياناتي',
@@ -21,7 +23,16 @@ return [
   'My Services Price' =>'اسعار خدماتي',
   'My-Social Media'   =>'الاتصال و التواصل الاجتماعي',
   'Bio'               =>'عن الشركة',
+  'Reports'           =>'التقارير',
+  'Booking' =>'الحجوزات',
+  'Current Month Cash Collection' =>'مدفوعات الشهر الحالي نقدا',
+  'Current Month Online Collection' =>'مدفوعات الشهر الحالي اون لاين',
+  'Last Month Booking' =>'حجوزات الشهر السابق',
+  'Last Month Cash Collection' =>'مدفوعات الشهر السابق نقدا',
+  'Last Month Online Collection' =>'مدفوعات الشهر السابق اون لين',
+  'Pending Invoices' =>'المتاخرات',
   'Logout'            =>'خروج',
+
   /*
   ========================
   =GENERAL
@@ -58,7 +69,8 @@ return [
   'Close'                  =>'اغلاق',
   'Data'                   =>'البيان',
   'Phone'                  =>'الهاتف',
-  'Phone'                  =>'الهاتف',
+  'Total'                  =>'إجمالي',
+  'Back To Home'           =>'العودة للرئيسية',
   /*
   ========================
   = PERSON PROFILE
@@ -77,6 +89,31 @@ return [
   'Your Specialist' =>'تخصصك',
    'Country Of Residence' =>'دولة الاقامة',
   'Your CV'    =>'سيرتك الذاتية',
+  /*
+  ========================
+  = DASHBOARD
+  ========================
+  */
+  'Earnings Summary'      =>'ملخص الارباح',
+  'Current Month Earning' =>'ارباح الشهر الحالي',
+  'Current Month'         =>'الشهر الحالي',
+  'Last Month'            =>'الشهر السابق',
+  'Cash' =>'نقدا',
+  'Bills' =>'فواتير',
+  'Online' =>'اون لاين',
+  'Current Month Booking' =>'حجوزات الشهر الحالي',
+  'Complete' =>'مكتمل',
+  'In Schedule' =>'تحت التنفيذ',
+  'Pending Bills' =>'فواتير غير مدفوعة',
+  'Canceled' =>'ملغى',
+  'Profile Complete' =>'اكتمال الملف الشخصي',
+  'Pending' =>'انتظار',
+  'Current Booking' =>'اخر الحجوزات',
+  'Booking No.' =>'رقم الحجز',
+  'Client' =>'العميل',
+  'Date' =>'التاريخ',
+  'Amount' =>'المبلغ',
+  'View All' =>'مشاهدة الكل',
   /*
   ========================
   = COMPANIES
@@ -104,6 +141,25 @@ return [
   'TikTok'              =>'تيك توك',
   'Twitter'             =>'تويتر',
   'URL OR Data'         =>'الرابط أو البيان',
+  'No Package'          =>'لم تحدد بعد',
+  /*
+  ========================
+  = PERSON
+  ========================
+  */
+  'Person'           =>'شخص',
+  'Current Location' =>'الموقع الحالي',
+  'Specialist'       =>'التخصص',
+  'CV'               =>'السيرة الذاتية',
+  /*
+  ========================
+  = ROLES
+  ========================
+  */
+  'Roles'       =>'الصلاحيات',
+  'Role'        =>'صلاحية',
+  'Permissions' =>'الاذونات',
+  'Permission'  =>'اذن',
   /*
   ========================
   = COUNTRIES
@@ -141,10 +197,11 @@ return [
   = SERVICES &ACTIVITIES
   ========================
   */
-  'Activities' =>'الانشطة',
-  'Activity'   =>'نشاط',
-  'Services'   =>'الخدمات',
-  'Service'    =>'خدمة',
+  'Activities'  =>'الانشطة',
+  'Activity'    =>'نشاط',
+  'Services'    =>'الخدمات',
+  'Service'     =>'خدمة',
+  'No Services' =>'لايوجد خدمات',
   /*
   ========================
   = MASSAGES
@@ -185,6 +242,10 @@ return [
   'Select The Services Your Can Provide.' =>'اختر الخدمات التي يمكن ان تقدمها.',
   'This will help clients to choose you.' =>'هذا يساعد العملاء على اختيارك',
   'Services Related To Your Activity' =>'الخدمات المرتبطة بنشاطك',
+  'Your Account Under Review' => 'حسابك تحت المراجعة',
+  'We Reviewing Your Account, We will approve in Shortly.' =>
+  'نقوم بمراجعه معلوماتك الان وسيتم الموافقة قريبا حتى يمكنك استخدام النظام',
+  'Get Support' => 'اضغط للدعم',
   /*
   ========================
   =

@@ -43,7 +43,11 @@ class PDashboardController extends Controller
             return redirect()->route('person.profile.edit');
         }
 
-        return view('person.dashboard.admin');
+        if ($person->status==0) {
+            return view('person.review');
+        }
+
+        return view('person.review');
     }
     /*
     *====================================
@@ -136,7 +140,7 @@ class PDashboardController extends Controller
             'country'    =>'nullable|numeric|exists:countries,id',
             'located'    =>'required|string|min:3',
             'specialist' =>'required|string|min:3',
-            'cv'         =>'nullable|mimes:pdf'
+            //'cv'         =>'nullable|mimes:pdf',
         ],[
             'person.required' =>__('admin.Field Is Required.'),
             'person.numeric'  =>__('admin.Format Not Matching.'),

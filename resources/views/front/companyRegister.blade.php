@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cleaning Booking System </title>
+    <title>Company Register </title>
     <meta name="description" content="Smart-Cleaning Booking System">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -15,12 +15,23 @@
     <link rel="stylesheet" href="{{ asset('log/css/fontawesome-all.min.css') }}">
     <!-- Flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('log/font/flaticon.css') }}">
+
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('log/css/style.css') }}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNRSK3J03W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-FNRSK3J03W');
+    </script>
 </head>
 
 <body>

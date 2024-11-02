@@ -7,12 +7,14 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\NationalityController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\PersonController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-
+use Spatie\Permission\Contracts\Permission;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,8 +84,90 @@ Route::group(
     function () {
 
         Route::get('/', [CompanyController::class, 'index'])->name('admin.company.index');
+
+        Route::get('/package_{company}', [CompanyController::class, 'getPackage'])->name('admin.company.package');
+
+        Route::post('/package/store', [CompanyController::class, 'storePackage'])->name('admin.company.package.store');
+
+        Route::get('/activate_{company}', [CompanyController::class, 'activate'])->name('admin.company.activate');
+
+        Route::get('/deactivate_{company}', [CompanyController::class, 'deactivate'])->name('admin.company.deactivate');
+
+        Route::post('/destroy', [CompanyController::class, 'destroy'])->name('admin.company.destroy');
     }
 );
+
+/*
+==============================
+PERSONS ROUTES
+==============================
+*/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/person',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [PersonController::class, 'index'])->name('admin.person.index');
+
+        Route::get('/edit_{person}', [PersonController::class, 'edit'])->name('admin.person.edit');
+
+        Route::post('/update', [PersonController::class, 'update'])->name('admin.person.update');
+    }
+);
+
+/*
+==============================
+ROLES ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/roles',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [RoleController::class, 'index'])->name('admin.role.index');
+
+        Route::get('/create', [RoleController::class, 'create'])->name('admin.role.create');
+
+        Route::post('/store', [RoleController::class, 'store'])->name('admin.role.store');
+
+        Route::get('/edit_{id}', [RoleController::class, 'edit'])->name('admin.role.edit');
+
+        Route::post('/update_{id}', [RoleController::class, 'update'])->name('admin.role.update');
+
+        Route::post('/destroy', [RoleController::class, 'destroy'])->name('admin.role.destroy');
+    }
+);
+
+/*
+==============================
+PERMISSION ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/roles/permission',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [PermissionController::class, 'index'])->name('admin.role.permission.index');
+
+        Route::post('/store', [PermissionController::class, 'store'])->name('admin.role.permission.store');
+
+        Route::post('/destroy', [PermissionController::class, 'destroy'])->name('admin.role.permission.destroy');
+    }
+);
+
 /*
 ==============================
 ACTIVITIES ROUTES

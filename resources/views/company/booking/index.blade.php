@@ -5,7 +5,7 @@
 ===========================
 --}}
 @section('page-title')
-{{ __('admin.Companies') }}
+{{ __('admin.Nationalities') }}
 @endsection
 {{--
 ===========================
@@ -17,29 +17,36 @@
   <div class="nk-block-head nk-block-head-sm">
     <div class="nk-block-between">
       <div class="nk-block-head-content">
-        <h3 class="nk-block-title page-title">{{ __('admin.Companies') }}</h3>
+        <h3 class="nk-block-title page-title">{{ __('admin.Nationalities') }}</h3>
         <div class="nk-block-des text-soft">
-          <p>{{ __('admin.You have total').' '.number_format($companiesCount,0).' '. __('admin.Company')}}.
-          </p>
+          <p>{{ __('admin.You have total').' '.number_format($nationalitiesCount,0).' '.
+            __('admin.Nationality')}}.</p>
         </div>
       </div>{{-- .nk-block-head-content --}}
 
       <div class="nk-block-head-content">
         <div class="toggle-wrap nk-block-tools-toggle">
-          <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
+          <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em
+              class="icon ni ni-menu-alt-r"></em></a>
           <div class="toggle-expand-content" data-content="pageMenu">
             <ul class="nk-block-tools g-3">
 
-              <li><a href="#" class="btn btn-white btn-outline-light"><em class="icon ni ni-download-cloud"></em><span>{{
-                    __('admin.Export') }}</span></a>
+              <li><a href="#" class="btn btn-white btn-outline-light"><em
+                    class="icon ni ni-download-cloud"></em><span>{{ __('admin.Export') }}</span></a>
               </li>
 
               <li class="nk-block-tools-opt">
                 <div class="drodown">
-                  <a href="">
-                    <em class=" icon ni ni-plus"></em>
-                  </a>
-
+                  <a href="#" class="dropdown-toggle btn btn-icon btn-primary" data-toggle="dropdown"><em
+                      class="icon ni ni-plus"></em></a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="link-list-opt no-bdr">
+                      <li><a href="#" class="toggle-opt" data-target="country-form">
+                          <span>{{ __('admin.New') }}</span>
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
@@ -54,9 +61,51 @@
       <div class="card-inner-group">
 
         <div class="nk-fmg-quick-list nk-block">
+          <div class="toggle-expand-content" data-content="country-form">
+            <form action="{{ route('admin.nationality.store') }}" method="POST">
+              @csrf
+              <div class="card-inner">
+                <div class="row gy-4">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="form-label" for="nameAr">{{ __('admin.Arabic Name') }}</label>
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="nameAr" name="nameAr"
+                          placeholder="{{ __('admin.Arabic Name Here') }}" value="{{ old('nameAr') }}"
+                          autocomplete="off" required autofocus />
+                        @error('nameAr')
+                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
 
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="form-label" for="nameEn">{{ __('admin.English Name')
+                        }}</label>
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="nameEn" name="nameEn"
+                          placeholder="{{ __('admin.English Name Here') }}" value="{{ old('nameEn') }}"
+                          autocomplete="off" required />
+                        @error('nameEn')
+                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          @if ($companies->count()>0)
+                <div class="form-group mt-2">
+                  <div class="form-control-wrap">
+                    <input type="submit" class="btn btn-primary" value="{{ __('admin.Submit') }}" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          @if ($nationalities->count()>0)
           <div class="card-inner position-relative card-tools-toggle">
             <div class="card-title-group">
               <div class="card-tools">
@@ -75,7 +124,8 @@
                         __('admin.Apply') }}</button>
                     </span>
                     <span class="d-md-none">
-                      <button class="btn btn-dim btn-outline-light btn-icon disabled"><em class="icon ni ni-arrow-right"></em></button>
+                      <button class="btn btn-dim btn-outline-light btn-icon disabled"><em
+                          class="icon ni ni-arrow-right"></em></button>
                     </span>
                   </div>
                 </div>{{-- .form-inline --}}
@@ -85,7 +135,8 @@
               <div class="card-tools mr-n1">
                 <ul class="btn-toolbar gx-1">
                   <li>
-                    <a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search"><em class="icon ni ni-search"></em></a>
+                    <a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search"><em
+                        class="icon ni ni-search"></em></a>
                   </li>{{-- li --}}
                 </ul>{{-- .btn-toolbar --}}
 
@@ -95,8 +146,10 @@
             <div class="card-search search-wrap" data-search="search">
               <div class="card-body">
                 <div class="search-content">
-                  <a href="#" class="search-back btn btn-icon toggle-search" data-target="search"><em class="icon ni ni-arrow-left"></em></a>
-                  <input type="text" class="form-control border-transparent form-focus-none" placeholder="Search by user or email">
+                  <a href="#" class="search-back btn btn-icon toggle-search" data-target="search"><em
+                      class="icon ni ni-arrow-left"></em></a>
+                  <input type="text" class="form-control border-transparent form-focus-none"
+                    placeholder="Search by user or email">
                   <button class="search-submit btn btn-icon"><em class="icon ni ni-search"></em></button>
                 </div>
               </div>
@@ -118,18 +171,6 @@
                   <th class="nk-tb-col">
                     <span class="sub-text">{{ __('admin.Name') }}</span>
                   </th>
-                  <th class="nk-tb-col tb-col-md">
-                    <span class="sub-text">{{ __('admin.Country')}}</span>
-                  </th>
-                  <th class="nk-tb-col tb-col-sm">
-                    <span class="sub-text">{{ __('admin.E-mail')}}</span>
-                  </th>
-                  <th class="nk-tb-col tb-col-md">
-                    <span class="sub-text">{{ __('admin.Activity')}}</span>
-                  </th>
-                  <th class="nk-tb-col tb-col-lg">
-                    <span class="sub-text">{{ __('admin.Package') }}</span>
-                  </th>
                   <th class="nk-tb-col">
                     <span class="sub-text">{{ __('admin.Status') }}</span>
                   </th>
@@ -137,7 +178,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($companies as $company)
+                @foreach ($nationalities as $nationality)
                 <tr class="nk-tb-item">
                   <td class="nk-tb-col nk-tb-col-check">
                     <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -149,65 +190,23 @@
                     <div class="user-card">
                       <div class="user-avatar xs bg-primary">
                         <span>
-                          {{ Str::substr($company->name_en,0,2) }}
+                          {{ Str::substr($nationality->name_en,0,2) }}
                         </span>
                       </div>
                       <div class="user-name">
                         <span class="tb-lead">
-                          {{ $company->name_en }}
+                          @if (App::getLocale()=='ar')
+                          {{ $nationality->name_ar }}
+                          @else
+                          {{ $nationality->name_en }}
+                          @endif
                         </span>
-                        <span>{{ $company->name_ar }}</span>
                       </div>
                     </div>
                   </td>
 
-                  <td class="nk-tb-col tb-col-md">
-                    <span class="tb-lead">
-                      @if (App::getLocale()=='ar')
-                      {{ $company->country_company->name_ar }}
-                      @else
-                      {{ $company->country_company->name_en }}
-                      @endif
-                      ,<span>{{ $company->country_company->currency_code }}</span></span>
-                    <span>{{ $company->url }}</span>
-                  </td>
-
-                  <td class="nk-tb-col tb-col-md">
-                    <span class="tb-lead">
-                      {{ $company->user_company->email }}
-                    </span>
-                    <span>{{ $company->user_company->phone }}</span>
-                  </td>
-
-                  <td class="nk-tb-col tb-col-lg">
-                    <span class="tb-lead">
-                      @if (App::getLocale()=='ar')
-                      {{ $company->activity_company->name_ar }}
-                      @else
-                      {{ $company->activity_company->name_en }}
-                      @endif
-                    </span>
-                    @if (array_key_exists($company->id,$companiesServices))
-                    <sapn class="text-info">{{ $companiesServices[$company->id] }}<span> {{ __('admin.Service') }}</span></sapn>
-                    @else
-                    <sapn class="text-danger"></sapn>{{ __('admin.No Services') }}
-                    @endif
-                  </td>
-
-                  <td class="nk-tb-col tb-col-lg">
-                    <a href="{{ route('admin.company.package',$company->id) }}">
-                      <span>
-                        @if (!empty($company->package_id))
-                        {{ $company->package_company->name_en }}
-                        @else
-                        {{ __('admin.No Package') }}
-                        @endif
-                      </span>
-                    </a>
-                  </td>
-
                   <td class="nk-tb-col">
-                    @if ($company->status == 1)
+                    @if ($nationality->status == 1)
                     <span class="tb-status text-success">{{ __('admin.Active') }}</span>
                     @else
                     <span class="tb-status text-danger">{{ __('admin.Inactive') }}</span>
@@ -218,29 +217,34 @@
                     <ul class="nk-tb-actions gx-2">
 
                       <li class="nk-tb-action-hidden">
-                        <a href="=========" class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip" data-placement="top"
-                          title="{{ __('admin.Edit') }}">
+                        <a href="{{ route('admin.nationality.edit',$nationality->id) }}"
+                          class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip"
+                          data-placement="top" title="{{ __('admin.Edit') }}">
                           <i class="icon fal fa-edit"></i>
                         </a>
                       </li>
 
                       <li class="nk-tb-action-hidden">
-                        @if ($company->status==1)
-                        <a href="{{ route('admin.company.deactivate',$company->id) }}" class="btn btn-sm btn-icon btn-trigger text-danger"
-                          data-toggle="tooltip" data-placement="top" title="{{ __('admin.Deactivate') }}">
+                        @if ($nationality->status==1)
+                        <a href="{{ route('admin.nationality.deactivate',$nationality->id) }}"
+                          class="btn btn-sm btn-icon btn-trigger text-danger" data-toggle="tooltip" data-placement="top"
+                          title="{{ __('admin.Deactivate') }}">
                           <i class="icon fal fa-toggle-off"></i>
                         </a>
                         @else
-                        <a href="{{ route('admin.company.activate',$company->id) }}" class="btn btn-sm btn-icon btn-trigger text-success"
-                          data-toggle="tooltip" data-placement="top" title="{{__('admin.Activate')}}">
+                        <a href="{{ route('admin.nationality.activate',$nationality->id) }}"
+                          class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip"
+                          data-placement="top" title="{{__('admin.Activate')}}">
                           <i class="icon fal fa-toggle-on"></i>
                         </a>
                         @endif
                       </li>
 
                       <li class="nk-tb-action-hidden">
-                        <a href="#" class="btn btn-sm btn-icon btn-trigger" title="{{ __('admin.Delete') }}" data-companyid="{{ $company->id }}"
-                          data-companynameen="{{ $company->name_en }}" data-companynamear="{{ $company->name_ar }}" data-toggle="modal"
+                        <a href="#" class="btn btn-sm btn-icon btn-trigger" title="{{ __('admin.Delete') }}"
+                          data-nationalityid="{{ $nationality->id }}"
+                          data-nationalitynameen="{{ $nationality->name_en }}"
+                          data-nationalitynamear="{{ $nationality->name_ar }}" data-toggle="modal"
                           data-target="#deleteMdl">
                           <i class="icon fal fa-trash-alt"></i>
                         </a>
@@ -253,29 +257,24 @@
                           <div class="dropdown-menu dropdown-menu-right">
                             <ul class="link-list-opt no-bdr">
 
-                              <li><a href="========" class="text-success">
+                              <li><a href="{{ route('admin.nationality.edit',$nationality->id) }}" class="text-success">
                                   <i class="icon fal fa-edit"></i>
                                   <span>{{ __('admin.Edit') }}</span>
                                 </a></li>
 
                               <li class="divider"></li>
 
-                              <li><a href="==========" class="text-info">
-                                  <i class="icon fal fa-magic"></i>
-                                  <span>{{ __('admin.Activities') }}</span>
-                                </a></li>
-
-                              <li class="divider"></li>
-
-                              @if ($company->status==1)
+                              @if ($nationality->status==1)
                               <li>
-                                <a href="{{ route('admin.company.deactivate',$company->id) }}" class="text-danger">
+                                <a href="{{ route('admin.nationality.deactivate',$nationality->id) }}"
+                                  class="text-danger">
                                   <i class="icon fal fa-power-off"></i>
                                   <span>{{__('admin.Deactivate')}}</span></a>
                               </li>
                               @else
                               <li>
-                                <a href="{{ route('admin.company.activate',$company->id) }}" class="text-success">
+                                <a href="{{ route('admin.nationality.activate',$nationality->id) }}"
+                                  class="text-success">
                                   <i class="icon fal fa-power-off"></i>
                                   <span>{{ __('admin.Activate') }}</span></a>
                               </li>
@@ -283,8 +282,10 @@
 
                               <li class="divider"></li>
 
-                              <li><a href="#" data-companyid="{{ $company->id }}" data-companynameen="{{ $company->name_en }}"
-                                  data-companynamear="{{ $company->name_ar }}" data-toggle="modal" data-target="#deleteMdl">
+                              <li><a href="#" data-nationalityid="{{ $nationality->id }}"
+                                  data-nationalitynameen="{{ $nationality->name_en }}"
+                                  data-nationalitynamear="{{ $nationality->name_ar }}" data-toggle="modal"
+                                  data-target="#deleteMdl">
                                   <i class="icon fal fa-trash-alt text-danger"></i>
                                   <span>{{__('admin.Delete')}}</span>
                                 </a></li>
@@ -303,7 +304,7 @@
 
           <div class="card-inner">
             <dv class="pagination justify-content-center justify-content-md-start">
-              {{ $companies->links('pagination::bootstrap-5') }}
+              {{ $nationalities->links('pagination::bootstrap-5') }}
             </dv>
           </div><!-- .card-inner -->
           @else
@@ -338,17 +339,17 @@
         <h5 class="modal-title">Delete</h5>
       </div>
       <div class="modal-body">
-        <form action="{{ route('admin.company.destroy') }}" method="POST">
+        <form action="{{ route('admin.nationality.destroy') }}" method="POST">
           @csrf
-          <input hidden id="companyId" name="companyID" />
+          <input hidden id="nationalityId" name="nationalityID" />
           <div class="row gy-4 m-auto p-auto">
             <p class="text-center">
               Are You Sure You Want Delete
               <strong>
                 @if (App::getLocale()=='ar')
-                <span id="companyNamear"></span>
+                <span id="nationalityNamear"></span>
                 @else
-                <span id="companyNameen"></span>
+                <span id="nationalityNameen"></span>
                 @endif
                 <span>?</span>
               </strong>
@@ -388,14 +389,14 @@
           */
           $('#deleteMdl').on('show.bs.modal', function(e) {
               let button = $(e.relatedTarget);
-              let id = button.data('companyid');
-              let nameEn = button.data('companynameen');
-              let nameAr = button.data('companynamear');
+              let id = button.data('nationalityid');
+              let nameEn = button.data('nationalitynameen');
+              let nameAr = button.data('nationalitynamear');
 
               var modal = $(this);
-              modal.find('.modal-body #companyId').val(id);
-              modal.find('.modal-body #companyNameen').html(nameEn);
-              modal.find('.modal-body #companyNamear').html(nameAr);
+              modal.find('.modal-body #nationalityId').val(id);
+              modal.find('.modal-body #nationalityNameen').html(nameEn);
+              modal.find('.modal-body #nationalityNamear').html(nameAr);
           });
 
       });

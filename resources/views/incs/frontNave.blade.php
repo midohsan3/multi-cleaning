@@ -124,11 +124,11 @@
 
                 {{-- Top Social --}}
                 <ul id="top-social">
-                    <li><a href="========" class="h-bg-facebook"><span class="ts-icon"><i class="fa-brands fa-facebook-f"></i></span><span
-                                class="ts-text">Facebook</span></a>
+                    <li><a href="https://www.facebook.com/smartCleaningLive" class="h-bg-facebook"><span class="ts-icon"><i
+                                    class="fa-brands fa-facebook-f"></i></span><span class="ts-text">Facebook</span></a>
                     </li>
-                    <li><a href="===========" class="h-bg-instagram"><span class="ts-icon"><i class="fa-brands fa-instagram"></i></span><span
-                                class="ts-text">Instagram</span></a>
+                    <li><a href="https://www.instagram.com/smartcleaninglive" class="h-bg-instagram"><span class="ts-icon"><i
+                                    class="fa-brands fa-instagram"></i></span><span class="ts-text">Instagram</span></a>
                     </li>
                     <li><a href="tel:+971502516985" class="h-bg-call">
                             <span class="ts-icon"><i class="fa-solid fa-phone"></i></span>

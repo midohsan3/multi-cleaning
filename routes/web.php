@@ -85,6 +85,12 @@ Route::group(
     ],
     function () {
         Route::get('/', [FrontController::class, 'home'])->name('front.home');
+
+        Route::get('/activities_{activity}', [FrontController::class, 'activities'])->name('front.home.activities');
+
+        Route::get('/activities_{activity}/service_{service}', [FrontController::class, 'services'])->name('front.home.services');
+
+        Route::get('/company/{company_url}', [FrontController::class, 'singleCompany'])->name('front.home.company.single');
     }
 );
 

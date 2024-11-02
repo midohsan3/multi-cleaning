@@ -10,7 +10,9 @@ return [
   'Dashboards'        => 'Dashboards',
   'System Features'   => 'System Features',
   'User Manage'       => 'User Manage',
+  'Personal'          => 'Personal',
   'Packages-Manage'   => 'Packages-Manage',
+  'Roles-Manage'      => 'Roles-Manage',
   'Services-Manage'   => 'Services-Manage',
   'System Helpers'    => 'System Helpers',
   'My Profile'        =>'My Profile',
@@ -21,6 +23,14 @@ return [
   'My Services Price' =>'My Services Price',
   'My-Social Media'   =>'My-Social Media',
   'Bio'               =>'Bio',
+  'Reports'           =>'Reports',
+  'Booking'           =>'Booking',
+  'Current Month Cash Collection' =>'Current Month Cash Collection',
+  'Current Month Online Collection'           =>'Current Month Online Collection',
+  'Last Month Booking'           =>'Last Month Booking',
+  'Last Month Cash Collection'           =>'Last Month Cash Collection',
+  'Last Month Online Collection'           =>'Last Month Online Collection',
+  'Pending Invoices'           =>'Pending Invoices',
   'Logout'            =>'Logout',
   /*
   ========================
@@ -58,6 +68,33 @@ return [
   'Close'                  =>'Close',
   'Data'                   =>'Data',
   'Phone'                  =>'Phone',
+  'Total'                  =>'Total',
+  'Back To Home'           =>'Back To Home',
+  /*
+  ========================
+  = DASHBOARD
+  ========================
+  */
+  'Earnings Summary'      =>'Earnings Summary',
+  'Current Month Earning' =>'Current Month Earning',
+  'Current Month'         =>'Current Month',
+  'Last Month'            =>'Last Month',
+  'Cash' =>'Cash',
+  'Bills' =>'Bills',
+  'Online' =>'Online',
+  'Current Month Booking' =>'Current Month Booking',
+  'Complete' =>'Complete',
+  'In Schedule' =>'In Schedule',
+  'Pending Bills' =>'Pending Bills',
+  'Canceled' =>'Canceled',
+  'Profile Complete' =>'Profile Complete',
+  'Pending' =>'Pending',
+  'Current Booking' =>'Current Booking',
+  'Booking No.'     =>'Booking No.',
+  'Client' =>'Client',
+  'Date' =>'Date',
+  'Amount' =>'Amount',
+  'View All' =>'View All',
   /*
   ========================
   = COMPANIES
@@ -85,6 +122,25 @@ return [
   'TikTok'              =>'TikTok',
   'Twitter'             =>'Twitter',
   'URL OR Data'         =>'URL OR Data',
+  'No Package'          =>'No Package',
+  /*
+  ========================
+  = PERSON
+  ========================
+  */
+  'Person'           =>'Person',
+  'Current Location' =>'Current Location',
+  'Specialist'       =>'Specialist',
+  'CV'               =>'CV',
+  /*
+  ========================
+  = ROLES
+  ========================
+  */
+  'Roles'       =>'Roles',
+  'Role'        =>'Role',
+  'Permissions' =>'Permissions',
+  'Permission'  =>'Permission',
   /*
   ========================
   = COUNTRIES
@@ -122,10 +178,11 @@ return [
   = SERVICES &ACTIVITIES
   ========================
   */
-  'Activities' =>'Activities',
-  'Activity'   =>'Activity',
-  'Services'   =>'Services',
-  'Service'    =>'Service',
+  'Activities'  =>'Activities',
+  'Activity'    =>'Activity',
+  'Services'    =>'Services',
+  'Service'     =>'Service',
+  'No Services' =>'No Services',
   /*
   ========================
   = MASSAGES
@@ -184,6 +241,9 @@ return [
   'Select The Services Your Can Provide.' =>'Select The Services Your Can Provide.',
   'This will help clients to choose you.' =>'This will help clients to choose you.',
   'Services Related To Your Activity' =>'Services Related To Your Activity',
+  'Your Account Under Review' =>'Your Account Under Review',
+  'We Reviewing Your Account, We will approve in Shortly.' =>'We Reviewing Your Account, We will approve in Shortly.',
+  'Get Support' =>'Get Support',
   /*
   ========================
   =

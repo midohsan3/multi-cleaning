@@ -32,6 +32,8 @@ class User extends Authenticatable
 
     protected $data = ['deleted_at'];
 
+    //protected $guard_name = 'web';
+
     /**
      * The attributes that should be hidden for serialization.
      *
