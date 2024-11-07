@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Company\CSocialController;
 use App\Http\Controllers\Company\CBookingController;
+use App\Http\Controllers\Company\CCompanyGalleryController;
 use App\Http\Controllers\Company\CServiceController;
 use App\Http\Controllers\Company\CScheduleController;
 use App\Http\Controllers\Company\CDashboardController;
@@ -133,5 +134,27 @@ Route::group(
     function () {
 
         Route::get('/', [CScheduleController::class, 'index'])->name('company.schedule.index');
+    }
+);
+
+/*
+==============================
+GALLERY ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/company/dashboard/profile/gallery',
+        'namespace' => 'Company',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [CCompanyGalleryController::class, 'index'])->name('company.gallery.index');
+
+        Route::post('/store', [CCompanyGalleryController::class, 'store'])->name('company.gallery.store');
+
+        Route::get('/destroy_{photo}', [CCompanyGalleryController::class, 'destroy'])->name('company.gallery.destroy');
     }
 );

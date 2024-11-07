@@ -199,40 +199,36 @@
 
                 {{-- Primary Navigation--}}
                 <nav class="primary-menu style-3 menu-spacing-margin">
-                    {{--
+
                     <ul class="menu-container">
+                        @if (isset($country))
                         <li class="menu-item">
                             <a class="menu-link" href="{{ route('front.main') }}">
                                 <div>{{ __('front.Home') }}</div>
                             </a>
                         </li>
-
+                        @foreach (active_activities() as $activie_activity)
                         <li class="menu-item">
-                            <a class="menu-link" href="=======">
-                                <div>{{ __('front.Cleaning') }}</div>
+                            <a class="menu-link"
+                                href="{{ route('front.home.activities',['country_code'=>Str::lower($country->country_code),'activity'=>$activie_activity->id]) }}">
+                                <div>
+                                    @if (App::getLocale()=='ar')
+                                    {{ $activie_activity->name_ar }}
+                                    @else
+                                    {{ $activie_activity->name_en }}
+                                    @endif
+                                </div>
                             </a>
                         </li>
-
+                        @endforeach
                         <li class="menu-item">
-                            <a class="menu-link" href="=======">
-                                <div>{{ __('front.Maintenance') }}</div>
-                            </a>
-                        </li>
-
-                        <li class="menu-item">
-                            <a class="menu-link" href="========">
-                                <div>{{ __('front.Jobs') }}</div>
-                            </a>
-                        </li>
-
-                        <li class="menu-item">
-                            <a class="menu-link" href="========">
+                            <a class="menu-link" href="{{ route('front.home.cvs',Str::lower($country->country_code)) }}">
                                 <div>{{ __('front.CVs') }}</div>
                             </a>
                         </li>
-
+                        @endif
                     </ul>
-                    --}}
+
                 </nav>
 
                 {{-- #primary-menu end --}}

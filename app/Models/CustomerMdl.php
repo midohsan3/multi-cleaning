@@ -2,33 +2,29 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\OrderMdl;
-use App\Models\CompanyMdl;
-use App\Models\ActivityMdl;
-use App\Models\CompanyGalleryMdl;
+use App\Models\CountryMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ServiceMdl extends Model
+class CustomerMdl extends Model
 {
     use HasFactory, Notifiable, SoftDeletes, HasRoles;
 
-    protected $table = 'services';
+    protected $table = 'customers';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
-    'name_en',
-    'name_ar',
-    'status',
-    'description_en',
-    'description_ar',
-    'keywords_en',
-    'keywords_ar',
-    'og_image',
+    'user_id',
+    'country_id',
+    'address',
+    'total_booking',
+    'last_booking',
     ];
 
     protected $data = ['deleted_at'];
@@ -38,32 +34,29 @@ class ServiceMdl extends Model
     RELATIONS
     =========================
     */
-    public function activities_service(){
-        return $this->belongsToMany(ActivityMdl::class,'activity_has-services','service_id','activity_id');
+    /*
+    =========================
+    = USER
+    =========================
+    */
+    public function user_customer(){
+    return $this->belongsTo(User::class, 'user_id');
     }
     /*
     =========================
-    = COMPANIES
+    = COUNTRY
     =========================
     */
-    public function companies_service(){
-        return $this->belongsToMany(CompanyMdl::class,'companies_has_services','service_id','company_id');
+    public function country_customer(){
+        return $this->belongsTo(CountryMdl::class, 'country_id');
     }
     /*
     =========================
-    = GALLERY
+    = BOOKING
     =========================
     */
-    public function gallery_service(){
-        return $this->hasMany(CompanyGalleryMdl::class, 'service_id');
-    }
-    /*
-    =========================
-    =BOOKING
-    =========================
-    */
-    public function order_service(){
-        return $this->hasMany(OrderMdl::class, 'service_id');
+    public function order_customer(){
+        return $this->hasMany(OrderMdl::class, 'customer_id');
     }
     /*
     =========================

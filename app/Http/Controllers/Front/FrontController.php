@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use App\Models\ActivityMdl;
 use App\Models\CompanyConnectionMdl;
+use App\Models\CompanyGalleryMdl;
 use App\Models\CompanyHasServiceMdl;
 use App\Models\CompanyMdl;
 use App\Models\CountryHasActivityMdl;
+use App\Models\PersonMdl;
 use App\Models\ServiceMdl;
 
 class FrontController extends Controller
@@ -45,6 +47,14 @@ class FrontController extends Controller
          }else{
             return view('front.main', compact('countries'));
          }
+    }
+    /*
+    *====================================
+    * FORGET PASSWORD
+    *====================================
+    */
+    public function passwordForget(){
+        return view('auth.forgot-password');
     }
     /*
     *====================================
@@ -88,7 +98,13 @@ class FrontController extends Controller
              return 404;
         }
 
-        return view('front.home',compact('country','activities','companies','connections'));
+        try {
+            $cvs =PersonMdl::where([['status',1],['county_id',$country->id]])->inRandomOrder()->limit(4)->get();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        return view('front.home',compact('country','activities','companies','connections','cvs'));
     }
     /*
     *====================================
@@ -264,7 +280,40 @@ class FrontController extends Controller
             return 404;
         }
 
-        return view('front.company',compact('country','company','servicesCount','services','servicesPrice','servicesPhotos'));
+        try {
+            $communications = CompanyConnectionMdl::where('company_id',$company->id)->get();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $companyPhotos = CompanyGalleryMdl::where('company_id',$company->id)->get();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        return
+        view('front.company',compact('country','company','servicesCount','services','servicesPrice','servicesPhotos','communications','companyPhotos'));
+    }
+    /*
+    *====================================
+    * CVS
+    *====================================
+    */
+    public function cvs($country_code){
+        try {
+            $country = CountryMdl::where('country_code',Str::Upper($country_code))->first();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $cvs = PersonMdl::where([['status',1],['county_id',$country->id]])->inRandomOrder()->paginate(pageCount);
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        return view('front.cvs',compact('country','cvs'));
     }
     /*
     *====================================

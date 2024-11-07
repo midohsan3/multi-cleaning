@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\PersonMdl;
 use App\Models\CompanyMdl;
+use App\Models\CustomerMdl;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -69,6 +70,14 @@ class User extends Authenticatable
     */
     public function person_user(){
         return $this->hasOne(PersonMdl::class, 'user_id');
+    }
+    /*
+    =========================
+    = CUSTOMER
+    =========================
+    */
+    public function customer_user(){
+        return $this->hasMany(CustomerMdl::class, 'user_id');
     }
     /*
     =========================

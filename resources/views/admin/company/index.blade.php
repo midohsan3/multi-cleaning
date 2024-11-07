@@ -147,9 +147,13 @@
                   </td>
                   <td class="nk-tb-col">
                     <div class="user-card">
-                      <div class="user-avatar xs bg-primary">
+                      <div class="user-avatar sm bg-primary">
                         <span>
+                          @if (empty($company->user_company->profile_pic))
                           {{ Str::substr($company->name_en,0,2) }}
+                          @else
+                          <img src="{{ url('storage/app/public/imgs/users/'.$company->user_company->profile_pic) }}" alt="{{ $company->name_en }}">
+                          @endif
                         </span>
                       </div>
                       <div class="user-name">

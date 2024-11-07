@@ -47,7 +47,9 @@ class PDashboardController extends Controller
             return view('person.review');
         }
 
-        return view('person.review');
+
+
+        return view('person.dashboard.admin');
     }
     /*
     *====================================

@@ -115,6 +115,10 @@ Route::group(
         Route::get('/edit_{person}', [PersonController::class, 'edit'])->name('admin.person.edit');
 
         Route::post('/update', [PersonController::class, 'update'])->name('admin.person.update');
+
+        Route::get('/activate_{person}', [PersonController::class, 'activate'])->name('admin.person.activate');
+
+        Route::get('/deactivate_{person}', [PersonController::class, 'deactivate'])->name('admin.person.deactivate');
     }
 );
 

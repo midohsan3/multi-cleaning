@@ -168,6 +168,50 @@ class PersonController extends Controller
     }
     /*
     *====================================
+    * ACTIVATE
+    *====================================
+    */
+    public function activate($person){
+        try {
+            $person = PersonMdl::findOrFail($person);
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $person->status = 1;
+            $person->save();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+        return back();
+    }
+    /*
+    *====================================
+    * DEACTIVATE
+    *====================================
+    */
+    public function deactivate($person){
+        try {
+            $person = PersonMdl::findOrFail($person);
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $person->status = 0;
+            $person->save();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
+        return back();
+    }
+    /*
+    *====================================
     *
     *====================================
     */

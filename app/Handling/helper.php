@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\CountryMdl;
+use App\Models\ActivityMdl;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Stevebauman\Location\Facades\Location;
 
@@ -32,7 +34,7 @@ function current_country()
 function active_countries(){
     try {
         if(App::getLocale()=='ar'){
-        return CountryMdl::where('status',1)->orderBy('name_ar','asc')->get();
+            return CountryMdl::where('status',1)->orderBy('name_ar','asc')->get();
         }else{
             return CountryMdl::where('status',1)->orderBy('name_en','asc')->get();
         }
@@ -42,6 +44,19 @@ function active_countries(){
 
 }
 
+/*
+============================
+= ACTIVE ACTIVITIES
+============================
+*/
+function active_activities(){
+    try {
+            return ActivityMdl::where('status',1)->get();
+
+    } catch (\Throwable $th) {
+         return 404;
+    }
+}
 /*
 ============================
 =

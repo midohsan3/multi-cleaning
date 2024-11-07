@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Front\FrontBookingController;
 use App\Http\Controllers\Front\RegistrationController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -69,6 +70,8 @@ Route::group(
     function () {
 
         Route::get('/', [FrontController::class, 'index'])->name('front.main');
+
+        Route::get('/forget/password', [FrontController::class, 'passwordForget'])->name('front.password.forget');
     }
 );
 
@@ -91,6 +94,28 @@ Route::group(
         Route::get('/activities_{activity}/service_{service}', [FrontController::class, 'services'])->name('front.home.services');
 
         Route::get('/company/{company_url}', [FrontController::class, 'singleCompany'])->name('front.home.company.single');
+
+        Route::get('/cvs', [FrontController::class, 'cvs'])->name('front.home.cvs');
+    }
+);
+
+/*
+==============================
+BOOKING ROUTES
+==============================
+*/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale().'/{country_code}/booking',
+        'namespace' => 'Front',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+        Route::get('/info_{company}_{service}', [FrontBookingController::class, 'create'])->name('front.booking.create');
+
+        Route::post('/store', [FrontBookingController::class, 'store'])->name('front.booking.store');
+
+        Route::get('/finish_{booking}', [FrontBookingController::class, 'finish'])->name('front.booking.finish');
     }
 );
 

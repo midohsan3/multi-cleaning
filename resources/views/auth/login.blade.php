@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js" @if (App::getLocale()=='ar' ) dir="rtl" @else
-    dir="ltr" @endif>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js" @if (App::getLocale()=='ar' ) dir="rtl" @else dir="ltr" @endif>
 
 <head>
     <meta charset="utf-8">
@@ -37,8 +36,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                        <input type="email" class="form-control" name="email"
-                                            placeholder="Email Address" required="required">
+                                        <input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
                                         <i class="flaticon-envelope"></i>
                                     </div>
                                     @error('email')
@@ -47,8 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <input type="password" class="form-control" name="password"
-                                            placeholder="Password" required="required">
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                                         <i class="flaticon-padlock"></i>
                                     </div>
                                     @error('password')
@@ -59,7 +56,7 @@
                                     <div class="fxt-transformY-50 fxt-transition-delay-3">
                                         <div class="fxt-content-between">
                                             <button type="submit" class="fxt-btn-fill">Log in</button>
-                                            <a href="{{ route('password.request') }}" class="switcher-text2">Forgot
+                                            <a href="{{ route('front.password.forget') }}" class="switcher-text2">Forgot
                                                 Password</a>
                                         </div>
                                     </div>
@@ -69,20 +66,16 @@
                         <div class="fxt-footer">
                             <ul class="fxt-socials">
                                 <li class="fxt-facebook fxt-transformY-50 fxt-transition-delay-4">
-                                    <a href="https://www.facebook.com/smartssolutionsystems" title="Facebook"><i
-                                            class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/smartssolutionsystems" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li class="fxt-twitter fxt-transformY-50 fxt-transition-delay-5">
-                                    <a href="https://x.com/En_Mohameed" title="twitter"><i
-                                            class="fab fa-twitter"></i></a>
+                                    <a href="https://x.com/En_Mohameed" title="twitter"><i class="fab fa-twitter"></i></a>
                                 </li>
                                 <li class="fxt-linkedin fxt-transformY-50 fxt-transition-delay-7">
-                                    <a href="https://www.linkedin.com/company/88389984" title="linkedin"><i
-                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://www.linkedin.com/company/88389984" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
                                 </li>
                                 <li class="fxt-pinterest fxt-transformY-50 fxt-transition-delay-8">
-                                    <a href="https://www.instagram.com/midohsan3/" title="instagram"><i
-                                            class="fab fa-instagram"></i></a>
+                                    <a href="https://www.instagram.com/midohsan3/" title="instagram"><i class="fab fa-instagram"></i></a>
                                 </li>
                             </ul>
                         </div>

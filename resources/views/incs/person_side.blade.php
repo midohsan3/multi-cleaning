@@ -29,7 +29,7 @@
                         </li>{{-- .nk-menu-item --}}
 
                         <li class="nk-menu-item">
-                            <a href="{{ route('front.main') }}" class="nk-menu-link">
+                            <a href="{{ route('person.dashboard') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><em class="icon ni ni-sign-btc-alt"></em></span>
                                 <span class="nk-menu-text">{{ __('admin.Dashboard') }}</span>
                             </a>
@@ -47,7 +47,7 @@
                         </li>{{-- .nk-menu-item --}}
 
                         <li class="nk-menu-item">
-                            <a href="=====" class="nk-menu-link">
+                            <a href="#" class="nk-menu-link">
                                 <span class="nk-menu-icon"><i class="icon far fa-hand-holding-heart"></i></span>
                                 <span class="nk-menu-text">{{ __('admin.Recommended Jobs') }}</span>
                             </a>

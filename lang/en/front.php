@@ -27,7 +27,10 @@ return [
   'Maintenance'          => 'Maintenance',
   'Jobs'                 => 'Jobs',
   'CVs'                  => 'CVs',
+  'People Looking For Work' => 'People Looking For Work',
   'About'                => 'About',
+  'Age'                  => 'Age',
+  'See more'                  => 'See more',
   'Price'                => 'Price',
   'Indeterminate'        => 'Indeterminate',
   'Book Now'             => 'Book',
@@ -37,15 +40,28 @@ return [
   'Services'             => 'Services',
   'Contact Us'           => 'Contact Us',
   'Countries'            => 'Countries',
+  'Hour'                 => 'Hour',
   'About Us'             => 'About Us',
+  'Your Address'         => 'Your Address',
   'Company Register'     => 'Company Register',
   'Register Your Company For Free' => 'Register Your Company For Free',
+
 
   'Best Activities'        =>'Best Activities',
   'Most Popular Companies' =>'Most Popular Companies',
 
   'Related Services'       =>'Related Services',
   'Our Best Services'      =>'Our Best Services',
+  'Our Gallery'            =>'Our Gallery',
+
+  'Customer Information'   =>'Customer Information',
+  'New Booking'            =>'New Booking',
+  'Day'                    =>'Day',
+  'Month'                  =>'Month',
+  'Submit'                 =>'Submit',
+  'Optional'               =>'Optional',
+  'Booking Duration'       =>'Booking Duration',
+  'Finish Booking'         =>'Finish Booking',
 
   'Field Is Required.'               =>'Field Is Required.',
   'Format Not Matching.'             =>'Format Not Matching.',
@@ -56,4 +72,6 @@ return [
   'This Value Not Exists.'           =>'This Value Not Exists.' ,
   'Service Will Be Available Soon'   =>'Service Will Be Available Soon',
   'Thank You For Understanding.'     =>'Thank You For Understanding.',
+  'We Received Your Booking Successfully' =>'We Received Your Booking Successfully',
+  'Thank You.' =>'Thank You.',
 ];

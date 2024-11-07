@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\OrderMdl;
 use App\Models\CountryMdl;
 use App\Models\PackageMdl;
 use App\Models\ServiceMdl;
 use App\Models\ActivityMdl;
+use App\Models\CompanyGalleryMdl;
 use App\Models\CompanyConnectionMdl;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
@@ -89,6 +91,22 @@ class CompanyMdl extends Model
    */
   public function connection_company(){
     return $this->hasMany(CompanyConnectionMdl::class,'company_id');
+  }
+   /*
+   =========================
+   = GALLERY
+   =========================
+   */
+  public function gallery_company(){
+    return $this->hasMany(CompanyGalleryMdl::class, 'company_id');
+  }
+   /*
+   =========================
+   = BOOKING
+   =========================
+   */
+  public function order_company(){
+    return $this->hasMany(OrderMdl::class,'company_id');
   }
    /*
    =========================

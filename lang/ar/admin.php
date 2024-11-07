@@ -13,6 +13,7 @@ return [
   'Personal'          => 'شخصي',
   'Packages-Manage'   => 'إدارة الباقات',
   'Roles-Manage'      => 'إدارة الصلاحيات',
+  'Booking-Manage'    => 'إدارة الحجوزات',
   'Services-Manage'   => 'إدارة الخدمات',
   'System Helpers'    => 'مساعدات النظام',
   'My Profile'        =>'بياناتي',
@@ -46,6 +47,7 @@ return [
   'Send Email'             =>'ارسال بريد',
   'Delete'                 =>'حذف',
   'Apply'                  =>'تطبيق',
+  'Hour'                   =>'الساعة',
   'Arabic Name'            =>'الاسم بالعربية',
   'English Name'           =>'الاسم بالانجليزية',
   'Currency'               =>'العملة',
@@ -54,6 +56,7 @@ return [
   'Update'                 =>'تحديث',
   'AED'                    =>'دا',
   'Name'                   =>'الاسم',
+  'Photo'                  =>'الصوره',
   'Status'                 =>'الحالة',
   'Active'                 =>'نشط',
   'Inactive'               =>'غير نشط',
@@ -94,6 +97,11 @@ return [
   = DASHBOARD
   ========================
   */
+  'Total Views'           =>'عدد الزيارات',
+  'This Month'            =>'الشهر الحالي',
+  'This Week'             =>'الاسبوع الحالي',
+  'Total Booking'         =>'عدد الحجوزات',
+  'Booking Amount'        =>'قيمة الحجوزات',
   'Earnings Summary'      =>'ملخص الارباح',
   'Current Month Earning' =>'ارباح الشهر الحالي',
   'Current Month'         =>'الشهر الحالي',
@@ -101,7 +109,7 @@ return [
   'Cash' =>'نقدا',
   'Bills' =>'فواتير',
   'Online' =>'اون لاين',
-  'Current Month Booking' =>'حجوزات الشهر الحالي',
+  'This Month Booking' =>'حجوزات الشهر الحالي',
   'Complete' =>'مكتمل',
   'In Schedule' =>'تحت التنفيذ',
   'Pending Bills' =>'فواتير غير مدفوعة',
@@ -113,7 +121,10 @@ return [
   'Client' =>'العميل',
   'Date' =>'التاريخ',
   'Amount' =>'المبلغ',
+  'Indeterminate' =>'غير محدد',
   'View All' =>'مشاهدة الكل',
+  'Upload Your CV' =>'حمل سيرتك الذاتية',
+  'Let Your page visitors Know more about you' =>'اجعل زوار صفحتك يعرفون عنك اكثر',
   /*
   ========================
   = COMPANIES
@@ -142,6 +153,7 @@ return [
   'Twitter'             =>'تويتر',
   'URL OR Data'         =>'الرابط أو البيان',
   'No Package'          =>'لم تحدد بعد',
+  'My-Channels'         =>'وسائل الاتصال',
   /*
   ========================
   = PERSON
@@ -225,6 +237,13 @@ return [
   'Record Updated Successfully.'       =>'تم تحديث السجل بنجاح',
   'We Cant Complete Your request now!' =>'لا يمكن اتمام طلبك حاليا',
   'Please Add Active Features First!'  =>'من فضلك اضف انشطة اولا',
+  /*
+  ========================
+  = GALLERY
+  ========================
+  */
+  'Company Gallery' =>'معرض أعمال الشركة',
+  'My-Gallery'      =>'معرض الاعمال',
   /*
   ========================
   = COMPANY PROFILE

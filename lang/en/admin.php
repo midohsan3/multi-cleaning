@@ -13,6 +13,7 @@ return [
   'Personal'          => 'Personal',
   'Packages-Manage'   => 'Packages-Manage',
   'Roles-Manage'      => 'Roles-Manage',
+  'Booking-Manage'    => 'Booking-Manage',
   'Services-Manage'   => 'Services-Manage',
   'System Helpers'    => 'System Helpers',
   'My Profile'        =>'My Profile',
@@ -45,6 +46,7 @@ return [
   'Send Email'             =>'Send Email',
   'Delete'                 =>'Delete',
   'Apply'                  =>'Apply',
+  'Hour'                   =>'Hour',
   'Arabic Name'            =>'Arabic Name',
   'English Name'           =>'English Name',
   'Currency'               =>'Currency',
@@ -53,6 +55,7 @@ return [
   'Update'                 =>'Update',
   'AED'                    =>'AED',
   'Name'                   =>'Name',
+  'Photo'                  =>'Photo',
   'Status'                 =>'Status',
   'Active'                 =>'Active',
   'Inactive'               =>'Inactive',
@@ -75,6 +78,11 @@ return [
   = DASHBOARD
   ========================
   */
+  'Total Views'           =>'Total Views',
+  'This Month'            =>'This Month',
+  'This Week'             =>'This Week',
+  'Total Booking'         =>'Total Booking',
+  'Booking Amount'        =>'Booking Amount',
   'Earnings Summary'      =>'Earnings Summary',
   'Current Month Earning' =>'Current Month Earning',
   'Current Month'         =>'Current Month',
@@ -82,7 +90,7 @@ return [
   'Cash' =>'Cash',
   'Bills' =>'Bills',
   'Online' =>'Online',
-  'Current Month Booking' =>'Current Month Booking',
+  'This Month Booking' =>'This Month Booking',
   'Complete' =>'Complete',
   'In Schedule' =>'In Schedule',
   'Pending Bills' =>'Pending Bills',
@@ -94,7 +102,10 @@ return [
   'Client' =>'Client',
   'Date' =>'Date',
   'Amount' =>'Amount',
+  'Indeterminate' =>'Indeterminate',
   'View All' =>'View All',
+  'Upload Your CV' =>'Upload Your CV',
+  'Let Your page visitors Know more about you' =>'Let Your page visitors Know more about you',
   /*
   ========================
   = COMPANIES
@@ -123,6 +134,7 @@ return [
   'Twitter'             =>'Twitter',
   'URL OR Data'         =>'URL OR Data',
   'No Package'          =>'No Package',
+  'My-Channels'         =>'My-Channels',
   /*
   ========================
   = PERSON
@@ -224,6 +236,13 @@ return [
   'Your Specialist' =>'Your Specialist',
   'Country Of Residence' =>'Country Of Residence',
   'Your CV'         =>'Your CV',
+  /*
+  ========================
+  = GALLERY
+  ========================
+  */
+  'Company Gallery' =>'Company Gallery',
+  'My-Gallery'      =>'My-Gallery',
   /*
   ========================
   = COMPANY PROFILE

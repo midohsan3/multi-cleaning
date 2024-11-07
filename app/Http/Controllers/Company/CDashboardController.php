@@ -40,12 +40,15 @@ class CDashboardController extends Controller
             return 404;
         }
 
+        //STOP TEMPORALLY UNTIL WE GET MORE COMPANIES
+        /*
         if (empty($company->license)) {
             return redirect()->route('company.license.create');
         }
+        */
 
         try {
-            $companyServices = CompanyHasServiceMdl::select('service_id')->where('company_id', $company->id)->get()->pluck('service_id')->all();
+            $companyServices = CompanyHasServiceMdl::where('company_id', $company->id)->get();
         } catch (\Throwable $th) {
             return 404;
         }
@@ -54,17 +57,36 @@ class CDashboardController extends Controller
             return redirect()->route('company.service.index');
         }
 
+        if ($companyServices->count()>0) {
+            foreach ($companyServices as $key => $service) {
+                if($service->price==0)
+                return redirect()->route('company.service.prices.edit',$service->service_id);
+            }
+        }
+
         if ($company->status == 0) {
             return view('company.review');
         }
 
         try {
-            $services = ServiceMdl::whereIn('id',$companyServices)->inRandomOrder()->limit(5)->get();
+        $servicesIds = $companyServices->pluck('service_id')->all();
+        } catch (\Throwable $th) {
+        return 404;
+        }
+
+        try {
+            $services = ServiceMdl::whereIn('id',$servicesIds)->inRandomOrder()->limit(5)->get();
         } catch (\Throwable $th) {
              return 404;
         }
 
-    return view('company.dashboard.admin', compact('company','services'));
+        try {
+            $servicesPrice = $companyServices->pluck('price','service_id')->all();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+    return view('company.dashboard.admin', compact('company','services','servicesPrice'));
     }
     /*
     *====================================
@@ -210,9 +232,13 @@ class CDashboardController extends Controller
             return 404;
         }
 
-        $company->about_en = $req->nameEn;
-        $company->about_ar = $req->nameAr;
-        $company->save();
+        try {
+            $company->about_en = $req->nameEn;
+            $company->about_ar = $req->nameAr;
+            $company->save();
+        } catch (\Throwable $th) {
+            return 404;
+        }
 
         Alert::success(__('admin.Success'),__('admin.Record Updated Successfully.'));
         return back();

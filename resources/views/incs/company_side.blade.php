@@ -81,7 +81,14 @@
                         <li class="nk-menu-item">
                             <a href="{{ route('company.social.index') }}" class="nk-menu-link">
                                 <span class="nk-menu-icon"><i class="icon fal fa-share-square"></i></span>
-                                <span class="nk-menu-text">{{ __('admin.My-Social Media') }}</span>
+                                <span class="nk-menu-text">{{ __('admin.My-Channels') }}</span>
+                            </a>
+                        </li>{{-- .nk-menu-item --}}
+
+                        <li class="nk-menu-item">
+                            <a href="{{ route('company.gallery.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><i class="icon fal fa-images"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.My-Gallery') }}</span>
                             </a>
                         </li>{{-- .nk-menu-item --}}
 

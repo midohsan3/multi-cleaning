@@ -80,7 +80,7 @@
             </div>
             <div class="fbox-content">
                 <h3 class="mb-4 text-transform-none ls-0"><a
-                        href="{{ route('front.home.company.single',['country_code'=>$country->country_code,'company_url'=>$company->url]) }}"
+                        href="{{ route('front.home.company.single',['country_code'=>Str::lower($country->country_code),'company_url'=>$company->url]) }}"
                         style="color:blue!important; font-size: large;">
                         @if (App::getLocale()=='ar')
                         {{ Str::limit($company->name_ar,15) }}
@@ -119,10 +119,11 @@
                     @if (array_key_exists($company->id,$servicesPrice)&& $servicesPrice[$company->id]>0)
                     <strong>{{ __('front.Price') }}:</strong><span>{{ number_format($servicesPrice[$company->id],2) }}</span><span>{{
                         $company->country_company->currency_code }}</span>
-                    <span><a class="btn btn-primary">{{ __('front.Book Now') }}</a></span>
+                    <span><a href="{{ route('front.booking.create',['country_code'=>Str::lower($country->country_code),'company'=>$company->id,'service'=>$service->id]) }}"
+                            class="btn btn-primary">{{ __('front.Book Now') }}</a></span>
                     @else
                     <strong>{{ __('front.Price') }}:</strong><span>{{ __('front.Indeterminate') }}</span>
-                    <span><a href="{{ route('front.home.company.single',['country_code'=>$country->country_code,'company_url'=>$company->url]) }}"
+                    <span><a href="{{ route('front.home.company.single',['country_code'=>Str::lower($country->country_code),'company_url'=>$company->url]) }}"
                             class="btn btn-info">{{ __('front.View') }}</a></span>
                     @endif
                 </div>
@@ -130,6 +131,7 @@
         </div>
     </div>
     @endforeach
+    {{ $companies->links('pagination::bootstrap-5') }}
 </div>
 @else
 <div class="alert alert-success" role="alert">

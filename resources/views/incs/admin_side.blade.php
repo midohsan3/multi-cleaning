@@ -97,6 +97,25 @@
                             </ul><!-- .nk-menu-sub -->
                         </li>{{-- .nk-menu-item --}}
 
+                        <li class="nk-menu-item has-sub">
+                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                <span class="nk-menu-icon"><i class="icon fal fa-shield-alt"></i></span>
+                                <span class="nk-menu-text">{{ __('admin.Booking-Manage') }}</span>
+                            </a>
+                            <ul class="nk-menu-sub">
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('admin.role.index') }}" class="nk-menu-link">
+                                        <span class="nk-menu-text">{{__('admin.Roles')}}</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="{{ route('admin.role.permission.index') }}" class="nk-menu-link">
+                                        <span class="nk-menu-text">{{__('admin.Permissions')}}</span>
+                                    </a>
+                                </li>
+                            </ul><!-- .nk-menu-sub -->
+                        </li>{{-- .nk-menu-item --}}
+
                         <li class="nk-menu-heading">
                             <h6 class="overline-title text-primary-alt">{{ __('admin.System Helpers') }}</h6>
                         </li>{{-- .nk-menu-heading --}}

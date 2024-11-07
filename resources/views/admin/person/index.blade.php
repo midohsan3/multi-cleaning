@@ -156,7 +156,12 @@
                                         <div class="user-card">
                                             <div class="user-avatar xs bg-primary">
                                                 <span>
+                                                    @if (empty($person->user_person->profile_pic))
                                                     {{ Str::substr($person->user_person->name,0,2) }}
+                                                    @else
+                                                    <img src="{{ url('storage/app/public/imgs/users/'.$person->user_person->profile_pic) }}"
+                                                        alt="{{ $person->user_person->name }}">
+                                                    @endif
                                                 </span>
                                             </div>
                                             <div class="user-name">
@@ -225,13 +230,15 @@
 
                                             <li class="nk-tb-action-hidden">
                                                 @if ($person->status==1)
-                                                <a href="=========" class="btn btn-sm btn-icon btn-trigger text-danger" data-toggle="tooltip"
-                                                    data-placement="top" title="{{ __('admin.Deactivate') }}">
+                                                <a href="{{ route('admin.person.deactivate',$person->id) }}"
+                                                    class="btn btn-sm btn-icon btn-trigger text-danger" data-toggle="tooltip" data-placement="top"
+                                                    title="{{ __('admin.Deactivate') }}">
                                                     <i class="icon fal fa-toggle-off"></i>
                                                 </a>
                                                 @else
-                                                <a href="==========" class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip"
-                                                    data-placement="top" title="{{__('admin.Activate')}}">
+                                                <a href="{{ route('admin.person.activate',$person->id) }}"
+                                                    class="btn btn-sm btn-icon btn-trigger text-success" data-toggle="tooltip" data-placement="top"
+                                                    title="{{__('admin.Activate')}}">
                                                     <i class="icon fal fa-toggle-on"></i>
                                                 </a>
                                                 @endif
@@ -268,13 +275,13 @@
 
                                                             @if ($person->status==1)
                                                             <li>
-                                                                <a href="=========" class="text-danger">
+                                                                <a href="{{ route('admin.person.deactivate',$person->id) }}" class="text-danger">
                                                                     <i class="icon fal fa-power-off"></i>
                                                                     <span>{{__('admin.Deactivate')}}</span></a>
                                                             </li>
                                                             @else
                                                             <li>
-                                                                <a href="=========" class="text-success">
+                                                                <a href="{{ route('admin.person.activate',$person->id) }}" class="text-success">
                                                                     <i class="icon fal fa-power-off"></i>
                                                                     <span>{{ __('admin.Activate') }}</span></a>
                                                             </li>

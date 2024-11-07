@@ -27,7 +27,10 @@ return [
   'Maintenance'          => 'صيانة',
   'Jobs'                 => 'وظائف',
   'CVs'                  => 'سيرة ذاتية',
+  'People Looking For Work' => 'الباحثون عن عمل',
   'About'                => 'عنا',
+  'Age'                  => 'السن',
+  'See more'             => 'المزيد',
   'Price'                => 'السعر',
   'Indeterminate'        => 'غير محدد',
   'Book Now'             =>'احجز',
@@ -37,7 +40,9 @@ return [
   'Services'             =>'الخدمات',
   'Contact Us'           => 'تواصل معنا',
   'Countries'            => 'الدول',
+  'Hour'                 => 'الساعة',
   'About Us'             => 'اعرف عنا',
+  'Your Address'         => 'عنوانك',
   'Company Register'     => 'تسجيل شركة',
   'Register Your Company For Free' => 'سجل شركتك مجانا',
 
@@ -46,6 +51,16 @@ return [
 
   'Related Services'       =>'خدمات ذات صله',
   'Our Best Services'      =>'أفضل خدماتنا',
+  'Our Gallery'            =>'معرض أعمالنا',
+
+  'Customer Information'   =>'بيانات العميل',
+  'New Booking'            =>'حجز جديد',
+  'Day'                    =>'يوم',
+  'Month'                  =>'شهر',
+  'Submit'                 =>'ارسال',
+  'Optional'               =>'اختياري',
+  'Booking Duration'       =>'مدة الحجز',
+  'Finish Booking' =>'انهاء الحجز',
 
   'Field Is Required.'               =>'الحقل إجباري',
   'Format Not Matching.'             =>'التنسيق غير مطابق',
@@ -56,4 +71,6 @@ return [
   'This Value Not Exists.'           =>'هذه القيمة غير موجودة' ,
   'Service Will Be Available Soon'   =>'الخدمة ستكون متاحة قريبا',
   'Thank You For Understanding.' =>'شكرا على تفهمكم.',
+  'We Received Your Booking Successfully' =>'تم استلام طلبك بنجاح',
+  'Thank You.' =>'شكرا',
 ];
