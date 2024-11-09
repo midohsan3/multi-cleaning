@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Company;
 
 use App\Models\User;
+use App\Models\OrderMdl;
 use App\Models\CompanyMdl;
 use App\Models\ServiceMdl;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyHasServiceMdl;
@@ -69,6 +71,46 @@ class CDashboardController extends Controller
         }
 
         try {
+            $orders = OrderMdl::where('company_id',Auth::user()->id)->get();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $ordersCount = $orders->count();
+            $ordersTotal = $orders->sum('total');
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $thisMonthOrders = OrderMdl::where('company_id',Auth::user()->id)->whereYear('created_at',Carbon::now()->year)->whereMonth('created_at',Carbon::now()->month)->get();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $thisWeekOrders = OrderMdl::where('company_id',Auth::user()->id)->whereBetween('created_at',[Carbon::now()->startOfWeek(),
+            Carbon::now()->endOfWeek()])->get();
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $thisMonthOrdersCount = $thisMonthOrders->count();
+            $thisMonthOrdersTotal = $thisMonthOrders->sum('total');
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
+            $thisWeekOrdersCount = $thisWeekOrders->count();
+            $thisWeekOrdersTotal = $thisWeekOrders->sum('total');
+        } catch (\Throwable $th) {
+            return 404;
+        }
+
+        try {
         $servicesIds = $companyServices->pluck('service_id')->all();
         } catch (\Throwable $th) {
         return 404;
@@ -86,7 +128,8 @@ class CDashboardController extends Controller
             return 404;
         }
 
-    return view('company.dashboard.admin', compact('company','services','servicesPrice'));
+    return view('company.dashboard.admin',
+    compact('company','ordersCount','ordersTotal','thisMonthOrdersCount','thisMonthOrdersTotal','thisWeekOrdersCount','thisWeekOrdersTotal','services','servicesPrice'));
     }
     /*
     *====================================

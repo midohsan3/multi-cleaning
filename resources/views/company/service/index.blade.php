@@ -27,9 +27,9 @@
             </div>
 
             <div class="nk-block-head-content">
-                <a href="{{route('admin.activity.index')}}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em
+                <a href="{{route('company.dashboard')}}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em
                         class="icon ni ni-arrow-left"></em><span>{{ __('admin.Back') }}</span></a>
-                <a href="{{route('admin.activity.index')}}" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
+                <a href="{{route('company.dashboard')}}" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
                         class="icon ni ni-arrow-left"></em></a>
             </div>
 

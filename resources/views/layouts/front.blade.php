@@ -36,6 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield('page_title','Smart-Cleaning')</title>
+    @yield('page-meta')
 
     <meta name="monetag" content="b1c3f93b0e30f19c76d6e7d9a4146bc8">
 

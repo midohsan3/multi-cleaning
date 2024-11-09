@@ -33,6 +33,19 @@
               <li><a href="#" class="btn btn-white btn-outline-light"><em class="icon ni ni-download-cloud"></em><span>{{
                     __('admin.Export') }}</span></a>
               </li>
+
+              <li class="nk-block-tools-opt">
+                <div class="drodown">
+                  <a href="#" class="dropdown-toggle btn btn-icon btn-primary" data-toggle="dropdown"><em class="icon ni ni-plus"></em></a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="link-list-opt no-bdr">
+                      <li><a href="#" class="toggle-opt" data-target="country-form">
+                          <span>{{ __('admin.New') }}</span>
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>{{-- .toggle-wrap --}}
@@ -46,7 +59,47 @@
       <div class="card-inner-group">
 
         <div class="nk-fmg-quick-list nk-block">
+          <div class="toggle-expand-content" data-content="country-form">
+            <form action="" method="POST">
+              @csrf
+              <div class="card-inner">
+                <div class="row gy-4">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="form-label" for="nameAr">{{ __('admin.Arabic Name') }}</label>
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="nameAr" name="nameAr" placeholder="{{ __('admin.Arabic Name Here') }}"
+                          value="{{ old('nameAr') }}" autocomplete="off" required autofocus />
+                        @error('nameAr')
+                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
 
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="form-label" for="nameEn">{{ __('admin.English Name')
+                        }}</label>
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="nameEn" name="nameEn" placeholder="{{ __('admin.English Name Here') }}"
+                          value="{{ old('nameEn') }}" autocomplete="off" required />
+                        @error('nameEn')
+                        <span class="bg-danger text-white" role="alert">{{ $message }}</span>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mt-2">
+                  <div class="form-control-wrap">
+                    <input type="submit" class="btn btn-primary" value="{{ __('admin.Submit') }}" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
 
           @if ($orders->count()>0)
           <div class="card-inner position-relative card-tools-toggle">
@@ -111,10 +164,10 @@
                     <span class="sub-text">{{ __('admin.No') }}</span>
                   </th>
                   <th class="nk-tb-col tb-col-lg">
-                    <span class="sub-text">{{ __('admin.Customer') }}</span>
+                    <span class="sub-text">{{ __('admin.Company') }}</span>
                   </th>
                   <th class="nk-tb-col tb-col-lg">
-                    <span class="sub-text">{{ __('admin.Address') }}</span>
+                    <span class="sub-text">{{ __('admin.Country') }}</span>
                   </th>
                   <th class="nk-tb-col tb-col-lg">
                     <span class="sub-text">{{ __('admin.Duration') }}</span>
@@ -153,14 +206,31 @@
                   <td class="nk-tb-col tb-col-lg">
                     <span class="tb-lead">{{ $booking->customer_order->user_customer->name }}</span>
                     <span>
-                      {{ $booking->customer_order->user_customer->phone }}
-
+                      {{ Str::limit($booking->customer_order->address) }}
                     </span>
                   </td>
 
                   <td class="nk-tb-col tb-col-lg">
                     <span class="tb-lead">
-                      {{ Str::limit($booking->customer_order->address) }}
+                      @if (App::getLocale()=='ar')
+                      {{ $booking->country_order->name_ar }}
+                      @else
+                      {{ $booking->country_order->name_en }}
+                      @endif
+                    </span>
+                    <span>
+                      {{ $booking->customer_order->user_customer->phone }}
+                    </span>
+                  </td>
+
+                  <td class="nk-tb-col tb-col-lg">
+                    <span>{{ $booking->company_order->code }}</span>
+                    <span>
+                      @if (App::getLocale()=='ar')
+                      {{ $booking->company_order->name_ar }}
+                      @else
+                      {{ $booking->company_order->name_en }}
+                      @endif
                     </span>
                   </td>
 

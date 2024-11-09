@@ -1,20 +1,22 @@
 <?php
 
-use App\Http\Controllers\Admin\ActivityController;
-use App\Http\Controllers\Admin\CompanyController;
-use App\Http\Controllers\Admin\CountryController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\FeatureController;
-use App\Http\Controllers\Admin\NationalityController;
-use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\PersonController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Permission\Contracts\Permission;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\PersonController;
+use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\NationalityController;
+use App\Http\Controllers\Admin\CompanyServicesController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +101,24 @@ Route::group(
 
 /*
 ==============================
+COMPANIES SERVICES
+==============================
+*/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/companies/services',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/_{company}', [CompanyServicesController::class, 'index'])->name('admin.company.service.index');
+
+        Route::post('/update', [CompanyServicesController::class, 'update'])->name('admin.company.service.update');
+    }
+);
+/*
+==============================
 PERSONS ROUTES
 ==============================
 */
@@ -169,6 +189,26 @@ Route::group(
         Route::post('/store', [PermissionController::class, 'store'])->name('admin.role.permission.store');
 
         Route::post('/destroy', [PermissionController::class, 'destroy'])->name('admin.role.permission.destroy');
+    }
+);
+
+/*
+==============================
+ACTIVITIES ROUTES
+==============================
+*/
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/admin/dashboard/booking',
+        'namespace' => 'Admin',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ],
+    function () {
+
+        Route::get('/', [BookingController::class, 'index'])->name('admin.booking.index');
+
+        Route::get('/approve_{order}', [BookingController::class, 'approve'])->name('admin.booking.approve');
     }
 );
 

@@ -308,7 +308,7 @@ class FrontController extends Controller
         }
 
         try {
-            $cvs = PersonMdl::where([['status',1],['county_id',$country->id]])->inRandomOrder()->paginate(pageCount);
+            $cvs = PersonMdl::where([['status',1],['county_id',$country->id]])->orderBy('id','desc')->paginate(pageCount);
         } catch (\Throwable $th) {
             return 404;
         }

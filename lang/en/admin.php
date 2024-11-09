@@ -135,6 +135,7 @@ return [
   'URL OR Data'         =>'URL OR Data',
   'No Package'          =>'No Package',
   'My-Channels'         =>'My-Channels',
+  'Company Services'    =>'Company Services',
   /*
   ========================
   = PERSON
@@ -153,6 +154,22 @@ return [
   'Role'        =>'Role',
   'Permissions' =>'Permissions',
   'Permission'  =>'Permission',
+  /*
+  ========================
+  = BOOKING
+  ========================
+  */
+  'Customer' =>'Customer',
+  'Address'  =>'Address',
+  'Duration' =>'Duration',
+  'Day'      =>'Day',
+  'Month'      =>'Month',
+  'Approved'      =>'Approved',
+  'In Schedule'      =>'In Schedule',
+  'Completed'      =>'Completed',
+  'Canceled'      =>'Canceled',
+  'Reject'      =>'Reject',
+  'Approve'      =>'Approve',
   /*
   ========================
   = COUNTRIES

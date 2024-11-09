@@ -104,13 +104,8 @@
                             </a>
                             <ul class="nk-menu-sub">
                                 <li class="nk-menu-item">
-                                    <a href="{{ route('admin.role.index') }}" class="nk-menu-link">
-                                        <span class="nk-menu-text">{{__('admin.Roles')}}</span>
-                                    </a>
-                                </li>
-                                <li class="nk-menu-item">
-                                    <a href="{{ route('admin.role.permission.index') }}" class="nk-menu-link">
-                                        <span class="nk-menu-text">{{__('admin.Permissions')}}</span>
+                                    <a href="{{ route('admin.booking.index') }}" class="nk-menu-link">
+                                        <span class="nk-menu-text">{{__('admin.Booking')}}</span>
                                     </a>
                                 </li>
                             </ul><!-- .nk-menu-sub -->

@@ -154,6 +154,7 @@ return [
   'URL OR Data'         =>'الرابط أو البيان',
   'No Package'          =>'لم تحدد بعد',
   'My-Channels'         =>'وسائل الاتصال',
+  'Company Services'    =>'خدمات الشركة',
   /*
   ========================
   = PERSON
@@ -172,6 +173,22 @@ return [
   'Role'        =>'صلاحية',
   'Permissions' =>'الاذونات',
   'Permission'  =>'اذن',
+  /*
+  ========================
+  = BOOKING
+  ========================
+  */
+  'Customer' =>'العميل',
+  'Address' =>'العنوان',
+  'Duration' =>'المدة',
+  'Day' =>'يوم',
+  'Month' =>'شهر',
+  'Approved' =>'تم الموافقة',
+  'In Schedule' =>'بالجدول',
+  'Completed' =>'مكتمل',
+  'Canceled' =>'ملغي',
+  'Reject' =>'مرفوض',
+  'Approve' =>'موافقة',
   /*
   ========================
   = COUNTRIES
